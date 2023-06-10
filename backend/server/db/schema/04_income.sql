@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS income CASCADE;
+CREATE TABLE income (
+  id SERIAL PRIMARY KEY NOT NULL,
+  income_date DATE NOT NULL,
+  amount INTEGER NOT NULL;
+);
