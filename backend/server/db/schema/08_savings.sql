@@ -1,8 +1,0 @@
-DROP TABLE IF EXISTS savings CASCADE;
-CREATE TABLE savings (
-  id SERIAL PRIMARY KEY NOT NULL,
-  goal_amount INTEGER NOT NULL,
-  current_amount INTEGER NOT NULL,
-  finished BOOLEAN NOT NULL,
-  user_id INTEGER(255) REFERENCES users(id) ON DELETE CASCADE;
-);
