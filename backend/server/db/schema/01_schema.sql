@@ -39,7 +39,7 @@ CREATE TABLE income (
 CREATE TABLE budgets (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  budget_amount INTEGER NOT NULL, 
+  budget_amount INTEGER NOT NULL,
   category_id INTEGER REFERENCES categories(id) ON DELETE CASCADE,
   total_spent INTEGER NOT NULL DEFAULT 0,
   updated_at DATE NOT NULL,
@@ -59,8 +59,8 @@ CREATE TABLE expenses (
 CREATE TABLE savings (
   id SERIAL PRIMARY KEY NOT NULL,
   saving_name VARCHAR(255) NOT NULL,
-  goal_amount INTEGER NOT NULL, 
-  current_amount INTEGER NOT NULL, 
+  goal_amount INTEGER NOT NULL,
+  current_amount INTEGER NOT NULL,
   finished BOOLEAN NOT NULL DEFAULT FALSE,
   date_created DATE NOT NULL,
   date_finished DATE NULL,
@@ -79,7 +79,7 @@ CREATE TABLE debt_goals (
 
 CREATE TABLE debt_payments (
   id SERIAL PRIMARY KEY NOT NULL,
-  amount INTEGER NOT NULL, 
+  amount INTEGER NOT NULL DEFAULT 0,
   debt_goal_id INTEGER REFERENCES debt_goals(id) ON DELETE CASCADE,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
