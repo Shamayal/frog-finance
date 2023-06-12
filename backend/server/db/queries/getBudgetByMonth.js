@@ -1,5 +1,6 @@
 const db = require('../connection.js');
 
+// has to get category amount alloted and how much left in that category
 // returns the budget for categories that month
 //Equal month and year from updated_at
 const getBudgetByMonth = (userId, month, year) => {

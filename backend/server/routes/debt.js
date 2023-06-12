@@ -54,14 +54,15 @@ router.get("/paidoff", (req, res) => {
 });
 
 // Make a new debt goal
+// issue -> amount paid showing as null
 router.post("/new", (req, res) => {
   const [name, initial_amount, amount_left, interest_rate] = req.params;
   const user_id = 1;
 
   db.query(`
     INSERT INTO debt_goals (name, initial_amount, amount_left, interest_rate, paid_off, user_id)
-    VALUES ('$1', $2, $3, $4, FALSE, $5)
-    RETURNING * ;
+    VALUES ($1, $2, $3, $4, FALSE, $5);
+    RETURNING *;
     `, [name, initial_amount, amount_left, interest_rate, user_id])
     .then((result) => {
       res.send({ message: 'New debt goal created', debt_goal: result.rows })

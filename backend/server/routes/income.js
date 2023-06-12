@@ -11,12 +11,14 @@ router.get('/payments', (req, res) => {
   const year = 2023;
 
   db.query(`
-    SELECT user_id, income_date, amount
+    SELECT user_id,
+    to_char(income.income_date, 'YYYY-MM-DD') AS income_date,
+    amount
       FROM income
       JOIN users ON users.id = income.user_id
       WHERE EXTRACT(MONTH FROM income.income_date) = $1
       AND EXTRACT(YEAR FROM income.income_date) = $2
-      AND users.id = income.user_id
+      AND users.id = income.user_id;
       `, [month, year])
     .then((result) => {
       res.send({ message: 'Here is your income payments for this month:', monthly_income_payments: result.rows })
@@ -26,22 +28,26 @@ router.get('/payments', (req, res) => {
     })
 })
 
+// Monthly income total
+// done: displaying on page
 router.get('/', (req, res) => {
   const month = 05;
   const year = 2023;
 
-  db.query(`SELECT user_id,
+  db.query(`
+  SELECT user_id,
   (SELECT SUM(amount)
   FROM income
   JOIN users ON users.id = income.user_id
   WHERE users.id = income.user_id
-  AND EXTRACT(MONTH FROM income.income_date) = 05
-  AND EXTRACT(YEAR FROM income.income_date) = 2023
+  AND EXTRACT(MONTH FROM income.income_date) = $1
+  AND EXTRACT(YEAR FROM income.income_date) = $2
   )
   AS total_monthly_income
   FROM income
   JOIN users ON users.id = income.user_id
-  GROUP BY income.users.id`, [month, year])
+  GROUP BY income.user_id;
+  `, [month, year])
     .then((result) => {
       res.send({ message: 'Here is your total income for the selected month:', monthly_income: result.rows })
     })

@@ -134,7 +134,7 @@ INSERT INTO expenses (user_id, expense_date, amount, budget_id, sub_category_id)
 INSERT INTO expenses (user_id, expense_date, amount, budget_id, sub_category_id) VALUES (1, '2023-05-15', 60, 3, 37); -- entertainment, Movies
 INSERT INTO expenses (user_id, expense_date, amount, budget_id, sub_category_id) VALUES (1, '2023-05-03', 60, 5, 42); -- hobbies, Equipment and Supplies
 INSERT INTO expenses (user_id, expense_date, amount, budget_id, sub_category_id) VALUES (1, '2023-05-11', 60, 6, 47); -- travel, Accomidations
-INSERT INTO expenses (user_id, expense_date, amount, budget_id, sub_category_id) VALUES (1, '2023-05-16', 60, 7, 52); -- pets, Food
+INSERT INTO expenses (user_id, expense_date, amount, budget_id, sub_category_id) VALUES (1, '2023-05-16', 100, 7, 52); -- pets, Food
 
 
 -- savings
@@ -149,4 +149,5 @@ INSERT INTO debt_goals (name, initial_amount, amount_left, interest_rate, paid_o
 -- debt_payments
 INSERT INTO debt_payments (amount, debt_goal_id, user_id) VALUES (500, 1, 1);
 INSERT INTO debt_payments (amount, debt_goal_id, user_id) VALUES (400, 1, 1);
+INSERT INTO debt_payments (amount, debt_goal_id, user_id) VALUES (1000, 2, 1);
 INSERT INTO debt_payments (amount, debt_goal_id, user_id) VALUES (1000, 2, 1);
