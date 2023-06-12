@@ -12,7 +12,7 @@ module.exports = db => {
 
 
   // Show the current debt goals
-  router.get("/debt", (request, response) => {
+  router.get("/", (request, response) => {
     db.query(`
     SELECT name, initial_amount,
     (ROUND(((amount_left * interest_rate / 100) + amount_left), 2)  -
@@ -40,7 +40,7 @@ module.exports = db => {
 
 
   // Show the debts that have been fully paid off
-  router.get("/debt/paidoff", (request, response) => {
+  router.get("/paidoff", (request, response) => {
     db.query(`
     SELECT name, initial_amount, amount_left, interest_rate, paid_off
     FROM debt_goals
@@ -57,7 +57,7 @@ module.exports = db => {
   });
 
 
-  router.post("/debt/new", (req, response) => {
+  router.post("/new", (req, response) => {
     const [name, initial_amount, amount_left, interest_rate ]  = req.params;
     const user_id = 1;
 
@@ -73,7 +73,7 @@ module.exports = db => {
       });
   });
 
-  router.post("/debt/payment", (request, response) => {
+  router.post("/payment", (request, response) => {
     const [amount, debt_goal_id ]  = req.params;
     const user_id = 1;
 

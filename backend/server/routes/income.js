@@ -3,10 +3,10 @@ const router = require("express").Router();
 // from react, send an HTTP POST request to server-side endpoint to add income using axios or fetch
 
 module.exports = db => {
+  // may not need this
+  router.get('/', (request, response) => {
 
-  router.get('/income', (request, response) => {
-
-    const query = `SELECT * 
+    const query = `SELECT *
     FROM income
     WHERE user_id = $1
     AND income_date BETWEEN DATE_TRUNC('MONTH', $2::DATE) AND DATE_TRUNC('MONTH', $2::DATE) + INTERVAL '1 MONTH' - INTERVAL '1 DAY'`;
@@ -24,10 +24,10 @@ module.exports = db => {
   })
 
   // the post request is for the budget tracker -> add income - route, users can add an income they recieved
-  router.post("/income", (request, response) => {
+  router.post("/add", (request, response) => {
 
     const { user_id, income_date, amount } = request.body;
-    
+
     const query = `INSERT INTO income (user_id, income_date, amount) VALUES ($1, $2, $3)`;
     const values = [user_id, income_date, amount]
 
