@@ -1,70 +1,72 @@
 const router = require("express").Router();
-
-module.exports = db => {
-  const protocol = request.protocol;
-  const host = request.hostname;
-  const port = process.env.PORT || 8001;
-  const serverUrl = `${protocol}://${host}:${port}`;
+const db = require('../db/connection.js');
 
 
-  // Show the current savings goal
-  router.get("/", (request, response) => {
-    db.query(`
-    SELECT savings.saving_name, savings.goal_amount, savings.date_created,
+// Show the current savings goal
+router.get("/", (req, res) => {
+  db.query(`
+    SELECT savings.saving_name, savings.goal_amount,
       (SELECT SUM(amount) FROM income WHERE user_id = savings.user_id) -
       ((SELECT SUM(amount) FROM debt_payments WHERE user_id = savings.user_id) +
       (SELECT SUM(amount) FROM expenses WHERE user_id = savings.user_id))
-    AS current_amount
+    AS current_amount,
+    to_char(date_created, 'YYYY-MM-DD') AS date_created,
+    finished
     FROM savings
     JOIN users ON users.id = savings.user_id
     WHERE finished = FALSE
     AND users.id = savings.user_id;
     `)
-      .then((result) => {
-        return result.rows;
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  })
+    .then((result) => {
+      res.send({ message: 'Here are the current savings goals:', current_savings_goals: result.rows })
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+})
 
 
 
-  // Show the completed savings goals
-  router.get("/complete", (request, response) => {
-    db.query(`
-  SELECT savings.saving_name, savings.goal_amount, savings.date_created, savings.date_finished, savings.current_amount
+// Show the completed savings goals
+router.get("/complete", (req, res) => {
+  db.query(`
+  SELECT savings.saving_name, savings.goal_amount, savings.current_amount, to_char(savings.date_created, 'YYYY-MM-DD') AS date_created,
+  to_char(savings.date_created, 'YYYY-MM-DD') AS date_finished, finished
   FROM savings
   JOIN users ON users.id = savings.user_id
   WHERE finished = TRUE
   AND users.id = savings.user_id;
   `)
-      .then((result) => {
-        return result.rows;
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  });
-
-
-    // Create a new savings goals
-    router.post("/new", (req, response) => {
-      const [saving_name, goal_amount, current_amount ]  = req.params;
-      const user_id = 1;
-
-      db.query(`
-      INSERT INTO savings (saving_name, goal_amount, current_amount, finished, date_created, date_finished, user_id)
-      VALUES ('$1', $2, $3, FALSE, CURRENT_DATE, NULL, $4), [savings_name, goal_amount, current_amount, user_id];
-    `)
-        .then((result) => {
-          return result.rows;
-        })
-        .catch((err) => {
-          console.log(err.message);
-        });
+    .then((result) => {
+      res.send({ message: 'Here are the completed savings goals:', completed_savings_goals: result.rows })
+    })
+    .catch((err) => {
+      console.log(err.message);
     });
-}
+});
+
+
+// Create a new savings goals
+router.post("/new", (req, res) => {
+  const [savings_name, goal_amount, current_amount] = req.params;
+  const user_id = 1;
+
+  db.query(`
+      INSERT INTO savings (saving_name, goal_amount, current_amount, finished, date_created, date_finished, user_id)
+      VALUES ('$1', $2, $3, FALSE, CURRENT_DATE, NULL, $4
+      RETURNING *;
+      `,
+    [savings_name, goal_amount, current_amount, user_id]
+  )
+    .then((result) => {
+      res.send({ message: 'Here is the new savings goal you just made:', new_savings_goals: result.rows })
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+});
+
+module.exports = router;
 
 // issue: when current_amount = goal_amount, stop adding to current amount. switch false to true. start a new goal and add the current_amount to the new goal.
 // WHEN goal = current finished = true ?
@@ -76,5 +78,3 @@ module.exports = db => {
 
 // add -> amount left?
 
-
-// to do: remove savings prefix
