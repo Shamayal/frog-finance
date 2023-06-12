@@ -66,7 +66,6 @@ module.exports = db => {
     });
 }
 
-
 // issue: when current_amount = goal_amount, stop adding to current amount. switch false to true. start a new goal and add the current_amount to the new goal.
 // WHEN goal = current finished = true ?
 
