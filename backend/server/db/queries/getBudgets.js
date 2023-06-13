@@ -1,0 +1,66 @@
+const db = require('../connection.js');
+
+//Query to Fetch Budget amount and sum of expenses for the Category
+const getBudgetByCategory = (userId, month, year) => {
+  return  db.query(`
+      SELECT categories.id, categories.category, budgets.budget_amount as budget_amount, sum(expenses.amount) as expense_amount, budgets.budget_reached
+      from budgets
+      JOIN categories ON budgets.category_id = categories.id
+      JOIN expenses on budgets.category_id = expenses.category_id
+      WHERE budgets.user_id = $1
+      AND EXTRACT(MONTH FROM expenses.expense_date) = $2
+      AND EXTRACT(YEAR FROM expenses.expense_date) = $3
+      GROUP BY categories.category,categories.id, budgets.budget_reached, budgets.budget_amount
+      ORDER BY categories.id`,[userId, month, year])
+    .then((result) => {
+      return result;
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+}
+
+//Create a new Budget for the user
+const createNewBudget = (user_id, budget_amount, category_id, total_spent, updated_at, budget_reached) => {
+  return db.query(`INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at, budget_reached )
+                  VALUES ($1, $2, $3, $4, $5, $6)`,
+                  [user_id, budget_amount, category_id, total_spent, updated_at, budget_reached])
+                  .then((result) => {
+                    return result;
+                  })
+                  .catch((err) => {
+                    console.log(err.message);
+                  });
+}
+
+//Update the Budget Amount
+const updateBudgetAmount = (user_id, budget_amount, category_id) => {
+  return db.query(`UPDATE budgets set budget_amount = $1, updated_at = CURRENT_DATE 
+                  where category_id = $2 and user_id = $3`,
+                  [budget_amount, category_id, user_id])
+                  .then((result) => {
+                    console.log(result);
+                    return result;
+                  })
+                  .catch((err) => {
+                    console.log(err.message);
+                  });
+}
+
+//Update the Budget Amount
+const updateBudgetReached = (budget_id) => {
+  return db.query(`UPDATE budgets set budget_reached = TRUE where id = $1`, [budget_id])
+                  .then((result) => {
+                    return result;
+                  })
+                  .catch((err) => {
+                    console.log(err.message);
+                  });
+}
+
+module.exports = {
+  getBudgetByCategory,
+  createNewBudget,
+  updateBudgetAmount,
+  updateBudgetReached
+};
