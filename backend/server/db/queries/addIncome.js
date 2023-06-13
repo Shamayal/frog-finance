@@ -1,6 +1,6 @@
 const db = require('../connection.js');
 
-// View total income for specified month
+// Add income payment
 const addIncome = (user_id, income_date, amount) => {
   return db.query(`
     INSERT INTO income (user_id, income_date, amount) 
