@@ -36,9 +36,9 @@ router.get('/transactions', (req, res) => {
     })
 })
 
-// need to connect with a budget id, right now it is null
-// the post req is for the budget tracker -> add expense route, users can add an expense they made
-router.post("/add", (req, res) => {
+  // need to connect with a budget id, right now it is null
+  // the post req is for the budget tracker -> add expense route, users can add an expense they made
+  router.post("/add", (req, res) => {
 
   const { user_id, expense_date, amount, sub_category_id } = req.body;
 
