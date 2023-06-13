@@ -1,8 +1,6 @@
 const router = require("express").Router();
 const db = require('../db/connection.js');
-const { addExpense } = require("../db/queries/addExpense.js");
-const { getExpenseTransactions } = require("../db/queries/getExpenseTransactions.js");
-const { getExpenseByCategory } = require("../db/queries/getExpensesByCategory.js");
+const { addExpense, getExpenseTransactions, getExpenseByCategory } = require("../db/queries/getExpenseQueries");
 const { getNetTotal } = require("../db/queries/getNetTotal.js");
 
 // Total spent by category per month
@@ -61,7 +59,7 @@ router.get("/netTotal/:month/:year", (req, res) => {
       res.send({message: 'The net total is: ', net_total: result.rows})
     })
     .catch((error) => {
-      console.error('Error in calculating net total', error); 
+      console.error('Error in calculating net total', error);
     })
 })
 

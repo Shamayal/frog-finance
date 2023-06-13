@@ -1,8 +1,6 @@
 const router = require("express").Router();
 const db = require('../db/connection.js');
-const { getIncomePayments } = require('../db/queries/getIncomePayments')
-const { getIncomeByMonth } = require('../db/queries/getIncomeByMonth')
-const { addIncome } = require('../db/queries/addIncome')
+const { getIncomePayments, getIncomeByMonth, addIncome } = require('../db/queries/getIncomeQueries');
 
 // from react, send an HTTP POST req to server-side endpoint to add income using axios or fetch
 
