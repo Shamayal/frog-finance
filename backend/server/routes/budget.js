@@ -14,7 +14,7 @@ router.get('/:month/:year', (req, res) => {
       SELECT categories.id, categories.category, budgets.budget_amount as budget_amount, sum(expenses.amount) as expense_amount, budgets.budget_reached
       from budgets
       JOIN categories ON budgets.category_id = categories.id
-      JOIN expenses on budgets.id = expenses.budget_id
+      JOIN expenses on budgets.category_id = expenses.category_id
       WHERE budgets.user_id = $1
       AND EXTRACT(MONTH FROM expenses.expense_date) = $2
       AND EXTRACT(YEAR FROM expenses.expense_date) = $3
@@ -62,7 +62,22 @@ router.post("/updateAmount", (req, res) => {
     });
 });
 
+//Update the budget Reached
+router.post("/budgetReached/:budget_id", (req, res) => {
+  const budget_id = reg.parms.budget_id;
+  const user_id = 1;
 
+  const query = `UPDATE budgets set budget_reached = TRUE where budget_id = $1`;
+  const values = [budget_id]
+
+  return db.query(query, values)
+    .then((result) => {
+      res.send({ message: ' Updated Budget Reached successfully:', budget_reached_updated: result.rows })
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+});
 
 
 module.exports = router;

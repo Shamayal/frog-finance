@@ -52,7 +52,7 @@ CREATE TABLE expenses (
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   expense_date DATE NOT NULL,
   amount INTEGER NOT NULL,
-  budget_id INTEGER REFERENCES budgets(id) ON DELETE CASCADE,
+  category_id INTEGER REFERENCES categories(id) ON DELETE CASCADE,  --Updated from budget_id to category_id to get expenses on category wise
   sub_category_id INTEGER REFERENCES sub_categories(id) ON DELETE CASCADE
 );
 
