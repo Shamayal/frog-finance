@@ -38,9 +38,9 @@ router.get('/transactions', (req, res) => {
   // the post req is for the budget tracker -> add expense route, users can add an expense they made
   router.post("/add", (req, res) => {
 
-  const { user_id, expense_date, amount, sub_category_id } = req.body;
+  const { user_id, expense_date, amount, category_id, sub_category_id } = req.body;
 
-  addExpense(user_id, expense_date, amount, sub_category_id)
+  addExpense(user_id, expense_date, amount, category_id, sub_category_id)
     .then((result) => {
       res.send({message: 'Expense added successfully:', expense_added: result.rows})
     })
