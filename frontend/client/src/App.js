@@ -2,8 +2,12 @@
 import LoginButton from "./components/authentication/LoginButton";
 import LogoutButton from "./components/authentication/LogoutButton";
 import Profile from "./components/authentication/Profile";
+import ViewMonthlyBudgets from "./components/budget/ViewMonthlyBudgets";
+import CurrentSavingGoal from './components/savings/CurrentSavingsGoal'
 import { useAuth0 } from "@auth0/auth0-react";
 import './App.css';
+import axios from 'axios';
+import {useEffect} from "react";
 
 function App() {
   const { isLoading, error } = useAuth0();
@@ -18,6 +22,8 @@ function App() {
           <LoginButton />
           <LogoutButton />
           <Profile />
+          <ViewMonthlyBudgets />
+          <CurrentSavingGoal />
         </>
 
       )}
