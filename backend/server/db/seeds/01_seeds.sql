@@ -24,7 +24,7 @@ INSERT INTO sub_categories (category_id, sub_category) VALUES (1, 'Rent/Mortgage
 INSERT INTO sub_categories (category_id, sub_category) VALUES (1, 'Insurance'); -- 3
 INSERT INTO sub_categories (category_id, sub_category) VALUES (1, 'Renovations and Maintenance'); -- 4
 INSERT INTO sub_categories (category_id, sub_category) VALUES (1, 'Household Products'); -- 5
-INSERT INTO sub_categories (category_id, sub_category) VALUES (1, 'Other'); -- 6 
+INSERT INTO sub_categories (category_id, sub_category) VALUES (1, 'Other'); -- 6
 
 -- Food = 2
 INSERT INTO sub_categories (category_id, sub_category) VALUES (2, 'Groceries'); -- 7
@@ -48,13 +48,13 @@ INSERT INTO sub_categories (category_id, sub_category) VALUES (4, 'Other'); -- 1
 -- Education = 5
 INSERT INTO sub_categories (category_id, sub_category) VALUES (5, 'Tuition'); -- 20
 INSERT INTO sub_categories (category_id, sub_category) VALUES (5, 'Books'); -- 21
-INSERT INTO sub_categories (category_id, sub_category) VALUES (5, 'Supplies'); -- 22 
+INSERT INTO sub_categories (category_id, sub_category) VALUES (5, 'Supplies'); -- 22
 INSERT INTO sub_categories (category_id, sub_category) VALUES (5, 'Other'); -- 23
 
 -- Shopping = 6
 INSERT INTO sub_categories (category_id, sub_category) VALUES (6, 'Shoes and Clothes'); -- 24
 INSERT INTO sub_categories (category_id, sub_category) VALUES (6, 'Electronics'); -- 25
-INSERT INTO sub_categories (category_id, sub_category) VALUES (6, 'Makeup and Skin Care'); -- 26 
+INSERT INTO sub_categories (category_id, sub_category) VALUES (6, 'Makeup and Skin Care'); -- 26
 INSERT INTO sub_categories (category_id, sub_category) VALUES (6, 'Hygiene Products'); -- 27
 INSERT INTO sub_categories (category_id, sub_category) VALUES (6, 'Other'); -- 28
 
@@ -93,8 +93,8 @@ INSERT INTO sub_categories (category_id, sub_category) VALUES (11, 'Other'); -- 
 
 --Pets = 12
 INSERT INTO sub_categories (category_id, sub_category) VALUES (12, 'Food'); -- 52
-INSERT INTO sub_categories (category_id, sub_category) VALUES (12, 'Grooming'); -- 53 
-INSERT INTO sub_categories (category_id, sub_category) VALUES (12, 'Accessories'); -- 54 
+INSERT INTO sub_categories (category_id, sub_category) VALUES (12, 'Grooming'); -- 53
+INSERT INTO sub_categories (category_id, sub_category) VALUES (12, 'Accessories'); -- 54
 INSERT INTO sub_categories (category_id, sub_category) VALUES (12, 'Veterinary'); -- 55
 INSERT INTO sub_categories (category_id, sub_category) VALUES (12, 'Other'); -- 56
 
@@ -103,8 +103,9 @@ INSERT INTO sub_categories (category_id, sub_category) VALUES (13, 'Donations');
 INSERT INTO sub_categories (category_id, sub_category) VALUES (13, 'Other'); -- 58
 
 -- income
-INSERT INTO income (user_id, income_date, amount) VALUES (1, '2023-03-13', 2000); 
-INSERT INTO income (user_id, income_date, amount) VALUES (1, '2023-05-01', 1500); 
+INSERT INTO income (user_id, income_date, amount) VALUES (1, '2023-03-13', 2000);
+INSERT INTO income (user_id, income_date, amount) VALUES (1, '2023-05-01', 1500);
+INSERT INTO income (user_id, income_date, amount) VALUES (1, '2023-05-04', 1500);
 INSERT INTO income (user_id, income_date, amount) VALUES (1, '2023-04-15', 2500);
 
 -- budgets
@@ -123,25 +124,30 @@ INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_a
 INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 700, 13, 650, '2023-06-04'); -- other
 
 -- expenses
-INSERT INTO expenses (user_id, expense_date, amount, budget_id, sub_category_id) VALUES (1, '2023-02-17', 2000, 1, 1); -- housing, rent/mortgage
-INSERT INTO expenses (user_id, expense_date, amount, budget_id, sub_category_id) VALUES (1, '2023-03-13', 250, 1, 6); -- housing, household products
-INSERT INTO expenses (user_id, expense_date, amount, budget_id, sub_category_id) VALUES (1, '2023-05-25', 60, 2, 7); -- food, groceries 
-INSERT INTO expenses (user_id, expense_date, amount, budget_id, sub_category_id) VALUES (1, '2023-05-25', 10.50, 4, 13); -- transportation, public transit 
-INSERT INTO expenses (user_id, expense_date, amount, budget_id, sub_category_id) VALUES (1, '2023-05-23', 40, 8, 34); -- communications, phone bill
-INSERT INTO expenses (user_id, expense_date, amount, budget_id, sub_category_id) VALUES (1, '2023-05-15', 60, 3, 37); -- entertainment, Movies
-INSERT INTO expenses (user_id, expense_date, amount, budget_id, sub_category_id) VALUES (1, '2023-05-03', 60, 5, 42); -- hobbies, Equipment and Supplies
-INSERT INTO expenses (user_id, expense_date, amount, budget_id, sub_category_id) VALUES (1, '2023-05-11', 60, 6, 47); -- travel, Accomidations
-INSERT INTO expenses (user_id, expense_date, amount, budget_id, sub_category_id) VALUES (1, '2023-05-16', 60, 7, 52); -- pets, Food
+INSERT INTO expenses (user_id, expense_date, amount, category_id, sub_category_id) VALUES (1, '2023-02-17', 2000, 1, 1); -- housing, rent/mortgage
+INSERT INTO expenses (user_id, expense_date, amount, category_id, sub_category_id) VALUES (1, '2023-02-13', 250, 1, 3); -- housing,Insurance
+INSERT INTO expenses (user_id, expense_date, amount, category_id, sub_category_id) VALUES (1, '2023-03-13', 250, 1, 6); -- housing, household products
+INSERT INTO expenses (user_id, expense_date, amount, category_id, sub_category_id) VALUES (1, '2023-05-25', 60, 2, 7); -- food, groceries
+INSERT INTO expenses (user_id, expense_date, amount, category_id, sub_category_id) VALUES (1, '2023-05-25', 20, 2, 7); -- food, groceries
+INSERT INTO expenses (user_id, expense_date, amount, category_id, sub_category_id) VALUES (1, '2023-05-25', 10.50, 4, 13); -- transportation, public transit
+INSERT INTO expenses (user_id, expense_date, amount, category_id, sub_category_id) VALUES (1, '2023-05-23', 40, 8, 34); -- communications, phone bill
+INSERT INTO expenses (user_id, expense_date, amount, category_id, sub_category_id) VALUES (1, '2023-05-15', 60, 3, 37); -- entertainment, Movies
+INSERT INTO expenses (user_id, expense_date, amount, category_id, sub_category_id) VALUES (1, '2023-05-03', 60, 5, 42); -- hobbies, Equipment and Supplies
+INSERT INTO expenses (user_id, expense_date, amount, category_id, sub_category_id) VALUES (1, '2023-05-11', 60, 6, 47); -- travel, Accomidations
+INSERT INTO expenses (user_id, expense_date, amount, category_id, sub_category_id) VALUES (1, '2023-05-16', 100, 7, 52); -- pets, Food
 
 
 -- savings
 INSERT INTO savings (saving_name, goal_amount, current_amount, finished, date_created, date_finished, user_id) VALUES ('New car', 10000, 4000, FALSE, '2023-03-21', NULL, 1);
-INSERT INTO savings (saving_name, goal_amount, current_amount, finished, date_created, date_finished, user_id) VALUES ('RRSP', 10000, 4000, TRUE, '2023-03-21', NULL, 1);
+INSERT INTO savings (saving_name, goal_amount, current_amount, finished, date_created, date_finished, user_id) VALUES ('RRSP', 10000, 10000, TRUE, '2023-01-21', '2023-06-01', 1);
 
 -- debt_goals
 INSERT INTO debt_goals (name, initial_amount, amount_left, interest_rate, paid_off, user_id) VALUES ('Credit card', 2000, 2000, 15.00, FALSE, 1);
 INSERT INTO debt_goals (name, initial_amount, amount_left, interest_rate, paid_off, user_id) VALUES ('Student Loan', 20000, 20000, 5.00, FALSE, 1);
+INSERT INTO debt_goals (name, initial_amount, amount_left, interest_rate, paid_off, user_id) VALUES ('Bank Loan', 1000, 1000, 5.00, TRUE, 1);
 
 -- debt_payments
-INSERT INTO debt_payments (amount, debt_goal_id, user_id) VALUES (200, 1, 1);
-INSERT INTO debt_payments (amount, debt_goal_id, user_id) VALUES (5000, 2, 1);
+INSERT INTO debt_payments (amount, debt_goal_id, user_id) VALUES (500, 1, 1);
+INSERT INTO debt_payments (amount, debt_goal_id, user_id) VALUES (400, 1, 1);
+INSERT INTO debt_payments (amount, debt_goal_id, user_id) VALUES (1000, 2, 1);
+INSERT INTO debt_payments (amount, debt_goal_id, user_id) VALUES (1000, 2, 1);
