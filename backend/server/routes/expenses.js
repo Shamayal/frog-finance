@@ -58,9 +58,10 @@ const db = require('../db/connection.js');
   // need to connect with a budget id, right now it is null
   // the post req is for the budget tracker -> add expense route, users can add an expense they made
   router.post("/add", (req, res) => {
+    const { user_id, expense_date, amount, budget_id, sub_category_id } = req.body;
 
-    const query = `INSERT INTO expenses (user_id, expense_date, amount, sub_category_id) VALUES ($1, $2, $3, $4)`;
-    const values = [user_id, expense_date, amount, sub_category_id]
+    const query = `INSERT INTO expenses (user_id, expense_date, amount, budget_id, sub_category_id) VALUES ($1, $2, $3, $4, $5)`;
+    const values = [user_id, expense_date, amount, budget_id, sub_category_id]
 
     db.query(query, values)
     .then((result) => {
