@@ -1,6 +1,6 @@
 import React, { useCallback, useState, useContext, useEffect } from 'react';
 // import NavigationBar from '../components/NavigationBar'
-import { useBudgetHook } from '../../hooks/budget';
+import { useBudgetHook } from '../../hooks/budgets';
 
 // to view expenses by category and see how much left in budget
 const ViewMonthlyBudgets = () => {
