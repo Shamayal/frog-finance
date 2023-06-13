@@ -110,7 +110,6 @@ INSERT INTO income (user_id, income_date, amount) VALUES (1, '2023-04-15', 2500)
 
 -- budgets
 INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 2000, 1, 500, '2023-06-01'); -- housing
-INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 2000, 1, 1000, '2023-06-02'); -- housing
 INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 400, 2, 150, '2023-06-04'); -- food
 INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 500, 3, 100, '2023-06-01'); -- transportation
 INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 300, 4, 150, '2023-06-10'); -- healthcare
@@ -126,6 +125,7 @@ INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_a
 
 -- expenses
 INSERT INTO expenses (user_id, expense_date, amount, budget_id, sub_category_id) VALUES (1, '2023-02-17', 2000, 1, 1); -- housing, rent/mortgage
+INSERT INTO expenses (user_id, expense_date, amount, budget_id, sub_category_id) VALUES (1, '2023-02-13', 250, 1, 3); -- housing,Insurance
 INSERT INTO expenses (user_id, expense_date, amount, budget_id, sub_category_id) VALUES (1, '2023-03-13', 250, 1, 6); -- housing, household products
 INSERT INTO expenses (user_id, expense_date, amount, budget_id, sub_category_id) VALUES (1, '2023-05-25', 60, 2, 7); -- food, groceries
 INSERT INTO expenses (user_id, expense_date, amount, budget_id, sub_category_id) VALUES (1, '2023-05-25', 20, 2, 7); -- food, groceries
