@@ -1,7 +1,7 @@
 // from video
-import LoginButton from "./components/LoginButton";
-import LogoutButton from "./components/LogoutButton";
-import Profile from "./components/Profile";
+import LoginButton from "./components/authentication/LoginButton";
+import LogoutButton from "./components/authentication/LogoutButton";
+import Profile from "./components/authentication/Profile";
 import { useAuth0 } from "@auth0/auth0-react";
 import './App.css';
 
@@ -19,6 +19,7 @@ function App() {
           <LogoutButton />
           <Profile />
         </>
+
       )}
     </main>
   );
