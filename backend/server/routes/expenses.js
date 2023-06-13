@@ -26,9 +26,9 @@ const db = require('../db/connection.js');
     .then((result) => {
       res.send({message: 'Total expenses by categories:', total_expenses_by_category: result.rows})
     })
-      .catch((err) => {
-        console.log(err.message);
-      });
+    .catch((err) => {
+      console.log(err.message);
+    });
 
   })
 
@@ -36,8 +36,6 @@ const db = require('../db/connection.js');
   router.get('/transactions', (req, res) => {
     const month = 05;
     const year = 2023;
-
-    // const values = [`${year}-${month}-01`];
 
     db.query(`SELECT user_id,
     to_char(expenses.expense_date, 'YYYY-MM-DD') AS expense_date,
@@ -60,8 +58,6 @@ const db = require('../db/connection.js');
   // need to connect with a budget id, right now it is null
   // the post req is for the budget tracker -> add expense route, users can add an expense they made
   router.post("/add", (req, res) => {
-    const { expense_date, amount, sub_category_id }  = req.body;
-    const user_id = 1;
 
     const query = `INSERT INTO expenses (user_id, expense_date, amount, sub_category_id) VALUES ($1, $2, $3, $4)`;
     const values = [user_id, expense_date, amount, sub_category_id]
@@ -75,39 +71,38 @@ const db = require('../db/connection.js');
     })
   })
 
+  router.get("/netTotal/:month/:year", (req, res) => {
+    const month = 05;
+    const year = 2023;
+    const user_id = 1;
+
+    db.query(`SELECT total_income, total_expenses, total_income - total_expenses AS net_total
+    FROM (SELECT SUM(amount) AS total_income
+    FROM income
+    WHERE EXTRACT(MONTH FROM income.income_date) = $1
+    AND EXTRACT(YEAR FROM income.income_date) = $2
+    AND income.user_id = $3) AS ti
+    CROSS JOIN (SELECT SUM(amount) AS total_expenses
+    FROM expenses
+    WHERE EXTRACT(MONTH FROM expenses.expense_date) = $1
+    AND EXTRACT(YEAR FROM expenses.expense_date) = $2
+    AND expenses.user_id = $3) AS te;`,[month, year, user_id])
+    .then((result) => {
+      res.send({message: 'The net total is: ', net_total: result.rows})
+    })
+    .catch((error) => {
+      console.error('Error in calculating net total', error); 
+    })
+  })
+
 // }
-// this is to be displayed on monthly expenses, and savings pages so user knows how much they saved
-// const incomeTotal = `SELECT SUM(amount) AS total_income
-// FROM income
-// WHERE user_id = $1
-// AND income_date BETWEEN DATE_TRUNC('MONTH', $2::DATE) AND DATE_TRUNC('MONTH', $2::DATE) + INTERVAL '1 MONTH' - INTERVAL '1 DAY'`;
-
-// const incomeTotalValues = [userId, `${year}-${month}-01`];
-
-// const expenseTotal = `SELECT SUM(amount) AS total_expenses
-// FROM expenses
-// WHERE user_id = $1
-// AND expense_date BETWEEN DATE_TRUNC('MONTH', $2::DATE) AND DATE_TRUNC('MONTH', $2::DATE) + INTERVAL '1 MONTH' - INTERVAL '1 DAY'`;
-
-// const expenseTotalValues = [userId, `${year}-${month}-01`];
-
-// db.query(incomeTotal, incomeTotalValues)
-// .then((results) => {
-//   const totalIncome = results.rows[0].total_income;
-
-//   db.query(expenseTotal, expenseTotalValues)
-//   .then((results) => {
-//     const totalExpenses = results.rows[0].total_expenses;
-//     const netTotal = totalIncome - totalExpenses;
-
-//     console.log(`The net total is ${totalIncome} - ${totalExpenses} = ${netTotal}`);
-//   })
-//   .catch((error) => {
-//     console.error(error);
-//   })
-// })
-// .catch((error) => {
-//   console.error(error);
-// })
 
 module.exports = router;
+
+
+// db.query(`SELECT SUM(income.amount) AS total_income, SUM(expenses.amount) AS total_expenses, SUM(income.amount) - SUM(expenses.amount) AS net_total
+// FROM income
+// JOIN expenses ON expenses.user_id = income.user_id
+// WHERE EXTRACT(MONTH FROM income.income_date) = $1
+// AND EXTRACT(YEAR FROM income.income_date) = $2
+// AND income.user_id = $3;`,[month, year, user_id])
