@@ -1,25 +1,18 @@
 const router = require("express").Router();
 const db = require('../db/connection.js');
+const { getIncomePayments } = require('../db/queries/getIncomePayments')
+const { getIncomeByMonth } = require('../db/queries/getIncomeByMonth')
+const { addIncome } = require('../db/queries/addIncome')
 
 // from react, send an HTTP POST req to server-side endpoint to add income using axios or fetch
 
-
 // View every income payment
-// done: displaying on page
 router.get('/payments', (req, res) => {
-  const month = 05;
-  const year = 2023;
+  const userId = 1; // const userId = req.session.userId;
+  const month = 05;   // const month = req.params.month;
+  const year = 2023;   // const year = req.params.year;
 
-  db.query(`
-    SELECT user_id,
-    to_char(income.income_date, 'YYYY-MM-DD') AS income_date,
-    amount
-      FROM income
-      JOIN users ON users.id = income.user_id
-      WHERE EXTRACT(MONTH FROM income.income_date) = $1
-      AND EXTRACT(YEAR FROM income.income_date) = $2
-      AND users.id = income.user_id;
-      `, [month, year])
+  getIncomePayments(userId, month, year)
     .then((result) => {
       res.send({ message: 'Here is your income payments for this month:', monthly_income_payments: result.rows })
     })
@@ -29,25 +22,12 @@ router.get('/payments', (req, res) => {
 })
 
 // Monthly income total
-// done: displaying on page
 router.get('/', (req, res) => {
-  const month = 05;
-  const year = 2023;
+  const userId = 1; // const userId = req.session.userId;
+  const month = 05;   // const month = req.params.month;
+  const year = 2023;   // const year = req.params.year;
 
-  db.query(`
-  SELECT user_id,
-  (SELECT SUM(amount)
-  FROM income
-  JOIN users ON users.id = income.user_id
-  WHERE users.id = income.user_id
-  AND EXTRACT(MONTH FROM income.income_date) = $1
-  AND EXTRACT(YEAR FROM income.income_date) = $2
-  )
-  AS total_monthly_income
-  FROM income
-  JOIN users ON users.id = income.user_id
-  GROUP BY income.user_id;
-  `, [month, year])
+  getIncomeByMonth(userId, month, year)
     .then((result) => {
       res.send({ message: 'Here is your total income for the selected month:', monthly_income: result.rows })
     })
@@ -61,10 +41,7 @@ router.post("/add", (req, res) => {
 
   const { user_id, income_date, amount } = req.body;
 
-  const query = `INSERT INTO income (user_id, income_date, amount) VALUES ($1, $2, $3)`;
-  const values = [user_id, income_date, amount]
-
-  return db.query(query, values)
+  addIncome(user_id, income_date, amount)
     .then((res) => {
       res.send({ message: 'Income added successfully:', income_added: result.rows })
     })
@@ -72,6 +49,5 @@ router.post("/add", (req, res) => {
       console.error('Error in adding income', error);
     })
 })
-// }
 
 module.exports = router;
