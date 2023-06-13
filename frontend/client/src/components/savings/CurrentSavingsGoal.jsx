@@ -1,8 +1,7 @@
 import React, { useCallback, useState, useContext, useEffect } from 'react';
-// import NavigationBar from '../components/NavigationBar'
 import { useSavingsHook } from '../../hooks/savings';
 
-// to view expenses by category and see how much left in budget
+
 const ViewSavingsGoals = () => {
 
   const { viewSavingsGoal, currentSavingsGoal } = useSavingsHook();
@@ -14,7 +13,7 @@ useEffect(() => {
 
   return (
     <div>
-      <p>hello</p>
+      <h1>Current Savings Goal: </h1>
       {currentSavingsGoal && <p>{currentSavingsGoal.saving_name}</p>}
 
     </div>
