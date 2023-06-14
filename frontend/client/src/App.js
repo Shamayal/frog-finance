@@ -9,10 +9,10 @@ import CreateSavingsGoal from "./components/savings/CreateSavingsGoal";
 import CurrentDebtGoals from './components/debt/CurrentDebtGoals';
 import PaidOffDebts from './components/debt/PaidOffDebts';
 import AddNewDebtGoal from './components/debt/AddNewDebtGoal';
+import MakeDebtPayment from "./components/debt/MakeDebtPayment";
 import { useAuth0 } from "@auth0/auth0-react";
 import './App.css';
-import axios from 'axios';
-import {useEffect} from "react";
+
 
 function App() {
   const { isLoading, error } = useAuth0();
@@ -29,11 +29,13 @@ function App() {
           <Profile />
           <ViewMonthlyBudgets /> */}
 
-          {/* <CurrentSavingGoal />
+          <CurrentSavingGoal />
           <PastSavingsGoals />
-          <CreateSavingsGoal /> */}
+          <CreateSavingsGoal />
 
           <CurrentDebtGoals />
+          <MakeDebtPayment />
+
           <PaidOffDebts />
           <AddNewDebtGoal />
 
