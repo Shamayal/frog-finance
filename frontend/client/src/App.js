@@ -11,6 +11,7 @@ import {useEffect} from "react";
 import ViewIncomePayments from "./components/budget/income/ViewIncomePayments";
 import ViewIncomeByMonth from "./components/budget/income/ViewIncomeByMonth";
 import ViewNetTotal from "./components/budget/ViewNetTotal";
+import ViewExpensesByCategory from "./components/budget/expenses/ViewExpensesByCategory";
 
 function App() {
   const { isLoading, error } = useAuth0();
@@ -30,6 +31,7 @@ function App() {
           <ViewIncomePayments />
           <ViewIncomeByMonth />
           <ViewNetTotal />
+          <ViewExpensesByCategory />
         </>
 
       )}
