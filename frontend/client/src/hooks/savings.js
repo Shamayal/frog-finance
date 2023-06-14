@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export const useSavingsHook = () => {
   const [currentSavingsGoal, setCurrentSavingsGoal] = useState(null);
-  const [pastSavingsGoal, setPastSavingsGoal] = useState("");
+  const [pastSavingsGoal, setPastSavingsGoal] = useState([]);
 
   const viewSavingsGoal = () => {
     axios({
@@ -29,7 +29,7 @@ export const useSavingsHook = () => {
     })
       .then((res) => {
         console.log("incoming past savings goal data", res.data)
-        setPastSavingsGoal(res.data.completed_savings_goals[0])
+        setPastSavingsGoal(res.data.completed_savings_goals)
       })
       .catch((error) => {
         console.error('Error fetching photos:', error);
@@ -43,3 +43,4 @@ export const useSavingsHook = () => {
     pastSavingsGoal
   }
 }
+
