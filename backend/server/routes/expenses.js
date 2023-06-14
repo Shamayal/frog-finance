@@ -49,10 +49,10 @@ router.get('/transactions', (req, res) => {
     })
 })
 
-router.get("/netTotal/:month/:year", (req, res) => {
+router.get("/netTotal", (req, res) => {
   const userId = 1; // const userId = req.session.userId;
-  const month = 05;   // const month = req.params.month;
-  const year = 2023;   // const year = req.params.year;
+  const month = req.query.month;
+  const year = req.query.year;
 
   getNetTotal(userId, month, year)
     .then((result) => {
