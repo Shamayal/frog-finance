@@ -36,11 +36,26 @@ export const useSavingsHook = () => {
       });
   }
 
+  const createSavingsGoal = (savingName, goalAmount, currentAmount) => {
+    const data = {
+      savings_name: savingName,
+      goal_amount: goalAmount,
+      current_amount: currentAmount
+    }
+
+
+    axios.post(`http://localhost:3030/savings/new`, data)
+      .catch((error) => {
+        console.error('Error fetching photos:', error);
+      });
+  }
+
   return {
     viewSavingsGoal,
     currentSavingsGoal,
     viewPastSavingsGoal,
-    pastSavingsGoal
+    pastSavingsGoal,
+    createSavingsGoal
   }
 }
 

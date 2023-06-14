@@ -42,7 +42,7 @@ const getFinishedSavingsGoal = (user_id) => {
 const createNewSavingsGoal = (savings_name, goal_amount, current_amount, user_id) => {
   return db.query(`
   INSERT INTO savings (saving_name, goal_amount, current_amount, finished, date_created, date_finished, user_id)
-  VALUES ('$1', $2, $3, FALSE, CURRENT_DATE, NULL, $4
+  VALUES ($1, $2, $3, FALSE, CURRENT_DATE, NULL, $4)
   RETURNING *;
   `,
     [savings_name, goal_amount, current_amount, user_id]

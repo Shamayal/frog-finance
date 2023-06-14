@@ -32,7 +32,8 @@ router.get("/complete", (req, res) => {
 
 // Create a new savings goals
 router.post("/new", (req, res) => {
-  const [savings_name, goal_amount, current_amount] = req.params;
+  const {savings_name, goal_amount, current_amount} = req.body;
+  console.log("check req body", req.body)
   const user_id = 1;
 
   createNewSavingsGoal(savings_name, goal_amount, current_amount, user_id)
