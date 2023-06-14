@@ -145,7 +145,8 @@ INSERT INTO savings (saving_name, goal_amount, current_amount, finished, date_cr
 -- debt_goals
 INSERT INTO debt_goals (name, initial_amount, amount_left, interest_rate, paid_off, user_id) VALUES ('Credit card', 2000, 2000, 15.00, FALSE, 1);
 INSERT INTO debt_goals (name, initial_amount, amount_left, interest_rate, paid_off, user_id) VALUES ('Student Loan', 20000, 20000, 5.00, FALSE, 1);
-INSERT INTO debt_goals (name, initial_amount, amount_left, interest_rate, paid_off, user_id) VALUES ('Bank Loan', 1000, 1000, 5.00, TRUE, 1);
+INSERT INTO debt_goals (name, initial_amount, amount_left, interest_rate, paid_off, user_id) VALUES ('Bank Loan', 1000, 0, 5.00, TRUE, 1);
+INSERT INTO debt_goals (name, initial_amount, amount_left, interest_rate, paid_off, user_id) VALUES ('Super small loan', 20, 0, 0, TRUE, 1);
 
 -- debt_payments
 INSERT INTO debt_payments (amount, debt_goal_id, user_id) VALUES (500, 1, 1);
