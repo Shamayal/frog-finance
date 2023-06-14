@@ -9,6 +9,7 @@ import './App.css';
 import axios from 'axios';
 import {useEffect} from "react";
 import ViewIncomePayments from "./components/budget/income/ViewIncomePayments";
+import ViewIncomeByMonth from "./components/budget/income/ViewIncomeByMonth";
 
 function App() {
   const { isLoading, error } = useAuth0();
@@ -26,6 +27,7 @@ function App() {
           <ViewMonthlyBudgets />
           <CurrentSavingGoal />
           <ViewIncomePayments />
+          <ViewIncomeByMonth />
         </>
 
       )}
