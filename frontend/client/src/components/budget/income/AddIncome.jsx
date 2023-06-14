@@ -15,6 +15,8 @@ const ViewAddIncome = () => {
     event.preventDefault()
     viewAddIncome(amount, startDate)
     setSubmitted(true);
+    setAmount("");
+    setStartDate(new Date());
   }
 
   const handleDateChange = (date) => {
