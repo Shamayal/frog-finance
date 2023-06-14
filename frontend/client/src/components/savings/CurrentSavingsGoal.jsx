@@ -14,6 +14,9 @@ useEffect(() => {
   return (
     <div>
       <h1>Current Savings Goal: </h1>
+
+      {!currentSavingsGoal && <p>You dont have any savings goals yet</p>}
+
       {currentSavingsGoal &&
       <>
         <p>Goal Name: {currentSavingsGoal.saving_name}</p>
@@ -22,7 +25,6 @@ useEffect(() => {
         <p>Date Created: {currentSavingsGoal.date_created}</p>
       </>
       }
-
     </div>
   )
 }
