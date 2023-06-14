@@ -15,6 +15,10 @@ const ViewExpensesByCategory = () => {
     viewExpensesByCategory(month + 1, year)
   }
 
+  const sortedExpensesByCategory = [...expensesByCategory].sort((a, b) => {
+    return b.total_amount - a.total_amount;
+  });
+
   return (
     <div>
       <div>------------------------------------------------------------</div>
@@ -46,7 +50,7 @@ const ViewExpensesByCategory = () => {
           </tr>
         </thead>
         <tbody>
-          {expensesByCategory.map((expenses, index) => (
+          {sortedExpensesByCategory.map((expenses, index) => (
             <tr key={`${expenses.user_id}_${index}`}>
               <td>{expenses.category_name}</td>
               <td>${Number(expenses.total_amount).toLocaleString()}</td>
