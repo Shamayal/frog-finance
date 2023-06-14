@@ -7,8 +7,9 @@ const { getIncomePayments, getIncomeByMonth, addIncome } = require('../db/querie
 // View every income payment
 router.get('/payments', (req, res) => {
   const userId = 1; // const userId = req.session.userId;
-  const month = 05;   // const month = req.params.month;
-  const year = 2023;   // const year = req.params.year;
+  const month = req.query.month;
+  const year = req.query.year;
+  console.log('month = ', month, 'year =', year)
 
   getIncomePayments(userId, month, year)
     .then((result) => {
