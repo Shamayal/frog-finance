@@ -20,6 +20,10 @@ const ViewExpensesTransactions = () => {
     return (`${months[Number(splitDate[1]) - 1]} ${splitDate[2]}, ${splitDate[0]}`) 
   };
 
+  const sortedExpensesTransactions = [...expensesTransactions].sort((a, b) => {
+    return new Date(a.expense_date) - new Date(b.expense_date);
+  });
+
   return (
     <div>
       <div>------------------------------------------------------------</div>
@@ -53,7 +57,7 @@ const ViewExpensesTransactions = () => {
           </tr>
         </thead>
         <tbody>
-          {expensesTransactions.map((transaction, index) => (
+          {sortedExpensesTransactions.map((transaction, index) => (
             <tr key={`${transaction.user_id}_${index}`}>
               <td>{formatDate(transaction.expense_date)}</td>
               <td>{transaction.category_name}</td>

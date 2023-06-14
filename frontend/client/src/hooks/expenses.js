@@ -2,9 +2,10 @@ import {useState} from "react";
 import axios from 'axios';
 
 export const useExpensesHook = () => {
+  const [ expensesByCategory, setExpensesByCategory ] = useState([]);
+  const [ expensesTransactions, setExpensesTransactions ] = useState([]);
+  // const [ addExpenses, setAddExpenses ] = useState([]);
   const [ netTotal, setNetTotal ] = useState([]);
-  const [ expensesByCategory, setExpensesByCategory ] = useState([])
-  const [ expensesTransactions, setExpensesTransactions ] = useState([])
 
   const viewExpensesByCategory = (month, year) => {
     // adds a 0 in front of the month if it is a single digit
@@ -32,13 +33,29 @@ export const useExpensesHook = () => {
       dataResponse: "json"
     })
       .then((res) => {
-        console.log("expenses by category data:", res.data)
+        console.log("expenses transactions:", res.data)
         setExpensesTransactions(res.data.all_transactions_per_month)
       })
       .catch((error) => {
-        console.error('Error fetching expenses by category:', error);
+        console.error('Error fetching expense transactions:', error);
     });
   }
+
+  // const viewAddExpenses = (amount, startDate) => {
+
+  //   const formatDate = startDate.toISOString().split('T')[0];
+
+  //   // const obj = {user_id: 1, amount, expense_date: formatDate, category_id, sub_category_id} 
+  // const obj = 1
+  //   axios.post('http://localhost:3030/expenses/add', obj)
+  //     .then((res) => {
+  //       console.log("expense added: ", res.data)
+  //       setAddExpenses(res.data.expense_added)
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error in adding expense:', error);
+  //   });
+  // }  
 
   const viewNetTotal = (month, year) => {
     // adds a 0 in front of the month if it is a single digit
@@ -63,6 +80,8 @@ export const useExpensesHook = () => {
     viewExpensesTransactions,
     expensesTransactions,
     viewNetTotal,
-    netTotal
+    netTotal,
+    // viewAddExpenses,
+    // addExpenses
   }
 }
