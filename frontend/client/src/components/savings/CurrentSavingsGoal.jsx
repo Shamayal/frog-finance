@@ -14,7 +14,14 @@ useEffect(() => {
   return (
     <div>
       <h1>Current Savings Goal: </h1>
-      {currentSavingsGoal && <p>{currentSavingsGoal.saving_name}</p>}
+      {currentSavingsGoal &&
+      <>
+        <p>Goal Name: {currentSavingsGoal.saving_name}</p>
+        <p>Goal Amount: ${currentSavingsGoal.goal_amount}.00</p>
+        <p>Currently Saved: ${currentSavingsGoal.current_amount}.00</p>
+        <p>Date Created: {currentSavingsGoal.date_created}</p>
+      </>
+      }
 
     </div>
   )
