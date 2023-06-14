@@ -24,8 +24,6 @@ function App() {
           <LogoutButton />
           <Profile />
           <ViewMonthlyBudgets />
-          <CurrentSavingGoal />
-          <ViewIncomePayments />
         </>
 
       )}

@@ -7,8 +7,10 @@ export const useBudgetHook = () => {
   const [ monthlyBudget, setMonthlyBudget ] = useState([]);
 
   const viewMonthlyBudget = (month, year) => {
+    // adds a 0 in front of the month if it is a single digit
+    const paddedMonth = String(month).padStart(2, '0')
     axios({
-      url: `http://localhost:3030/budget/${month}/${year}`,
+      url: `http://localhost:3030/budget/${paddedMonth}/${year}`,
       method: "GET",
       dataResponse: "json"
     })
