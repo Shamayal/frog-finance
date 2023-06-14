@@ -60,7 +60,7 @@ CREATE TABLE savings (
   id SERIAL PRIMARY KEY NOT NULL,
   saving_name VARCHAR(255) NOT NULL,
   goal_amount INTEGER NOT NULL,
-  current_amount INTEGER NOT NULL,
+  current_amount INTEGER NOT NULL DEFAULT 0,
   finished BOOLEAN NOT NULL DEFAULT FALSE,
   date_created DATE NOT NULL,
   date_finished DATE NULL,

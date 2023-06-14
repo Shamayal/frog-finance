@@ -5,6 +5,7 @@ import Profile from "./components/authentication/Profile";
 import ViewMonthlyBudgets from "./components/budget/ViewMonthlyBudgets";
 import CurrentSavingGoal from './components/savings/CurrentSavingsGoal';
 import PastSavingsGoals from './components/savings/PastSavingsGoals';
+import CreateSavingsGoal from "./components/savings/CreateSavingsGoal";
 import CurrentDebtGoals from './components/debt/CurrentDebtGoals';
 import PaidOffDebts from './components/debt/PaidOffDebts';
 import { useAuth0 } from "@auth0/auth0-react";
@@ -26,8 +27,10 @@ function App() {
           <LogoutButton />
           <Profile />
           <ViewMonthlyBudgets /> */}
-          <CurrentSavingGoal />
+          {/* <CurrentSavingGoal />
           <PastSavingsGoals />
+          <CreateSavingsGoal /> */}
+
           <CurrentDebtGoals />
           <PaidOffDebts />
 
