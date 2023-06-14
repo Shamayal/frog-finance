@@ -12,6 +12,7 @@ import ViewIncomePayments from "./components/budget/income/ViewIncomePayments";
 import ViewIncomeByMonth from "./components/budget/income/ViewIncomeByMonth";
 import ViewNetTotal from "./components/budget/ViewNetTotal";
 import ViewExpensesByCategory from "./components/budget/expenses/ViewExpensesByCategory";
+import ViewExpensesTransactions from "./components/budget/expenses/ViewTransactionsByMonth";
 
 function App() {
   const { isLoading, error } = useAuth0();
@@ -32,6 +33,7 @@ function App() {
           <ViewIncomeByMonth />
           <ViewNetTotal />
           <ViewExpensesByCategory />
+          <ViewExpensesTransactions />
         </>
 
       )}
