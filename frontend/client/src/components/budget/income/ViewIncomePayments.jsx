@@ -38,6 +38,10 @@ const ViewIncomePayments = () => {
     // return date.toLocaleDateString('en-US', options);
   };
 
+  const sortedIncomePayments = [...incomePayments].sort((a, b) => {
+    return new Date(a.income_date) - new Date(b.income_date);
+  });
+
   return (
     <div>
       <div>------------------------------------------------------------</div>
@@ -70,7 +74,7 @@ const ViewIncomePayments = () => {
           </tr>
         </thead>
         <tbody>
-          {incomePayments.map((payment, index) => (
+          {sortedIncomePayments.map((payment, index) => (
             <tr key={`${payment.user_id}_${index}`}>
               <td>{formatDate(payment.income_date)}</td>
               <td>${payment.amount.toLocaleString()}</td>
