@@ -41,6 +41,9 @@ const ViewIncomePayments = () => {
 
   return (
     <div>
+      <div>------------------------------------------------------------</div>
+      <p>Income Payments Received in {months[month]} {year}</p>
+
       <form action="">
         <select value={month} id="income_month" onChange={(event) => setMonth(Number(event.target.value))}>
           <option value="">Select Month</option>
@@ -49,18 +52,17 @@ const ViewIncomePayments = () => {
           ))}
         </select>
 
-        <select value={month} id="income_year" onChange={(event) => setYear(event.target.value)}>
+        <select value={year} id="income_year" onChange={(event) => setYear(event.target.value)}>
           <option value="">Select Year</option>
           {years.map((year) => (
             <option key={year} value={year}>{year}</option>
           ))}
         </select>
-        
+
         {/* <input type="text" value={year} id="income_year" onChange={(event) => setYear(event.target.value)} /> */}
         <button type="submit" onClick={handleClick}> Get Income Payments </button>
       </form>
 
-      <p>Income Payments Received in {months[month]} {year}</p>
       <table>
         <thead>
           <tr>
@@ -77,7 +79,7 @@ const ViewIncomePayments = () => {
           ))}
         </tbody>
       </table>
-
+      <div>------------------------------------------------------------</div>
     </div>
   )
 }
