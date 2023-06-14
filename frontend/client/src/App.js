@@ -14,6 +14,7 @@ import ViewNetTotal from "./components/budget/ViewNetTotal";
 import ViewExpensesByCategory from "./components/budget/expenses/ViewExpensesByCategory";
 import ViewExpensesTransactions from "./components/budget/expenses/ViewTransactionsByMonth";
 import ViewAddIncome from "./components/budget/income/AddIncome";
+import ViewAddExpenses from "./components/budget/expenses/AddExpenses";
 
 function App() {
   const { isLoading, error } = useAuth0();
@@ -36,6 +37,7 @@ function App() {
           <ViewExpensesByCategory />
           <ViewExpensesTransactions />
           <ViewAddIncome />
+          <ViewAddExpenses />
         </>
 
       )}
@@ -44,3 +46,6 @@ function App() {
 }
 
 export default App;
+
+//put month and year states here and pass it down to components that need it
+// or create context and wrap it with elements 
