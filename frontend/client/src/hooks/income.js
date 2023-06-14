@@ -40,13 +40,13 @@ export const useIncomeHook = () => {
     });
   }
 
-  const viewAddIncome = (amount, day, month, year) => {
-    // adds a 0 in front of the month if it is a single digit
-    axios({
-      url: `http://localhost:3030/income/add`,
-      method: "POST",
-      dataResponse: "json"
-    })
+  const viewAddIncome = (amount, startDate) => {
+
+    const formatDate = startDate.toISOString().split('T')[0];
+
+    const obj = {user_id: 1, amount: amount, income_date: formatDate} 
+  
+    axios.post('http://localhost:3030/income/add', obj)
       .then((res) => {
         console.log("income by month data: ", res.data)
         setIncomeByMonth(res.data.income_added)
