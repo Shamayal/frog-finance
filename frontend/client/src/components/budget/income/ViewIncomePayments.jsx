@@ -9,13 +9,8 @@ const ViewIncomePayments = () => {
 
   const { viewIncomePayments, incomePayments } = useIncomeHook();
 
-  const months = [
-    'January', 
-    'February',
-    'March',
-    'April',
-    'May'
-  ]
+  const months = ['January','February','March','April','May','June','July','August','September','August','October','November','December']
+  const years = [2023, 2022, 2021]
   // const months = [
   //   { value: "01", label: "January" },
   //   { value: "02", label: "February" },
@@ -37,7 +32,7 @@ const ViewIncomePayments = () => {
   }
 
   const formatDate = (dateString) => {
-    const date = new Date(dateString + 'T00:00:00.000Z');
+    // const date = new Date(dateString + 'T00:00:00.000Z');
     const splitDate = dateString.split('-');
     return (`${months[Number(splitDate[1]) - 1]} ${splitDate[2]}, ${splitDate[0]}`) 
     // const options = { month: 'long', day: 'numeric', year: 'numeric' };
@@ -54,7 +49,14 @@ const ViewIncomePayments = () => {
           ))}
         </select>
 
-        <input type="text" value={year} id="income_year" onChange={(event) => setYear(event.target.value)} />
+        <select value={month} id="income_year" onChange={(event) => setYear(event.target.value)}>
+          <option value="">Select Year</option>
+          {years.map((year) => (
+            <option key={year} value={year}>{year}</option>
+          ))}
+        </select>
+        
+        {/* <input type="text" value={year} id="income_year" onChange={(event) => setYear(event.target.value)} /> */}
         <button type="submit" onClick={handleClick}> Get Income Payments </button>
       </form>
 
@@ -62,17 +64,15 @@ const ViewIncomePayments = () => {
       <table>
         <thead>
           <tr>
-            <th> Income Date</th>
-            <th> Amount </th>
+            <th>Income Date</th>
+            <th>Amount</th>
           </tr>
         </thead>
         <tbody>
           {incomePayments.map((payment, index) => (
             <tr key={`${payment.user_id}_${index}`}>
               <td>{formatDate(payment.income_date)}</td>
-              {/* <td>{payment.income_date}</td> */}
-
-              <td>${payment.amount}</td>
+              <td>${payment.amount.toLocaleString()}</td>
             </tr>
           ))}
         </tbody>
