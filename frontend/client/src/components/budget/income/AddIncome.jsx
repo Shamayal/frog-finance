@@ -9,12 +9,16 @@ const ViewAddIncome = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [submitted, setSubmitted] = useState(false);
 
-  const { viewAddIncome, addIncome } = useIncomeHook();
+  const { viewAddIncome } = useIncomeHook();
 
   const handleClick = (event) => {
     event.preventDefault()
     viewAddIncome(amount, startDate)
     setSubmitted(true);
+  }
+
+  const handleDateChange = (date) => {
+    setStartDate(date);
   }
 
   return (
@@ -30,13 +34,13 @@ const ViewAddIncome = () => {
         <DatePicker
           showIcon
           selected={startDate}
-          onChange={(date) => setStartDate(date)}
+          onChange={handleDateChange}
         />
 
         <button type="submit" onClick={handleClick}> Add Income </button>
       </form>
 
-      {submitted && <p>Income added successfully!</p>} {/* Confirmation message */}
+      {submitted && <p>Income added successfully!</p>}
 
 
       <div>------------------------------------------------------------</div>

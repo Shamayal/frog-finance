@@ -44,15 +44,15 @@ export const useIncomeHook = () => {
 
     const formatDate = startDate.toISOString().split('T')[0];
 
-    const obj = {user_id: 1, amount: amount, income_date: formatDate} 
+    const obj = {user_id: 1, amount, income_date: formatDate} 
   
     axios.post('http://localhost:3030/income/add', obj)
       .then((res) => {
-        console.log("income by month data: ", res.data)
-        setIncomeByMonth(res.data.income_added)
+        console.log("income added: ", res.data)
+        setAddIncome(res.data.income_added)
       })
       .catch((error) => {
-        console.error('Error fetching income by month:', error);
+        console.error('Error in adding income:', error);
     });
   }
 
