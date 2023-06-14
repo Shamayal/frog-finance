@@ -22,7 +22,7 @@ const ViewPaidOffDebts = () => {
           <section key={paidDebt.id}>
             <h3>Debt Name: {paidDebt.name}</h3>
             <p>Initial amount: ${paidDebt.initial_amount}.00</p>
-            <p>Amount Left: ${paidDebt.amount_left}.00</p>
+            <p>Amount Left: $0</p>
             <p>Interest Rate: {paidDebt.interest_rate}%</p>
             <p>Congrats, you paid off your {paidDebt.name}!</p>
           </section>
