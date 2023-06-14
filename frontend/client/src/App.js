@@ -5,7 +5,8 @@ import Profile from "./components/authentication/Profile";
 import ViewMonthlyBudgets from "./components/budget/ViewMonthlyBudgets";
 import CurrentSavingGoal from './components/savings/CurrentSavingsGoal';
 import PastSavingsGoals from './components/savings/PastSavingsGoals';
-import CurrentDebtGoals from './components/debt/CurrentDebtGoals'
+import CurrentDebtGoals from './components/debt/CurrentDebtGoals';
+import PaidOffDebts from './components/debt/PaidOffDebts';
 import { useAuth0 } from "@auth0/auth0-react";
 import './App.css';
 import axios from 'axios';
@@ -28,6 +29,7 @@ function App() {
           <CurrentSavingGoal />
           <PastSavingsGoals />
           <CurrentDebtGoals />
+          <PaidOffDebts />
 
         </>
 

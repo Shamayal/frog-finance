@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const useDebtHook = () => {
   const [currentDebtGoals, setCurrentDebtGoals] = useState([]);
-  const [pastDebtGoals, setPastDebtGoals] = useState(null);
+  const [paidOffDebts, setpaidOffDebts] = useState([]);
 
   const viewDebtGoals = () => {
     axios
@@ -17,12 +17,12 @@ export const useDebtHook = () => {
       });
   };
 
-  const viewPastDebtGoals = () => {
+  const viewPaidOffDebts = () => {
     axios
       .get('http://localhost:3030/debt/paidoff')
       .then((res) => {
         console.log('past debt goal data', res.data);
-        setPastDebtGoals(res.data.paid_off_debt[0]);
+        setpaidOffDebts(res.data.paid_off_debt);
       })
       .catch((error) => {
         console.error('Error fetching past debt goals:', error);
@@ -32,8 +32,8 @@ export const useDebtHook = () => {
   return {
     viewDebtGoals,
     currentDebtGoals,
-    viewPastDebtGoals,
-    pastDebtGoals,
+    viewPaidOffDebts,
+    paidOffDebts,
   };
 };
 
