@@ -5,7 +5,7 @@ import { useSavingsHook } from '../../hooks/savings';
 const ViewPastSavingsGoals = () => {
 
   const { viewPastSavingsGoal, pastSavingsGoal } = useSavingsHook();
-  console.log("check completed savings goal", pastSavingsGoal)
+  console.log("check pastSavingGoal state", pastSavingsGoal)
 
 useEffect(() => {
   viewPastSavingsGoal()
