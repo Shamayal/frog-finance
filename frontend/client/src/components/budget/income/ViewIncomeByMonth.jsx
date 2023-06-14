@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useIncomeHook } from '../../../hooks/income';
 
-// to view expenses by category and see how much left in budget
 const ViewIncomeByMonth = () => {
   const [month, setMonth ] = useState("")
   const [year, setYear ] = useState("")
@@ -15,11 +14,6 @@ const ViewIncomeByMonth = () => {
     event.preventDefault()
     viewIncomeByMonth(month + 1, year)
   }
-
-  const formatDate = (dateString) => {
-    const splitDate = dateString.split('-');
-    return (`${months[Number(splitDate[1]) - 1]} ${splitDate[2]}, ${splitDate[0]}`) 
-  };
 
   return (
     <div>
@@ -47,7 +41,7 @@ const ViewIncomeByMonth = () => {
       <div>
         <p>Total Amount:</p>
         {incomeByMonth.map((i, index) => (
-        <p key={`${i.user_id}_${index}`}>{i.total_monthly_income}</p>))}
+        <p key={`${i.user_id}_${index}`}>${i.total_monthly_income ? `${Number(i.total_monthly_income).toLocaleString()}` : '0'}</p>))}
 
       </div>
       <div>------------------------------------------------------------</div>

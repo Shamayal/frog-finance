@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 // import NavigationBar from '../components/NavigationBar'
 import { useIncomeHook } from '../../../hooks/income';
 
-// to view expenses by category and see how much left in budget
 const ViewIncomePayments = () => {
   const [month, setMonth ] = useState("")
   const [year, setYear ] = useState("")
