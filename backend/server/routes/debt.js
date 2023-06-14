@@ -34,9 +34,10 @@ router.get("/paidoff", (req, res) => {
 // Make a new debt goal
 // issue -> amount paid showing as null
 router.post("/new", (req, res) => {
-  const [name, initial_amount, amount_left, interest_rate] = req.params;
+  const {name, initial_amount, interest_rate} = req.body;
+  console.log('check new debt goal req body', req.body)
   const user_id = 1;
-  createNewDebtGoal(name, initial_amount, amount_left, interest_rate, user_id)
+  createNewDebtGoal(name, initial_amount, interest_rate, user_id)
     .then((result) => {
       res.send({ message: 'New debt goal created', debt_goal: result.rows })
     })

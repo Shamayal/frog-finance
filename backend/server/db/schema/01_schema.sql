@@ -71,7 +71,6 @@ CREATE TABLE debt_goals (
   id SERIAL PRIMARY KEY NOT NULL,
   name VARCHAR(255) NOT NULL,
   initial_amount INTEGER NOT NULL,
-  amount_left INTEGER NOT NULL,
   interest_rate DECIMAL NOT NULL,
   paid_off BOOLEAN DEFAULT FALSE,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
