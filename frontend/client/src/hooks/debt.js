@@ -35,13 +35,22 @@ export const useDebtHook = () => {
       initial_amount: debtAmount,
       interest_rate: interestRate
     }
-
     axios.post(`http://localhost:3030/debt/new`, data)
     .catch((error) => {
       console.error('Error posting new debt goal:', error);
     });
+  };
 
-
+  const addDebtPayment = (debtName, debtAmount, interestRate) => {
+    const data = {
+      name: debtName,
+      initial_amount: debtAmount,
+      interest_rate: interestRate
+    }
+    axios.post(`http://localhost:3030/debt/payment`, data)
+    .catch((error) => {
+      console.error('Error posting new debt goal:', error);
+    });
   };
 
   return {
@@ -49,7 +58,8 @@ export const useDebtHook = () => {
     currentDebtGoals,
     viewPaidOffDebts,
     paidOffDebts,
-    createDebtGoal
+    createDebtGoal,
+    addDebtPayment
   };
 };
 

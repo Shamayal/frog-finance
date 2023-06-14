@@ -28,13 +28,14 @@ function App() {
           <LogoutButton />
           <Profile />
           <ViewMonthlyBudgets /> */}
-          <CurrentSavingGoal />
-          <PastSavingsGoals />
-          <CreateSavingsGoal />
 
-          {/* <CurrentDebtGoals />
+          {/* <CurrentSavingGoal />
+          <PastSavingsGoals />
+          <CreateSavingsGoal /> */}
+
+          <CurrentDebtGoals />
           <PaidOffDebts />
-          <AddNewDebtGoal /> */}
+          <AddNewDebtGoal />
 
         </>
 
