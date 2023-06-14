@@ -140,6 +140,7 @@ INSERT INTO expenses (user_id, expense_date, amount, category_id, sub_category_i
 -- savings
 INSERT INTO savings (saving_name, goal_amount, current_amount, finished, date_created, date_finished, user_id) VALUES ('New car', 10000, 4000, FALSE, '2023-06-01', NULL, 1);
 INSERT INTO savings (saving_name, goal_amount, current_amount, finished, date_created, date_finished, user_id) VALUES ('RRSP', 10000, 10000, TRUE, '2023-01-21', '2023-06-01', 1);
+INSERT INTO savings (saving_name, goal_amount, current_amount, finished, date_created, date_finished, user_id) VALUES ('Desk', 100, 100, TRUE, '2023-05-21', '2023-05-30', 1);
 
 -- debt_goals
 INSERT INTO debt_goals (name, initial_amount, amount_left, interest_rate, paid_off, user_id) VALUES ('Credit card', 2000, 2000, 15.00, FALSE, 1);
