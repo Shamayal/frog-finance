@@ -9,7 +9,8 @@ import HomePage from "./routes/HomePage.jsx"
 import Budget from "./routes/Budget.jsx"
 import Debt from './routes/Debt.jsx'
 import Savings from "./routes/Budget.jsx"
-import Stocks from "./routes/Budget.jsx"
+
+import Stocks from "./routes/Stocks";
 
 import LearnMoney from "./routes/LearnMoney.jsx";
 import LearnFinance from "./routes/LearnFinance";
@@ -25,11 +26,11 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
 
-          <Route path="/money/income/add" element={<Budget />}/>
+          {/* <Route path="/money/income/add" element={<Budget />}/>
           <Route path="/money/income/view" element={<Savings />} />
 
           <Route path="/money/expenses/add" element={<Debt />} />
-          <Route path="/money/expenses/view" element={<Debt />} />
+          <Route path="/money/expenses/view" element={<Debt />} /> */}
 {/* 
           <Route path="/money/budget/update" element={<Learn />} />
           <Route path="/money/budget/view" element={<Learn />} />
@@ -47,11 +48,10 @@ function App() {
           <Route path="/learn/money" element={<LearnMoney />} />
           <Route path="/learn/finance" element={<LearnFinance />} />
 
-      
+{/*       
           <Route path="/budget" element={<Budget />}/>
           <Route path="/savings" element={<Savings />} />
-          <Route path="/debt" element={<Debt />} />
-          <Route path="/stocks" element={<Stocks />} />
+          <Route path="/debt" element={<Debt />} /> */}
         </Routes>
       </Router>
 
