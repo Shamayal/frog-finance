@@ -29,10 +29,11 @@ const NavigationBar = () => {
       <nav>
         <ul className="menus">
           {menuItems.map((menu, index) => {
-            return <MenuItems items={menu} key={index} />;
+            const depthLevel = 0;
+            return <MenuItems items={menu} key={index} depthLevel={depthLevel} />;
           })}
         </ul>
-        <Link to="/">Home</Link>
+        {/* <Link to="/">Home</Link>
         <br />
         <Link to="/about">About</Link>
         <br />
@@ -45,7 +46,7 @@ const NavigationBar = () => {
         <Link to="/stocks">Stocks</Link>
         <br />
         <Link to="/learn">Learn</Link>
-        <br />
+        <br /> */}
       </nav>
     </div>
   );

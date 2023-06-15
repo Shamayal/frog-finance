@@ -13,7 +13,16 @@ export const menuItems = [
     submenu: [
       {
         title: 'income',
-        url: 'income',
+        submenu: [
+          {
+            title: 'add income',
+            url: 'add-income',
+          },
+          {
+            title: 'view income',
+            url: 'view-income',
+          }
+        ]
       },
       {
         title: 'expenses',
