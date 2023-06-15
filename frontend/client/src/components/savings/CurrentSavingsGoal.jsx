@@ -1,12 +1,11 @@
 import React, { useCallback, useState, useContext, useEffect } from 'react';
-// import NavigationBar from '../components/NavigationBar'
 import { useSavingsHook } from '../../hooks/savings';
 
-// to view expenses by category and see how much left in budget
+
 const ViewSavingsGoals = () => {
 
   const { viewSavingsGoal, currentSavingsGoal } = useSavingsHook();
-  console.log("check csg", currentSavingsGoal)
+  console.log("current savings goal state", currentSavingsGoal)
 
 useEffect(() => {
   viewSavingsGoal()
@@ -14,9 +13,18 @@ useEffect(() => {
 
   return (
     <div>
-      <p>hello</p>
-      {currentSavingsGoal && <p>{currentSavingsGoal.saving_name}</p>}
+      <h1>Current Savings Goal: </h1>
 
+      {!currentSavingsGoal && <p>You dont have any savings goals yet</p>}
+
+      {currentSavingsGoal &&
+      <>
+        <p>Goal Name: {currentSavingsGoal.saving_name}</p>
+        <p>Goal Amount: ${currentSavingsGoal.goal_amount}.00</p>
+        <p>Currently Saved: ${currentSavingsGoal.current_amount}.00</p>
+        <p>Date Created: {currentSavingsGoal.date_created}</p>
+      </>
+      }
     </div>
   )
 }
