@@ -5,7 +5,7 @@ export const menuItems = [
   },
   {
     title: 'Money Management',
-    url: '/money',
+    url: '',
     submenu: [
       {
         title: 'Income',
@@ -50,7 +50,7 @@ export const menuItems = [
   },
   {
     title: 'Savings Goals',
-    url: '/savings',
+    url: '',
     submenu: [
       {
         title: 'Add New Goal',
@@ -68,7 +68,7 @@ export const menuItems = [
   },
   {
     title: 'Debt Management',
-    url: '/debt',
+    url: '',
     submenu: [
       {
         title: 'Add New Debt',
@@ -86,11 +86,11 @@ export const menuItems = [
   },
   {
     title: 'Stocks',
-    url: '/stocks',
+    url: '',
   },
   {
     title: 'Learn',
-    url: '/learn',
+    url: '',
     submenu: [
       {
         title: 'Money Tips 101',

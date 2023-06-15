@@ -4,11 +4,6 @@ import LoginButton from "./authentication/LoginButton";
 import LogoutButton from "./authentication/LogoutButton";
 import Profile from "./authentication/Profile";
 
-// import Budget from "../routes/Budget";
-// import Debt from "../routes/Debt/DebtAdd";
-// import Savings from "../routes/Savings/SavingsAdd";
-// import Stocks from "../routes/Stocks/Stocks";
-// import Learn from "../routes/Learn/LearnMoney";
 import { menuItems } from "../menuItems";
 import MenuItems from './MenuItems';
 

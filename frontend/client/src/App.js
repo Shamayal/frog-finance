@@ -7,6 +7,15 @@ import "./App.css";
 import NavigationBar from "./components/NavigationBar.jsx"
 import HomePage from "./routes/HomePage.jsx"
 
+import IncomeAdd from "./routes/Money/Income/IncomeAdd";
+import IncomeView from "./routes/Money/Income/IncomeView";
+
+import ExpensesAdd from "./routes/Money/Expenses/ExpensesAdd";
+import ExpenseView from "./routes/Money/Expenses/ExpensesView";
+
+import BudgetUpdate from "./routes/Money/Budget/BudgetUpdate";
+import BudgetView from "./routes/Money/Budget/BudgetView";
+
 import SavingsAdd from "./routes/Savings/SavingsAdd";
 import SavingsProgress from "./routes/Savings/SavingsProgress";
 import SavingsAchievements from "./routes/Savings/SavingsAchievements";
@@ -30,14 +39,14 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
 
-          {/* <Route path="/money/income/add" element={<Budget />}/>
-          <Route path="/money/income/view" element={<Savings />} />
+          <Route path="/money/income/add" element={<IncomeAdd />}/>
+          <Route path="/money/income/view" element={<IncomeView />} />
 
-          <Route path="/money/expenses/add" element={<Debt />} />
-          <Route path="/money/expenses/view" element={<Debt />} /> */}
-{/* 
-          <Route path="/money/budget/update" element={<Learn />} />
-          <Route path="/money/budget/view" element={<Learn />} />  */}
+          <Route path="/money/expenses/add" element={<ExpensesAdd />} />
+          <Route path="/money/expenses/view" element={<ExpenseView />} />
+
+          <Route path="/money/budget/update" element={<BudgetUpdate />} />
+          <Route path="/money/budget/view" element={<BudgetView />} />
 
           <Route path="/savings/add" element={<SavingsAdd />} />
           <Route path="/savings/progress" element={<SavingsProgress />} />
@@ -51,6 +60,8 @@ function App() {
 
           <Route path="/learn/money" element={<LearnMoney />} />
           <Route path="/learn/finance" element={<LearnFinance />} />
+
+          <Route path="*" element={<h1>404 Page Not Found</h1>} />
 
         </Routes>
       </Router>
