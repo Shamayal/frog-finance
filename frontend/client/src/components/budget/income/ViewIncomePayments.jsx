@@ -1,42 +1,29 @@
 import React, { useState } from 'react';
 // import NavigationBar from '../components/NavigationBar'
 import { useIncomeHook } from '../../../hooks/income';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const ViewIncomePayments = () => {
-  const [month, setMonth ] = useState("")
-  const [year, setYear ] = useState("")
+  const [startDate, setStartDate] = useState(new Date());
+
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+  function getMonth(startDate) {
+    const monthIndex = startDate.getMonth();
+    return months[monthIndex];
+  }
+
+  const month = getMonth(startDate);
+  const year = startDate.getFullYear();
+  console.log('income payments: ', month, year)
 
   const { viewIncomePayments, incomePayments } = useIncomeHook();
 
-  const months = ['January','February','March','April','May','June','July','August','September','August','October','November','December']
-  const years = [2023, 2022, 2021]
-  // const months = [
-  //   { value: "01", label: "January" },
-  //   { value: "02", label: "February" },
-  //   { value: "03", label: "March" },
-  //   { value: "04", label: "April" },
-  //   { value: "05", label: "May" },
-  //   { value: "06", label: "June" },
-  //   { value: "07", label: "July" },
-  //   { value: "08", label: "August" },
-  //   { value: "09", label: "September" },
-  //   { value: "10", label: "October" },
-  //   { value: "11", label: "November" },
-  //   { value: "12", label: "December" }
-  // ]
-
   const handleClick = (event) => {
     event.preventDefault()
-    viewIncomePayments(month + 1, year)
+    viewIncomePayments(startDate)
   }
-
-  const formatDate = (dateString) => {
-    // const date = new Date(dateString + 'T00:00:00.000Z');
-    const splitDate = dateString.split('-');
-    return (`${months[Number(splitDate[1]) - 1]} ${splitDate[2]}, ${splitDate[0]}`) 
-    // const options = { month: 'long', day: 'numeric', year: 'numeric' };
-    // return date.toLocaleDateString('en-US', options);
-  };
 
   const sortedIncomePayments = [...incomePayments].sort((a, b) => {
     return new Date(a.income_date) - new Date(b.income_date);
@@ -45,26 +32,17 @@ const ViewIncomePayments = () => {
   return (
     <div>
       <div>------------------------------------------------------------</div>
-      <p>Income Payments Received in {months[month]} {year}</p>
+      <p>Income Payments Received in {month} {year}</p>
 
-      <form action="">
-        <select value={month} id="income_month" onChange={(event) => setMonth(Number(event.target.value))}>
-          <option value="">Select Month</option>
-          {months.map((month, index) => (
-            <option key={index} value={index}>{month}</option>
-          ))}
-        </select>
-
-        <select value={year} id="income_year" onChange={(event) => setYear(event.target.value)}>
-          <option value="">Select Year</option>
-          {years.map((year) => (
-            <option key={year} value={year}>{year}</option>
-          ))}
-        </select>
-
-        {/* <input type="text" value={year} id="income_year" onChange={(event) => setYear(event.target.value)} /> */}
-        <button type="submit" onClick={handleClick}> Get Income Payments </button>
-      </form>
+      <DatePicker
+        selected={startDate}
+        onChange={(date) => setStartDate(date)}
+        dateFormat="MM/yyyy"
+        showMonthYearPicker
+        showFullMonthYearPicker
+        showFourColumnMonthYearPicker
+      />
+      <button type="submit" onClick={handleClick}> Get Income Payments </button>
 
       <table>
         <thead>
@@ -76,7 +54,7 @@ const ViewIncomePayments = () => {
         <tbody>
           {sortedIncomePayments.map((payment, index) => (
             <tr key={`${payment.user_id}_${index}`}>
-              <td>{formatDate(payment.income_date)}</td>
+              <td>{months[payment.income_date.slice(5,7).padStart(2, '0') - 1]} {payment.income_date.slice(8, 10)}, {payment.income_date.slice(0,4)}</td>
               <td>${payment.amount.toLocaleString()}</td>
             </tr>
           ))}
