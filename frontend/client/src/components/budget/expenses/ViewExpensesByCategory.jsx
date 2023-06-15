@@ -44,7 +44,7 @@ const ViewExpensesByCategory = () => {
     labels: categoryLabels,
     datasets: [
       {
-        label: 'Total Amount ($)',
+        label: 'Total Amount $',
         data: categoryData,
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
@@ -66,7 +66,7 @@ const ViewExpensesByCategory = () => {
       },
     ],
   };
-
+  
   return (
     <div>
       <div>------------------------------------------------------------</div>
