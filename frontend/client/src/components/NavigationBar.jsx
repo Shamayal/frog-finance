@@ -9,9 +9,13 @@ import Debt from "../routes/Debt";
 import Savings from "../routes/Savings";
 import Stocks from "../routes/Stocks";
 import Learn from "../routes/Learn";
+import { menuItems } from "../menuItems";
+import MenuItems from './MenuItems';
+
 
 const NavigationBar = () => {
   const { isLoading, error } = useAuth0();
+
 
   return (
     <div>
@@ -24,6 +28,11 @@ const NavigationBar = () => {
       <LogoutButton />
 
       <nav>
+        <ul className="menus">
+          {menuItems.map((menu, index) => {
+            return <MenuItems items={menu} key={index} />;
+          })}
+        </ul>
         <Link to="/">Home</Link>
         <br />
         <Link to="/about">About</Link>

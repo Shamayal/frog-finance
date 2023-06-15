@@ -22,7 +22,7 @@ function App() {
         <NavigationBar />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/budget" element={<Budget />} />
+          <Route path="/budget" element={<Budget />}/>
           <Route path="/savings" element={<Savings />} />
           <Route path="/debt" element={<Debt />} />
           <Route path="/learn" element={<Learn />} />
