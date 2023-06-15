@@ -1,42 +1,43 @@
 import React, { useState } from 'react';
 import { useIncomeHook } from '../../../hooks/income';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const ViewIncomeByMonth = () => {
-  const [month, setMonth ] = useState("")
-  const [year, setYear ] = useState("")
+  const [startDate, setStartDate] = useState(new Date());
+
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+  function getMonth(startDate) {
+    const monthIndex = startDate.getMonth();
+    return months[monthIndex];
+  }
+
+  const month = getMonth(startDate);
+  const year = startDate.getFullYear();
+  console.log('income by month: ', month, year)
 
   const { viewIncomeByMonth, incomeByMonth } = useIncomeHook();
 
-  const months = ['January','February','March','April','May','June','July','August','September','August','October','November','December']
-  const years = [2023, 2022, 2021]
-
   const handleClick = (event) => {
     event.preventDefault()
-    viewIncomeByMonth(month + 1, year)
+    viewIncomeByMonth(startDate)
   }
 
   return (
     <div>
       <div>------------------------------------------------------------</div>
-      <p>Total Income Earned in {months[month]} {year}</p>
+      <p>Total Income Earned in {month} {year}</p>
 
-      <form action="">
-        <select value={month} id="income_month" onChange={(event) => setMonth(Number(event.target.value))}>
-          <option value="">Select Month</option>
-          {months.map((month, index) => (
-            <option key={index} value={index}>{month}</option>
-          ))}
-        </select>
-
-        <select value={year} id="income_year" onChange={(event) => setYear(event.target.value)}>
-          <option value="">Select Year</option>
-          {years.map((year) => (
-            <option key={year} value={year}>{year}</option>
-          ))}
-        </select>
-
-        <button type="submit" onClick={handleClick}> Get Total Income </button>
-      </form>
+      <DatePicker
+        selected={startDate}
+        onChange={(date) => setStartDate(date)}
+        dateFormat="MM/yyyy"
+        showMonthYearPicker
+        showFullMonthYearPicker
+        showFourColumnMonthYearPicker
+      />
+      <button type="submit" onClick={handleClick}> Get Total Income </button>
 
       <div>
         <p>Total Amount:</p>
