@@ -3,7 +3,7 @@ const db = require('../connection.js');
 // View net total saved for month
 const getNetTotal = (userId, month, year) => {
   return db.query(`
-    SELECT total_income, total_expenses, total_income - total_expenses AS net_total
+    SELECT COALESCE(total_income,0) AS total_income, COALESCE(total_expenses, 0) AS total_expenses, COALESCE(total_income, 0) - COALESCE(total_expenses, 0) AS net_total
     FROM (SELECT SUM(amount) AS total_income
     FROM income
     WHERE EXTRACT(MONTH FROM income.income_date) = $1
