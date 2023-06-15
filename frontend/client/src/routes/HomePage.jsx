@@ -1,8 +1,9 @@
 const HomePage = () => {
   return (
     <div>
-      <h2>This is the HomePage</h2>
-      <h5>Welcome to Frog Finance! Leap towards financial stability!</h5>
+      <h2>Welcome to Frog Finance!</h2>
+      <h3>Leap towards financial stability!</h3>
+      <h4>Join millions of others and hop into finance frog to embark on your journey to effective money management!</h4>
     </div>
   );
 };

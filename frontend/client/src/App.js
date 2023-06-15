@@ -10,7 +10,9 @@ import Budget from "./routes/Budget.jsx"
 import Debt from './routes/Debt.jsx'
 import Savings from "./routes/Budget.jsx"
 import Stocks from "./routes/Budget.jsx"
-import Learn from "./routes/Learn.jsx"
+
+import LearnMoney from "./routes/LearnMoney.jsx";
+import LearnFinance from "./routes/LearnFinance";
 
 
 function App() {
@@ -22,10 +24,33 @@ function App() {
         <NavigationBar />
         <Routes>
           <Route path="/" element={<HomePage />} />
+
+          <Route path="/money/income/add" element={<Budget />}/>
+          <Route path="/money/income/view" element={<Savings />} />
+
+          <Route path="/money/expenses/add" element={<Debt />} />
+          <Route path="/money/expenses/view" element={<Debt />} />
+{/* 
+          <Route path="/money/budget/update" element={<Learn />} />
+          <Route path="/money/budget/view" element={<Learn />} />
+
+          <Route path="/savings/add" element={<Learn />} />
+          <Route path="/savings/progress" element={<Learn />} />
+          <Route path="/savings/achievements" element={<Learn />} />
+
+          <Route path="/debt/add" element={<Learn />} />
+          <Route path="/debt/progress" element={<Learn />} />
+          <Route path="/debt/past" element={<Learn />} /> */}
+
+          <Route path="/stocks" element={<Stocks />} />
+
+          <Route path="/learn/money" element={<LearnMoney />} />
+          <Route path="/learn/finance" element={<LearnFinance />} />
+
+      
           <Route path="/budget" element={<Budget />}/>
           <Route path="/savings" element={<Savings />} />
           <Route path="/debt" element={<Debt />} />
-          <Route path="/learn" element={<Learn />} />
           <Route path="/stocks" element={<Stocks />} />
         </Routes>
       </Router>

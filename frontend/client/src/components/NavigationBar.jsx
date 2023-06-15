@@ -8,7 +8,7 @@ import Budget from "../routes/Budget";
 import Debt from "../routes/Debt";
 import Savings from "../routes/Savings";
 import Stocks from "../routes/Stocks";
-import Learn from "../routes/Learn";
+import Learn from "../routes/LearnMoney";
 import { menuItems } from "../menuItems";
 import MenuItems from './MenuItems';
 
@@ -18,7 +18,7 @@ const NavigationBar = () => {
 
   return (
     <div>
-      <h2>This is the Nav component</h2>
+      <h2>Frog Finance</h2>
       {/* <h1>Auth0 Login</h1> */}
       {error && <p>Authentication Error</p>}
       {!error && isLoading && <p>Loading...</p>}
