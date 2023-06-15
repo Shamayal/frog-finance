@@ -32,7 +32,6 @@ function App() {
       {!error && isLoading && <p>Loading...</p>}
       {!error && !isLoading && (
         <>
-
         </>
 
       )}

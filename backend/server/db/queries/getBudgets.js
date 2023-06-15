@@ -47,7 +47,7 @@ const updateBudgetAmount = (user_id, budget_amount, category_id) => {
                   });
 }
 
-//Update the Budget Amount
+//Update the Budget Amount Reached
 const updateBudgetReached = (budget_id) => {
   return db.query(`UPDATE budgets set budget_reached = TRUE where id = $1`, [budget_id])
                   .then((result) => {
