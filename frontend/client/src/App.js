@@ -6,15 +6,15 @@ import "./App.css";
 
 import NavigationBar from "./components/NavigationBar.jsx"
 import HomePage from "./routes/HomePage.jsx"
-import Budget from "./routes/Budget.jsx"
-import Debt from './routes/Debt.jsx'
-import Savings from "./routes/Budget.jsx"
 
-import Stocks from "./routes/Stocks";
+import DebtAdd from "./routes/Debt/DebtAdd";
+import DebtProgress from "./routes/Debt/DebtProgress";
+import DebtPast from "./routes/Debt/DebtPast";
 
-import LearnMoney from "./routes/LearnMoney.jsx";
-import LearnFinance from "./routes/LearnFinance";
+import Stocks from "./routes/Stocks/Stocks";
 
+import LearnMoney from "./routes/Learn/LearnMoney.jsx";
+import LearnFinance from "./routes/Learn/LearnFinance";
 
 function App() {
 
@@ -37,21 +37,17 @@ function App() {
 
           <Route path="/savings/add" element={<Learn />} />
           <Route path="/savings/progress" element={<Learn />} />
-          <Route path="/savings/achievements" element={<Learn />} />
+          <Route path="/savings/achievements" element={<Learn />} />*/}
 
-          <Route path="/debt/add" element={<Learn />} />
-          <Route path="/debt/progress" element={<Learn />} />
-          <Route path="/debt/past" element={<Learn />} /> */}
+          <Route path="/debt/add" element={<DebtAdd />} />
+          <Route path="/debt/progress" element={<DebtProgress />} />
+          <Route path="/debt/past" element={<DebtPast />} />
 
           <Route path="/stocks" element={<Stocks />} />
 
           <Route path="/learn/money" element={<LearnMoney />} />
           <Route path="/learn/finance" element={<LearnFinance />} />
 
-{/*       
-          <Route path="/budget" element={<Budget />}/>
-          <Route path="/savings" element={<Savings />} />
-          <Route path="/debt" element={<Debt />} /> */}
         </Routes>
       </Router>
 

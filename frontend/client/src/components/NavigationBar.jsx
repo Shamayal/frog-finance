@@ -5,10 +5,10 @@ import LogoutButton from "./authentication/LogoutButton";
 import Profile from "./authentication/Profile";
 
 import Budget from "../routes/Budget";
-import Debt from "../routes/Debt";
-import Savings from "../routes/Savings";
-import Stocks from "../routes/Stocks";
-import Learn from "../routes/LearnMoney";
+import Debt from "../routes/Debt/DebtAdd";
+import Savings from "../routes/Savings/Savings";
+import Stocks from "../routes/Stocks/Stocks";
+import Learn from "../routes/Learn/LearnMoney";
 import { menuItems } from "../menuItems";
 import MenuItems from './MenuItems';
 
@@ -33,20 +33,6 @@ const NavigationBar = () => {
             return <MenuItems items={menu} key={index} depthLevel={depthLevel} />;
           })}
         </ul>
-        {/* <Link to="/">Home</Link>
-        <br />
-        <Link to="/about">About</Link>
-        <br />
-        <Link to="/budget">Budget</Link>
-        <br />
-        <Link to="/savings">Savings</Link>
-        <br />
-        <Link to="/debt">Debt</Link>
-        <br />
-        <Link to="/stocks">Stocks</Link>
-        <br />
-        <Link to="/learn">Learn</Link>
-        <br /> */}
       </nav>
     </div>
   );
