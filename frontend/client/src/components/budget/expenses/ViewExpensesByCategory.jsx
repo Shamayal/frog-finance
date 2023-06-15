@@ -1,18 +1,27 @@
 import React, { useState } from 'react';
 import { useExpensesHook } from '../../../hooks/expenses';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const ViewExpensesByCategory = () => {
-  const [month, setMonth ] = useState("")
-  const [year, setYear ] = useState("")
+  const [startDate, setStartDate] = useState(new Date());
+
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+  function getMonth(startDate) {
+    const monthIndex = startDate.getMonth();
+    return months[monthIndex];
+  }
+
+  const month = getMonth(startDate);
+  const year = startDate.getFullYear();
+  console.log(month, year)
 
   const { viewExpensesByCategory, expensesByCategory } = useExpensesHook();
 
-  const months = ['January','February','March','April','May','June','July','August','September','August','October','November','December']
-  const years = [2023, 2022, 2021]
-
   const handleClick = (event) => {
     event.preventDefault()
-    viewExpensesByCategory(month + 1, year)
+    viewExpensesByCategory(startDate)
   }
 
   const sortedExpensesByCategory = [...expensesByCategory].sort((a, b) => {
@@ -22,25 +31,17 @@ const ViewExpensesByCategory = () => {
   return (
     <div>
       <div>------------------------------------------------------------</div>
-      <p>Total Expenses By Category Spent in {months[month]} {year}</p>
+      <p>Total Expenses By Category Spent in {month} {year}</p>
 
-      <form action="">
-        <select value={month} id="expenses_month" onChange={(event) => setMonth(Number(event.target.value))}>
-          <option value="">Select Month</option>
-          {months.map((month, index) => (
-            <option key={index} value={index}>{month}</option>
-          ))}
-        </select>
-
-        <select value={year} id="expenses_year" onChange={(event) => setYear(event.target.value)}>
-          <option value="">Select Year</option>
-          {years.map((year) => (
-            <option key={year} value={year}>{year}</option>
-          ))}
-        </select>
-
-        <button type="submit" onClick={handleClick}> Get Expenses By Category </button>
-      </form>
+      <DatePicker
+        selected={startDate}
+        onChange={(date) => setStartDate(date)}
+        dateFormat="MM/yyyy"
+        showMonthYearPicker
+        showFullMonthYearPicker
+        showFourColumnMonthYearPicker
+      />
+      <button type="submit" onClick={handleClick}> Get Expenses By Category </button>
 
       <table>
         <thead>

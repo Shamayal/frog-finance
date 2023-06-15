@@ -7,11 +7,18 @@ export const useExpensesHook = () => {
   const [ addExpenses, setAddExpenses ] = useState([]);
   const [ netTotal, setNetTotal ] = useState([]);
 
-  const viewExpensesByCategory = (month, year) => {
-    // adds a 0 in front of the month if it is a single digit
-    const paddedMonth = String(month).padStart(2, '0')
+  const viewExpensesByCategory = (startDate) => {
+    const formatMonth = (startDate) => {
+      const month = startDate.getMonth() + 1;
+      return month < 10 ? `0${month}` : `${month}`;
+    }
+
+    const formatYear = (startDate) => {
+      return startDate.getFullYear().toString();
+    }
+
     axios({
-      url: `http://localhost:3030/expenses?year=${year}&month=${paddedMonth}`,
+      url: `http://localhost:3030/expenses?year=${formatYear(startDate)}&month=${formatMonth(startDate)}`,
       method: "GET",
       dataResponse: "json"
     })
