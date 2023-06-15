@@ -4,57 +4,83 @@ export const menuItems = [
     url: '/',
   },
   {
-    title: 'About',
-    url: '/about',
-  },
-  {
-    title: 'Budget',
-    url: '/budget',
+    title: 'Money Management',
+    url: '/money',
     submenu: [
       {
-        title: 'income',
+        title: 'Income',
         submenu: [
           {
-            title: 'add income',
-            url: 'add-income',
+            title: 'Add Income',
+            url: '/money/income/add',
           },
           {
-            title: 'view income',
-            url: 'view-income',
+            title: 'View Income',
+            url: 'money/income/view',
           }
         ]
       },
       {
-        title: 'expenses',
-        url:  'expense',
+        title: 'Expenses',
+        submenu: [
+          {
+            title: 'Add Expense',
+            url: '/money/expenses/add',
+          },
+          {
+            title: 'View Expenses',
+            url: 'money/expenses/view',
+          }
+        ]
       },
       {
-        title: 'monthly budget tracker',
-        url: 'monthly-budget-tracker'
+        title: 'Budget',
+        submenu: [
+          {
+            title: 'Update Spending Categories',
+            url: '/money/budget/update',
+          },
+          {
+            title: 'Monthly Overview',
+            url: 'money/budget/view',
+          }
+        ]
       }
     ]
   },
   {
-    title: 'Savings',
+    title: 'Savings Goals',
     url: '/savings',
     submenu: [
       {
-        title: 'current goals',
-        url: 'goals'
+        title: 'Add New Goal',
+        url: '/savings/add'
       },
       {
-        title: 'past goals',
-        url: 'past-goals'
+        title: 'Savings Progress',
+        url: '/savings/progress'
+      },
+      {
+        title: 'Savings Achievements',
+        url: '/savings/achievements'
       }
     ]
   },
   {
-    title: 'Debt',
+    title: 'Debt Management',
     url: '/debt',
     submenu: [
       {
-        title: 'debt goals',
-        url: 'goals'
+        title: 'Add New Debt',
+        url: '/debt/add'
+      },
+      {
+        title: 'Debt Progress',
+        url: '/debt/progress'
+      },
+      {
+        title: 'Past Debt',
+        url: '/debt/past'
       }
     ]
   },
@@ -64,7 +90,17 @@ export const menuItems = [
   },
   {
     title: 'Learn',
-    url: '/learn'
+    url: '/learn',
+    submenu: [
+      {
+        title: 'Money Tips 101',
+        url: '/learn/money'
+      },
+      {
+        title: 'Personal Finance',
+        url: '/learn/finance'
+      }
+    ]
   }
 ];
 
