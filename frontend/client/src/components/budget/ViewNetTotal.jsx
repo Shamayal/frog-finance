@@ -14,6 +14,7 @@ const ViewNetTotal = () => {
 
   const month = getMonth(startDate);
   const year = startDate.getFullYear();
+  console.log(month, year)
 
   // create a useHook for date that returns variables as seen in comment below
   // const {date, setDate, month, year} = useDateMonthYear() 
@@ -23,7 +24,6 @@ const ViewNetTotal = () => {
   const handleClick = (event) => {
     event.preventDefault()
     viewNetTotal(startDate);
-    setStartDate(new Date ());
   }
   // variable to derive month and year, can display and pass to function on line 60 in expenses.js
 
