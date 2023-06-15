@@ -1,16 +1,14 @@
 const router = require("express").Router();
 const db = require('../db/connection.js');
-const { getCurrentSavingsGoal, getFinishedSavingsGoal, createNewSavingsGoal } = require('../db/queries/getSavingsQueries');
+const { getCurrentSavingsGoalAfterUpdate, getFinishedSavingsGoal, createNewSavingsGoal } = require('../db/queries/getSavingsQueries');
 
 // Show the current savings goal
 router.get("/", (req, res) => {
   const user_id = 1;
-  getCurrentSavingsGoal(user_id)
-    .then((result) => {
-      // check in the return, if goal is reached, update to full amount and flip to true
-      // update / insert
-      res.send({ message: 'Here are the current savings goals:', current_savings_goals: result.rows })
-    })
+  getCurrentSavingsGoalAfterUpdate(user_id)
+  .then((goal) => {
+    res.send({ message: 'Here are the current savings goals:', current_savings_goal: goal });
+  })
     .catch((err) => {
       console.log(err.message);
     });

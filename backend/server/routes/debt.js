@@ -48,7 +48,7 @@ router.post("/new", (req, res) => {
 
 // Make a new debt payment towards one of the debt goals
 router.post("/payment", (req, res) => {
-  const [amount, debt_goal_id] = req.params;
+  const { amount, debt_goal_id } = req.body;
   const user_id = 1;
   createDebtPayment(amount, debt_goal_id, user_id)
     .then((result) => {

@@ -41,11 +41,10 @@ export const useDebtHook = () => {
     });
   };
 
-  const addDebtPayment = (debtName, debtAmount, interestRate) => {
+  const addDebtPayment = (debtPaymentAmount, debtGoalId) => {
     const data = {
-      name: debtName,
-      initial_amount: debtAmount,
-      interest_rate: interestRate
+      amount: debtPaymentAmount,
+      debt_goal_id: debtGoalId
     }
     axios.post(`http://localhost:3030/debt/payment`, data)
     .catch((error) => {

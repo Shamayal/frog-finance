@@ -14,7 +14,7 @@ export const useSavingsHook = () => {
     })
       .then((res) => {
         console.log("incoming current savings goal data", res.data)
-        setCurrentSavingsGoal(res.data.current_savings_goals[0])
+        setCurrentSavingsGoal(res.data.current_savings_goal)
       })
       .catch((error) => {
         console.error('Error fetching photos:', error);

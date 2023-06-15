@@ -75,3 +75,17 @@ module.exports = {
   createNewDebtGoal,
   createDebtPayment
 };
+
+
+/*
+SELECT *, ... AS amount_left,  payment_totals.total AS amount_paid, amount_left <= 0 AS paid_off,
+FROM debts
+LEFT JOIN (
+  SELECT SUM(debt_payments_amount) AS total, debt_id
+  FROM debt_payments
+  GROUP BY debt_id
+) AS payment_totals
+ON debt_id = debts.id
+
+take out interest rates
+*/

@@ -19,7 +19,7 @@ useEffect(() => {
 
       {pastSavingsGoal.length > 0 && (
       pastSavingsGoal.map((pastSaving) => (
-        <section key={pastSaving.id}>
+        <section key={pastSaving.savings_id}>
         <h3>Goal Name: {pastSaving.saving_name}</h3>
         <p>Goal Amount: ${pastSaving.goal_amount}.00</p>
         <p>Saved: ${pastSaving.current_amount}.00</p>
