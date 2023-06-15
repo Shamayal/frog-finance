@@ -4,6 +4,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
+import "./ViewExpensesByCategory.css";
 
 const ViewExpensesByCategory = () => {
   const [startDate, setStartDate] = useState(new Date());
@@ -98,7 +99,9 @@ const ViewExpensesByCategory = () => {
           ))}
         </tbody>
       </table>
-      <Pie data={data}/>
+      <div className="pieContainer">
+        <Pie data={data}/>
+      </div>
 
       <div>------------------------------------------------------------</div>
     </div>
