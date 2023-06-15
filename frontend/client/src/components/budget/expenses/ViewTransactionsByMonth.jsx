@@ -56,7 +56,7 @@ const ViewExpensesTransactions = () => {
         <tbody>
           {sortedExpensesTransactions.map((transaction, index) => (
             <tr key={`${transaction.user_id}_${index}`}>
-              <td>{month} {transaction.expense_date.slice(8, 10)}, {transaction.expense_date.slice(0,4)}</td>
+              <td>{months[transaction.expense_date.slice(5,7).padStart(2, '0') - 1]} {transaction.expense_date.slice(8, 10)}, {transaction.expense_date.slice(0,4)}</td>
               <td>{transaction.category_name}</td>
               <td>{transaction.sub_category_name}</td>
               <td>${Number(transaction.amount).toLocaleString()}</td>
