@@ -1,40 +1,53 @@
 // from video
-import LoginButton from "./components/authentication/LoginButton";
-import LogoutButton from "./components/authentication/LogoutButton";
-import Profile from "./components/authentication/Profile";
-import ViewMonthlyBudgets from "./components/budget/ViewMonthlyBudgets";
-import CurrentSavingGoal from './components/savings/CurrentSavingsGoal';
-import PastSavingsGoals from './components/savings/PastSavingsGoals';
-import CreateSavingsGoal from "./components/savings/CreateSavingsGoal";
-import CurrentDebtGoals from './components/debt/CurrentDebtGoals';
-import PaidOffDebts from './components/debt/PaidOffDebts';
-import AddNewDebtGoal from './components/debt/AddNewDebtGoal';
-import MakeDebtPayment from "./components/debt/MakeDebtPayment";
-import { useAuth0 } from "@auth0/auth0-react";
-import './App.css';
-import axios from 'axios';
-import {useEffect} from "react";
-import ViewIncomePayments from "./components/budget/income/ViewIncomePayments";
-import ViewIncomeByMonth from "./components/budget/income/ViewIncomeByMonth";
-import ViewNetTotal from "./components/budget/ViewNetTotal";
-import ViewExpensesByCategory from "./components/budget/expenses/ViewExpensesByCategory";
-import ViewExpensesTransactions from "./components/budget/expenses/ViewTransactionsByMonth";
-import ViewAddIncome from "./components/budget/income/AddIncome";
-import ViewAddExpenses from "./components/budget/expenses/AddExpenses";
+import { BrowserRouter as Router, Routes , Route} from "react-router-dom";
+import { useEffect } from "react";
+
+import "./App.css";
+
+import NavigationBar from "./components/NavigationBar.jsx"
+import HomePage from "./routes/HomePage.jsx"
+import Budget from "./routes/Budget.jsx"
+import Debt from './routes/Debt.jsx'
+import Savings from "./routes/Budget.jsx"
+import Stocks from "./routes/Budget.jsx"
+import Learn from "./routes/Learn.jsx"
+
 
 function App() {
-  const { isLoading, error } = useAuth0();
 
   return (
     <main className="column">
-      {/* <h1>Auth0 Login</h1> */}
-      {error && <p>Authentication Error</p>}
-      {!error && isLoading && <p>Loading...</p>}
-      {!error && !isLoading && (
-        <>
-        </>
+    
+      <Router>
+        <NavigationBar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/budget" element={<Budget />} />
+          <Route path="/savings" element={<Savings />} />
+          <Route path="/debt" element={<Debt />} />
+          <Route path="/learn" element={<Learn />} />
+          <Route path="/stocks" element={<Stocks />} />
+        </Routes>
+      </Router>
 
-      )}
+{/* Example from david: */}
+      {/* <Router>
+        <Nav />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/about"
+            element={
+              <ProtectedRoute user={user}>
+                <About />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="*" element={<h1>404 Page Not Found</h1>} />
+          <Route path="/products/*" element={<ProductList />} />
+        </Routes>
+      </Router> */}
+      
     </main>
   );
 }
@@ -42,4 +55,4 @@ function App() {
 export default App;
 
 //put month and year states here and pass it down to components that need it
-// or create context and wrap it with elements 
+// or create context and wrap it with elements
