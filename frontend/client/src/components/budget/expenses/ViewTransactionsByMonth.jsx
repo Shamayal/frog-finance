@@ -1,24 +1,29 @@
 import React, { useState } from 'react';
 import { useExpensesHook } from '../../../hooks/expenses';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const ViewExpensesTransactions = () => {
-  const [month, setMonth ] = useState("")
-  const [year, setYear ] = useState("")
+  const [startDate, setStartDate] = useState(new Date());
+
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+  function getMonth(startDate) {
+    // const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const monthIndex = startDate.getMonth();
+    return months[monthIndex];
+  }
+
+  const month = getMonth(startDate);
+  const year = startDate.getFullYear();
+  console.log(month, year)
 
   const { viewExpensesTransactions, expensesTransactions } = useExpensesHook();
 
-  const months = ['January','February','March','April','May','June','July','August','September','August','October','November','December']
-  const years = [2023, 2022, 2021]
-
   const handleClick = (event) => {
     event.preventDefault()
-    viewExpensesTransactions(month + 1, year)
+    viewExpensesTransactions(startDate);
   }
-
-  const formatDate = (dateString) => {
-    const splitDate = dateString.split('-');
-    return (`${months[Number(splitDate[1]) - 1]} ${splitDate[2]}, ${splitDate[0]}`) 
-  };
 
   const sortedExpensesTransactions = [...expensesTransactions].sort((a, b) => {
     return new Date(a.expense_date) - new Date(b.expense_date);
@@ -27,25 +32,17 @@ const ViewExpensesTransactions = () => {
   return (
     <div>
       <div>------------------------------------------------------------</div>
-      <p>All Expense Transactions in {months[month]} {year}</p>
+      <p>All Expense Transactions in {month} {year}</p>
 
-      <form action="">
-        <select value={month} id="expenses_month" onChange={(event) => setMonth(Number(event.target.value))}>
-          <option value="">Select Month</option>
-          {months.map((month, index) => (
-            <option key={index} value={index}>{month}</option>
-          ))}
-        </select>
-
-        <select value={year} id="expenses_year" onChange={(event) => setYear(event.target.value)}>
-          <option value="">Select Year</option>
-          {years.map((year) => (
-            <option key={year} value={year}>{year}</option>
-          ))}
-        </select>
-
-        <button type="submit" onClick={handleClick}> Get Expenses By Category </button>
-      </form>
+      <DatePicker
+        selected={startDate}
+        onChange={(date) => setStartDate(date)}
+        dateFormat="MM/yyyy"
+        showMonthYearPicker
+        showFullMonthYearPicker
+        showFourColumnMonthYearPicker
+      />
+      <button type="submit" onClick={handleClick}> Get All Transactions </button>
 
       <table>
         <thead>
@@ -59,7 +56,7 @@ const ViewExpensesTransactions = () => {
         <tbody>
           {sortedExpensesTransactions.map((transaction, index) => (
             <tr key={`${transaction.user_id}_${index}`}>
-              <td>{formatDate(transaction.expense_date)}</td>
+              <td>{month} {transaction.expense_date.slice(8, 10)}, {transaction.expense_date.slice(0,4)}</td>
               <td>{transaction.category_name}</td>
               <td>{transaction.sub_category_name}</td>
               <td>${Number(transaction.amount).toLocaleString()}</td>
