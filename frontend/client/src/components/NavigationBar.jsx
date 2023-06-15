@@ -12,7 +12,6 @@ import Learn from "../routes/Learn";
 import { menuItems } from "../menuItems";
 import MenuItems from './MenuItems';
 
-
 const NavigationBar = () => {
   const { isLoading, error } = useAuth0();
 
