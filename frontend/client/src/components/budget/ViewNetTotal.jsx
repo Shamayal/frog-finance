@@ -4,37 +4,33 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 const ViewNetTotal = () => {
-  // const [month, setMonth ] = useState("")
-  // const [year, setYear ] = useState("")
   const [startDate, setStartDate] = useState(new Date());
-  // const year = 
-  // startDate derive
-  // use variable in jsx and 
-  // create a use hook for date that returns startDate, month, year
-  
+
+  function getMonth(startDate) {
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const monthIndex = startDate.getMonth();
+    return months[monthIndex];
+  }
+
+  const month = getMonth(startDate);
+  const year = startDate.getFullYear();
+
+  // create a useHook for date that returns variables as seen in comment below
   // const {date, setDate, month, year} = useDateMonthYear() 
- 
 
   const { viewNetTotal, netTotal } = useExpensesHook();
 
-  const months = ['January','February','March','April','May','June','July','August','September','August','October','November','December']
-  const years = [2023, 2022, 2021]
-
   const handleClick = (event) => {
     event.preventDefault()
-    // viewNetTotal(month + 1, year)
-
     viewNetTotal(startDate);
-    console.log('startDate: ', startDate)
-
     setStartDate(new Date ());
   }
-  // variable to derive month and year, can display and pass to function
+  // variable to derive month and year, can display and pass to function on line 60 in expenses.js
 
   return (
     <div>
       <div>------------------------------------------------------------</div>
-      <p>Net Total Saved in {startDate.toString()}</p>
+      <p>Net Total Saved in {month} {year}</p>
 
       <DatePicker
         selected={startDate}
@@ -44,24 +40,7 @@ const ViewNetTotal = () => {
         showFullMonthYearPicker
         showFourColumnMonthYearPicker
       />
-
-      <form action="">
-        {/* <select value={month} id="netTotal_month" onChange={(event) => setMonth(Number(event.target.value))}>
-          <option value="">Select Month</option>
-          {months.map((month, index) => (
-            <option key={index} value={index}>{month}</option>
-          ))}
-        </select>
-
-        <select value={year} id="netTotal_year" onChange={(event) => setYear(event.target.value)}>
-          <option value="">Select Year</option>
-          {years.map((year) => (
-            <option key={year} value={year}>{year}</option>
-          ))}
-        </select> */}
-
-        <button type="submit" onClick={handleClick}> Get Net Total </button>
-      </form>
+      <button type="submit" onClick={handleClick}> Get Net Total </button>
 
       <table>
         <thead>
