@@ -7,6 +7,10 @@ import "./App.css";
 import NavigationBar from "./components/NavigationBar.jsx"
 import HomePage from "./routes/HomePage.jsx"
 
+import SavingsAdd from "./routes/Savings/SavingsAdd";
+import SavingsProgress from "./routes/Savings/SavingsProgress";
+import SavingsAchievements from "./routes/Savings/SavingsAchievements";
+
 import DebtAdd from "./routes/Debt/DebtAdd";
 import DebtProgress from "./routes/Debt/DebtProgress";
 import DebtPast from "./routes/Debt/DebtPast";
@@ -33,11 +37,11 @@ function App() {
           <Route path="/money/expenses/view" element={<Debt />} /> */}
 {/* 
           <Route path="/money/budget/update" element={<Learn />} />
-          <Route path="/money/budget/view" element={<Learn />} />
+          <Route path="/money/budget/view" element={<Learn />} />  */}
 
-          <Route path="/savings/add" element={<Learn />} />
-          <Route path="/savings/progress" element={<Learn />} />
-          <Route path="/savings/achievements" element={<Learn />} />*/}
+          <Route path="/savings/add" element={<SavingsAdd />} />
+          <Route path="/savings/progress" element={<SavingsProgress />} />
+          <Route path="/savings/achievements" element={<SavingsAchievements />} />
 
           <Route path="/debt/add" element={<DebtAdd />} />
           <Route path="/debt/progress" element={<DebtProgress />} />
