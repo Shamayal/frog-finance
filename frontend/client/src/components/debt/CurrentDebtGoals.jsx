@@ -26,6 +26,7 @@ const ViewDebtGoals = () => {
             {debtGoal.amount_paid === null && <p>Amount Paid Off: $0</p>}
             {debtGoal.amount_paid !== null && <p>Amount Paid Off: ${debtGoal.amount_paid}</p>}
             <p>Amount Left: ${debtGoal.amount_left}</p>
+            {/* <p>Amount Left: ${!debtGoal.amount_left && "mark complete"}</p> */}
             <p>Debt id: {debtGoal.debt_id}</p>
             <button>
               Update payments
