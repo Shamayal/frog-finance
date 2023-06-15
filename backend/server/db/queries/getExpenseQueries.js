@@ -40,7 +40,7 @@ const getExpenseTransactions = (userId, month, year) => {
   return db.query(`
     SELECT user_id,
     to_char(expenses.expense_date, 'YYYY-MM-DD') AS expense_date,
-    amount, budget_id, categories.category AS category_name, sub_categories.sub_category AS sub_category_name
+    amount, categories.category AS category_name, sub_categories.sub_category AS sub_category_name
     FROM expenses
     JOIN users ON users.id = expenses.user_id
     JOIN sub_categories ON sub_categories.id = expenses.sub_category_id

@@ -4,11 +4,11 @@ const { addExpense, getExpenseTransactions, getExpenseByCategory } = require("..
 const { getNetTotal } = require("../db/queries/getNetTotal.js");
 
 // Total spent by category per month
-router.get("/:month/:year", (req, res) => {
+router.get("/", (req, res) => {
 
   const userId = 1; // const userId = req.session.userId;
-  const month = 05;   // const month = req.params.month;
-  const year = 2023;   // const year = req.params.year;
+  const month = req.query.month;
+  const year = req.query.year;
 
   getExpenseByCategory(userId, month, year)
     .then((result) => {
@@ -22,8 +22,8 @@ router.get("/:month/:year", (req, res) => {
 // Every expense transaction for a selected month
 router.get('/transactions', (req, res) => {
   const userId = 1; // const userId = req.session.userId;
-  const month = 05;   // const month = req.params.month;
-  const year = 2023;   // const year = req.params.year;
+  const month = req.query.month;
+  const year = req.query.year;
 
   getExpenseTransactions(userId, month, year)
     .then((result) => {
@@ -49,10 +49,10 @@ router.get('/transactions', (req, res) => {
     })
 })
 
-router.get("/netTotal/:month/:year", (req, res) => {
+router.get("/netTotal", (req, res) => {
   const userId = 1; // const userId = req.session.userId;
-  const month = 05;   // const month = req.params.month;
-  const year = 2023;   // const year = req.params.year;
+  const month = req.query.month;
+  const year = req.query.year;
 
   getNetTotal(userId, month, year)
     .then((result) => {
