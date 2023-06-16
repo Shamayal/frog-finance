@@ -71,7 +71,7 @@ const updateBudgetReached = (budget_id) => {
 const getCategoryNotBudgeted = (userId, month, year) => {
   return db.query(`
         select distinct categories.id, categories.category from categories 
-        where categories.id NOT IN (select id from budgets where user_id = $1
+        where categories.id NOT IN (select category_id from budgets where user_id = $1
         AND EXTRACT(MONTH FROM budgets.updated_at) = $2
         AND EXTRACT(YEAR FROM budgets.updated_at) = $3) order by categories.id`,[userId, month, year])
                   .then((result) => {

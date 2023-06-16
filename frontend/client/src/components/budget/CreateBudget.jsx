@@ -14,6 +14,7 @@ const ViewAddBudget = () => {
 
 
   const handleCategoryChange = (event) => {
+    console.log(event.target.value);
     const selectedCategory = event.target.value;
     setCategory(selectedCategory);
   };
@@ -50,7 +51,7 @@ const ViewAddBudget = () => {
             <select id="budget_category" value={category} onChange={handleCategoryChange}>
               <option value="">Select Category</option>
               {notBudgetCategories.map(category => (
-                <option key={category.id} value={category.category}>
+                <option value={category.id}>
                   {category.category}
                 </option>
               ))}

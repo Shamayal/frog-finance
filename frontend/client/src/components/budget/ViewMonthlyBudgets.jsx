@@ -46,7 +46,7 @@ const ViewMonthlyBudgets = () => {
       <button type="submit" onClick={handleClick}> Get Budget </button>
 
       { monthlyBudget.length > 0 &&
-        <><p>Budget for {months[month]} {year}</p>
+        <><p>Budget for {month} {year}</p>
         <table border={1}>
           <thead>
             <tr color='yellow'>
@@ -77,7 +77,7 @@ const ViewMonthlyBudgets = () => {
                   data: monthlyBudget.map((data) => data.budget_amount.toLocaleString()),
                   borderColor: ['rgb(0, 0, 255)'],
                   backgroundColor: ['rgba(0, 0, 255, 0.5)'],
-                  yAxisID: 'y',
+
                 },
                 {
                   label: 'Expenses',
