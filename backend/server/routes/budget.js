@@ -32,10 +32,10 @@ router.post("/add", (req, res) => {
 
 //POST/budget/updateAmount - Update the budget Amount for the Category
 router.post("/updateAmount", (req, res) => {
-  const { budget_amount, category_id } = req.body;
+  const { budget_amount, category_id, updated_at } = req.body;
   const user_id = 1;
 
-  updateBudgetAmount(user_id, budget_amount, category_id )
+  updateBudgetAmount(user_id, budget_amount, category_id, updated_at )
     .then((result) => {
       res.send({ message: 'Budget Updated successfully:', budget_amount_updated: result.rowCount })
     })

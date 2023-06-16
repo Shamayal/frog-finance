@@ -21,7 +21,7 @@ const UpdateBudget = () => {
 
   const handleClick = (event) => {
     event.preventDefault()
-    updateBudget(amount, category)
+    updateBudget(amount, category, startDate)
     setUpdated(true);
     setAmount("");
     setStartDate(new Date());

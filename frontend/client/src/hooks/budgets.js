@@ -45,9 +45,10 @@ export const useBudgetHook = () => {
     });
   }  
 
-  const updateBudget = (amount, category) => {
+  const updateBudget = (amount, category, startDate) => {
+    const formatDate = startDate.toISOString().split('T')[0];
 
-    const obj = {user_id: 1, budget_amount: amount, category_id: category} 
+    const obj = {user_id: 1, budget_amount: amount, category_id: category, updated_at: formatDate} 
 
     axios.post('http://localhost:3030/budget/updateAmount', obj)
       .then((res) => {
