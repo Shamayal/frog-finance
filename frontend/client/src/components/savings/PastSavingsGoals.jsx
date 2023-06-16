@@ -7,9 +7,9 @@ const ViewPastSavingsGoals = () => {
   const { viewPastSavingsGoal, pastSavingsGoal } = useSavingsHook();
   console.log("check pastSavingGoal state", pastSavingsGoal)
 
-useEffect(() => {
-  viewPastSavingsGoal()
-}, [])
+  useEffect(() => {
+    viewPastSavingsGoal()
+  }, [])
 
   return (
     <div>
@@ -18,16 +18,20 @@ useEffect(() => {
       }
 
       {pastSavingsGoal.length > 0 && (
-      pastSavingsGoal.map((pastSaving) => (
-        <section key={pastSaving.savings_id}>
-        <h3>Goal Name: {pastSaving.saving_name}</h3>
-        <p>Goal Amount: ${pastSaving.goal_amount}.00</p>
-        <p>Saved: ${pastSaving.current_amount}.00</p>
-        <p>Date Created: {pastSaving.date_created}</p>
-        <p>Date Completed: {pastSaving.date_finished}</p>
-        <p>Congrats, you finished saving up for your {pastSaving.saving_name}!</p>
-        <br />
-        </section>
+        pastSavingsGoal.map((pastSaving) => (
+          <section key={pastSaving.savings_id}>
+            <h3>Goal Name: {pastSaving.saving_name}</h3>
+            <p>Goal Amount: ${pastSaving.goal_amount}.00</p>
+            <p>Saved: ${pastSaving.current_amount}.00</p>
+            <p>Date Created: {pastSaving.date_created}</p>
+            <p>Date Completed: {pastSaving.date_finished}</p>
+            <p>Congrats, you finished saving up for your {pastSaving.saving_name}!</p>
+            <div className="progress w-50" role="progressbar" aria-label="Success example" aria-valuenow={100} aria-valuemin={0} aria-valuemax={100}>
+              <div className="progress-bar bg-success" style={{ width: '100%' }}>100%</div>
+            </div>
+            <br />
+
+          </section>
         ))
       )}
 
