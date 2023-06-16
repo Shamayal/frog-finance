@@ -1,7 +1,4 @@
-// from video
 import { BrowserRouter as Router, Routes , Route} from "react-router-dom";
-import { useEffect } from "react";
-
 import "./App.css";
 
 import NavigationBar from "./components/NavigationBar.jsx"
@@ -33,7 +30,7 @@ function App() {
 
   return (
     <main className="column">
-    
+
       <Router>
         <NavigationBar />
         <Routes>
@@ -66,24 +63,6 @@ function App() {
         </Routes>
       </Router>
 
-{/* Example from david: */}
-      {/* <Router>
-        <Nav />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route
-            path="/about"
-            element={
-              <ProtectedRoute user={user}>
-                <About />
-              </ProtectedRoute>
-            }
-          />
-          <Route path="*" element={<h1>404 Page Not Found</h1>} />
-          <Route path="/products/*" element={<ProductList />} />
-        </Routes>
-      </Router> */}
-      
     </main>
   );
 }
