@@ -12,7 +12,7 @@ const NavigationBar = () => {
   const { isLoading, error } = useAuth0();
 
   return (
-      <nav className='navbar'>
+      <nav className='navbar font-quicksand'>
         <ul className="menus">
           {menuItems.map((menu, index) => {
             const depthLevel = 0;
