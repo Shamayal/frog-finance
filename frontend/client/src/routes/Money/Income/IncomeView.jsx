@@ -30,8 +30,13 @@ const IncomeView = () => {
     event.preventDefault()
     setIsSubmitted(true);
     viewNetTotal(startDate);
-    viewIncomeByMonth(startDate)
-    viewIncomePayments(startDate)
+    viewIncomeByMonth(startDate);
+    viewIncomePayments(startDate);
+  }
+
+  const handleDateChange = (date) => {
+    setIsSubmitted(false);
+    setStartDate(date);
   }
 
   return (
@@ -41,21 +46,13 @@ const IncomeView = () => {
 
       <DatePicker
         selected={startDate}
-        onChange={(date) => setStartDate(date)}
+        onChange={handleDateChange}
         dateFormat="MM/yyyy"
         showMonthYearPicker
         showFullMonthYearPicker
         showFourColumnMonthYearPicker
       />
       <button type="submit" onClick={handleClick}> Submit to View Income </button>
-
-      {/* {isSubmitted && (
-        <div>
-          <ViewNetTotal month={month} year={year} netTotal={netTotal}/>
-          <ViewIncomeByMonth month={month} year={year} incomeByMonth={incomeByMonth}/>
-          <ViewIncomePayments months={months} month={month} year={year} incomePayments={incomePayments}/>
-        </div>
-      )} */}
 
       {isSubmitted && incomePayments.length > 0 ? (
         <div>

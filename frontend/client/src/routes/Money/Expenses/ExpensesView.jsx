@@ -14,7 +14,6 @@ const ExpenseView = () => {
   const { viewExpensesByCategory, expensesByCategory } = useExpensesHook();
   const { viewExpensesTransactions, expensesTransactions } = useExpensesHook();
 
-
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
   function getMonth(startDate) {
@@ -24,14 +23,19 @@ const ExpenseView = () => {
 
   const month = getMonth(startDate);
   const year = startDate.getFullYear();
-  console.log("selected: ", month, year)
+  console.log("selected: ", month, year);
 
   const handleClick = (event) => {
     event.preventDefault()
     setIsSubmitted(true);
     viewNetTotal(startDate);
-    viewExpensesByCategory(startDate)
+    viewExpensesByCategory(startDate);
     viewExpensesTransactions(startDate);
+  }
+
+  const handleDateChange = (date) => {
+    setIsSubmitted(false);
+    setStartDate(date);
   }
 
   console.log('expenses transactions lenght', expensesTransactions.length);
@@ -43,17 +47,13 @@ const ExpenseView = () => {
 
       <DatePicker
         selected={startDate}
-        onChange={(date) => setStartDate(date)}
+        onChange={handleDateChange}
         dateFormat="MM/yyyy"
         showMonthYearPicker
         showFullMonthYearPicker
         showFourColumnMonthYearPicker
       />
       <button type="submit" onClick={handleClick}> Submit to View Expenses </button>
-
-      {/* {netTotal.length > 0 && <ViewNetTotal month={month} year={year} netTotal={netTotal} />}
-      {expensesByCategory.length > 0 && <ViewExpensesByCategory month={month} year={year} expensesByCategory={expensesByCategory} />} */}
-      {/* {expensesTransactions.length > 0 && <ViewExpensesTransactions month={month} year={year} months={months} expensesTransactions={expensesTransactions} />} */}
 
       {isSubmitted && expensesTransactions.length > 0 ? (
         <div>
