@@ -1,31 +1,35 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useSavingsHook } from '../../hooks/savings';
-
-
-
 
 const CreateSavingsGoal = () => {
   const [savingName, setSavingName] = useState("")
   const [goalAmount, setGoalAmount] = useState("")
   const [currentAmount, setCurrentAmount] = useState("")
 
+const navigate = useNavigate();
 
-  const { viewSavingsGoal, createSavingsGoal, currentSavingsGoal  } = useSavingsHook();
+  const { createSavingsGoal, currentSavingsGoal, viewSavingsGoal  } = useSavingsHook();
 
-  console.log("creat goal sg state", currentSavingsGoal)
+  console.log("create goal page - csg state", currentSavingsGoal)
+
+
 
   const handleClick = (event) => {
     event.preventDefault()
-    createSavingsGoal(savingName, goalAmount, currentAmount)
+    createSavingsGoal(savingName, goalAmount, currentAmount).then(() => {
+      navigate("/savings/progress")
+    });
   }
+
 
   return (
     <div>
       <h1>Create New Savings Goal: </h1>
 
-      {currentSavingsGoal !== null && <p>You already have an active savings goal. Click here to view it</p>}
+      {currentSavingsGoal.length > 0 && <p>You already have an active savings goal. Click here to view it</p>}
 
-      {currentSavingsGoal === null &&
+      {currentSavingsGoal.length === 0 &&
 
         <form action="">
 

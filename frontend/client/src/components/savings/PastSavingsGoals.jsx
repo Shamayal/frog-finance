@@ -26,6 +26,7 @@ useEffect(() => {
         <p>Date Created: {pastSaving.date_created}</p>
         <p>Date Completed: {pastSaving.date_finished}</p>
         <p>Congrats, you finished saving up for your {pastSaving.saving_name}!</p>
+        <br />
         </section>
         ))
       )}
