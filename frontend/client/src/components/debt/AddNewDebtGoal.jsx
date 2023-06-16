@@ -67,6 +67,8 @@ const CreateDebtGoal = () => {
         <button  className='btn btn-light' type="submit" onClick={handleClick}>Create Goal</button>
       </form>
 
+{/* tailwind form (unfinished): */}
+{/*
       <form className="w-full max-w-md">
   <div className="md:flex md:items-center mb-6">
 
@@ -114,7 +116,7 @@ const CreateDebtGoal = () => {
     </div>
   </div>
 
-</form>
+</form> */}
 
 
 
