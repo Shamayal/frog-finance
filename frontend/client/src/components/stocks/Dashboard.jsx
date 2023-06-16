@@ -4,6 +4,7 @@ import { mockCompanyDetails } from "../../constants/mock";
 import Search from "./Search";
 import Details from "./Details";
 import Overview from "./Overview";
+import Chart from "./Charts";
 
 const Dashboard = ({children}) => {
   return (
@@ -17,7 +18,7 @@ const Dashboard = ({children}) => {
       </div>
 
       <div className="md:col-span-2 row-span-4">
-      <Card> Chart </Card>
+      <Chart />
       </div>
 
       <div>
