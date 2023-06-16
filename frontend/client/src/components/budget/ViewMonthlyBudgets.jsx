@@ -1,6 +1,7 @@
 import React, { useState  } from 'react';
 import { useBudgetHook } from '../../hooks/budgets';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import Chart from "chart.js/auto";
+import { CategoryScale } from "chart.js";
 import "./ViewMonthlyBudget.css";
 import { Line } from "react-chartjs-2";
 import DatePicker from 'react-datepicker';
@@ -8,7 +9,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 // to view expenses by category and see how much left in budget
 const ViewMonthlyBudgets = () => {
-  ChartJS.register(ArcElement, Tooltip, Legend);
+  Chart.register(CategoryScale);
 
   const [startDate, setStartDate] = useState(new Date());
 
