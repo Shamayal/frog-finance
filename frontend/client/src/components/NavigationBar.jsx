@@ -12,20 +12,20 @@ const NavigationBar = () => {
 
   return (
     <div>
-      <h2>Frog Finance</h2>
-      {/* <h1>Auth0 Login</h1> */}
-      {error && <p>Authentication Error</p>}
-      {!error && isLoading && <p>Loading...</p>}
-      {!error && !isLoading && <></>}
-      <LoginButton />
-      <LogoutButton />
-
       <nav>
         <ul className="menus">
           {menuItems.map((menu, index) => {
             const depthLevel = 0;
             return <MenuItems items={menu} key={index} depthLevel={depthLevel} />;
           })}
+          <li>
+            {/* <h1>Auth0 Login</h1> */}
+            {error && <p>Authentication Error</p>}
+            {!error && isLoading && <p>Loading...</p>}
+            {!error && !isLoading && <></>}
+            <LoginButton />
+            <LogoutButton />
+          </li>
         </ul>
       </nav>
     </div>
