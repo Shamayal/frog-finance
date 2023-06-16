@@ -35,7 +35,7 @@ export const useDebtHook = () => {
       initial_amount: debtAmount,
       interest_rate: interestRate
     }
-    axios.post(`http://localhost:3030/debt/new`, data)
+    return axios.post(`http://localhost:3030/debt/new`, data)
     .catch((error) => {
       console.error('Error posting new debt goal:', error);
     });

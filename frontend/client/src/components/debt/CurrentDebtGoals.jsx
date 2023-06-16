@@ -19,7 +19,7 @@ const ViewDebtGoals = () => {
 
       {currentDebtGoals.length > 0 && (
         currentDebtGoals.map((debtGoal) => (
-          <section key={debtGoal.id}>
+          <section key={debtGoal.debt_id}>
             <h3>Goal Name: {debtGoal.name}</h3>
             <p>Initial amount: ${debtGoal.initial_amount}</p>
             <p>Interest Rate: {debtGoal.interest_rate}%</p>

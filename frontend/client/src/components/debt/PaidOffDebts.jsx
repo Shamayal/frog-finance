@@ -19,7 +19,7 @@ const ViewPaidOffDebts = () => {
 
       {paidOffDebts.length > 0 && (
         paidOffDebts.map((paidDebt) => (
-          <section key={paidDebt.id}>
+          <section key={paidDebt.debt_id}>
             <h3>Debt Name: {paidDebt.name}</h3>
             <p>Initial amount: ${paidDebt.initial_amount}.00</p>
             <p>Amount Left: $0</p>

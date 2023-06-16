@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDebtHook } from '../../hooks/debt';
 
-
 const CreateDebtGoal = () => {
-
   const [ debtName, setDebtName ] = useState("");
   const [ debtAmount, setDebtAmount ] = useState("");
   const [ interestRate, setInterestRate ] = useState("");
+
+  const navigate = useNavigate();
 
   const { createDebtGoal } = useDebtHook();
 
   const handleClick = (event) => {
     event.preventDefault()
-    createDebtGoal(debtName, debtAmount, interestRate)
+    createDebtGoal(debtName, debtAmount, interestRate).then(() => navigate("/debt/progress"))
   }
 
   return (
