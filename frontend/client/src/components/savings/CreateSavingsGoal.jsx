@@ -38,7 +38,7 @@ const CreateSavingsGoal = () => {
 
         <form action="">
 
-          <label htmlFor="saving_name" className="sr-only">
+          <label htmlFor="saving_name">
             What are you saving for? Enter your goal name:
           </label>
           <input
@@ -53,7 +53,7 @@ const CreateSavingsGoal = () => {
           <br />
 
 
-          <label htmlFor="goal_amount" className="sr-only">
+          <label htmlFor="goal_amount">
             How much do you need to save to reach this goal?
           </label>
           <input
@@ -66,7 +66,7 @@ const CreateSavingsGoal = () => {
 
           <br />
 
-          <label htmlFor="current_amount" className="sr-only">
+          <label htmlFor="current_amount">
             How much have you already saved towards this goal?
           </label>
           <input
