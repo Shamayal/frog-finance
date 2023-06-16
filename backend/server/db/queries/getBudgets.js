@@ -3,10 +3,20 @@ const db = require('../connection.js');
 //Query to Fetch Budget amount and sum of expenses for the Category
 const getBudgetByCategory = (userId, month, year) => {
   return  db.query(`
-      SELECT categories.id, categories.category, budgets.budget_amount as budget_amount, sum(expenses.amount) as expense_amount, budgets.budget_reached
+      SELECT categories.id, categories.category, budgets.budget_amount as budget_amount, 
+      CASE 
+        WHEN sum(expenses.amount) > 0
+        THEN sum(expenses.amount)
+        ELSE 0
+      END expense_amount, 
+      CASE 
+        WHEN budgets.budget_amount <= sum(expenses.amount)
+        THEN true
+        ELSE false
+      END budget_reached
       from budgets
       JOIN categories ON budgets.category_id = categories.id
-      JOIN expenses on budgets.category_id = expenses.category_id
+      LEFT JOIN expenses on budgets.category_id = expenses.category_id
       WHERE budgets.user_id = $1
       AND EXTRACT(MONTH FROM budgets.updated_at) = $2
       AND EXTRACT(YEAR FROM budgets.updated_at) = $3
@@ -57,9 +67,25 @@ const updateBudgetReached = (budget_id) => {
                   });
 }
 
+//Get the Categories that don't have budget for that month
+const getCategoryNotBudgeted = (userId, month, year) => {
+  return db.query(`
+        select distinct categories.id, categories.category from categories 
+        where categories.id NOT IN (select id from budgets where user_id = $1
+        AND EXTRACT(MONTH FROM budgets.updated_at) = $2
+        AND EXTRACT(YEAR FROM budgets.updated_at) = $3) order by categories.id`,[userId, month, year])
+                  .then((result) => {
+                    return result;
+                  })
+                  .catch((err) => {
+                    console.log(err.message);
+                  });
+}
+
 module.exports = {
   getBudgetByCategory,
   createNewBudget,
   updateBudgetAmount,
-  updateBudgetReached
+  updateBudgetReached,
+  getCategoryNotBudgeted
 };

@@ -10,7 +10,7 @@ const ViewAddBudget = () => {
   const [category, setCategory ] = useState("")
   const [submitted, setSubmitted] = useState(false);
 
-  const { viewAddBudget } = useBudgetHook();
+  const { viewAddBudget, viewNotBudgetCategories, notBudgetCategories } = useBudgetHook();
 
 
   const handleCategoryChange = (event) => {
@@ -18,7 +18,11 @@ const ViewAddBudget = () => {
     setCategory(selectedCategory);
   };
 
-
+  let handleDateChange = date => { 
+    setStartDate(date);
+    viewNotBudgetCategories(date);
+  };
+  
   const handleClick = (event) => {
     event.preventDefault()
     viewAddBudget(amount, startDate, category)
@@ -34,36 +38,28 @@ const ViewAddBudget = () => {
 
       <form>
         <table>
+        <tr><td>
+            <DatePicker
+              showIcon
+              selected={startDate}
+              onChange={handleDateChange}
+            />
+          </td></tr>
           <tr><td>
             <label htmlFor="budget_category">Category:</label>
             <select id="budget_category" value={category} onChange={handleCategoryChange}>
               <option value="">Select Category</option>
-              <option value="1">Housing</option>
-              <option value="2">Food</option>
-              <option value="3">Transportation</option>
-              <option value="4">Healthcare</option>
-              <option value="5">Education</option>
-              <option value="6">Shopping</option>
-              <option value="7">Subscriptions</option>
-              <option value="8">Communication</option>
-              <option value="9">Entertainment</option>
-              <option value="10">Hobbies</option>
-              <option value="11">Travel</option>
-              <option value="12">Pets</option>
-              <option value="13">Other</option>
+              {notBudgetCategories.map(category => (
+                <option key={category.id} value={category.category}>
+                  {category.category}
+                </option>
+              ))}
           </select>
           </td></tr>
           <tr><td>
             <label htmlFor="budget_amount">Budget Amount:</label>
             <input type="number" value={amount} id="budget_amount" onChange={(event) => setAmount(event.target.value)} />
-          </td></tr>
-          <tr><td>
-            <DatePicker
-              showIcon
-              selected={startDate}
-              onChange={(date) => setStartDate(date)}
-            />
-          </td></tr>
+          </td></tr>    
           <tr><td>
             <button type="submit" onClick={handleClick}> Add Budget </button>
           </td></tr>

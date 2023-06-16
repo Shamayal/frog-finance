@@ -1,6 +1,6 @@
 const express = require('express');
 const router  = express.Router();
-const { getBudgetByCategory, createNewBudget, updateBudgetAmount, updateBudgetReached } = require("../db/queries/getBudgets");
+const { getBudgetByCategory, createNewBudget, updateBudgetAmount, updateBudgetReached, getCategoryNotBudgeted } = require("../db/queries/getBudgets");
 
 // GET/budget/:month/:year -  route to get the budget for that month
 router.get('/:month/:year', (req, res) => {   
@@ -51,6 +51,21 @@ router.post("/budgetReached", (req, res) => {
   updateBudgetReached(budget_id)
     .then((result) => {
       res.send({ message: ' Updated Budget Reached successfully:', budget_reached_updated: result.rowCount })
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+});
+
+//GET/budget/budgetReached - Update the budget Reached flag
+router.get('/notCategories/:month/:year', (req, res) => {
+  const month = req.params.month;
+  const year = req.params.year;
+  const userId = 1; 
+
+  getCategoryNotBudgeted(userId, month, year)
+    .then((result) => {
+      res.send({ message: 'Categories for selected month:', categories: result.rows })
     })
     .catch((err) => {
       console.log(err.message);

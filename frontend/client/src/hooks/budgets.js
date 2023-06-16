@@ -3,6 +3,7 @@ import axios from 'axios';
 
 export const useBudgetHook = () => {
   const [ monthlyBudget, setMonthlyBudget ] = useState([]);
+  const [ notBudgetCategories, setNotBudgetCategories ] = useState([]);
   const [ setCreateBudget ] = useState([]);
   const [ setUpdateBudget ] = useState([]);
 
@@ -25,7 +26,7 @@ export const useBudgetHook = () => {
         setMonthlyBudget(res.data.budget_by_category)
       })
       .catch((error) => {
-        console.error('Error fetching photos:', error);
+        console.error('Error fetching Budgets:', error);
     });
   }
 
@@ -60,11 +61,36 @@ export const useBudgetHook = () => {
     });
   }  
 
+  const viewNotBudgetCategories = (startDate) => {
+    const budgetMonth = () => {
+      const month = startDate.getMonth() + 1;
+      return month < 10 ? `0${month}` : `${month}`;
+    }
+
+    const budgetYear = () => {
+      return startDate.getFullYear().toString();
+    }
+    axios({
+      url: `http://localhost:3030/budget/notCategories/${budgetMonth()}/${budgetYear()}`,
+      method: "GET",
+      dataResponse: "json"
+    })
+      .then((res) => {
+        console.log("check the data coming", res.data)
+        setNotBudgetCategories(res.data.categories)
+      })
+      .catch((error) => {
+        console.error('Error fetching Categories not budgeted:', error);
+    });
+  }
+
   return {
     viewMonthlyBudget,
     monthlyBudget,
     viewAddBudget,
-    updateBudget
+    updateBudget,
+    viewNotBudgetCategories,
+    notBudgetCategories
   }
 }
 
