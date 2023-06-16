@@ -5,43 +5,45 @@ import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import { Bar } from "react-chartjs-2";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 // to view expenses by category and see how much left in budget
 const ViewMonthlyBudgets = () => {
   Chart.register(CategoryScale);
-  const [month, setMonth ] = useState("")
-  const [year, setYear ] = useState("")
+  const [startDate, setStartDate] = useState(new Date());
 
   const { viewMonthlyBudget, monthlyBudget } = useBudgetHook();
 
-  const months = ['January','February','March','April','May','June','July','August','September','August','October','November','December']
-  const years = [2023, 2022, 2021]
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+  function getMonth(startDate) {
+    const monthIndex = startDate.getMonth();
+    return months[monthIndex];
+  }
+
+  const month = getMonth(startDate);
+  const year = startDate.getFullYear();
 
   const handleClick = (event) => {
     event.preventDefault()
-    viewMonthlyBudget(month + 1, year)
+    viewMonthlyBudget(startDate)
   }
 
    
   return (
     <div>
-      <form action="">
-        <select value={month} id="budget_month" onChange={(event) => setMonth(Number(event.target.value))}>
-          <option value="">Select Month</option>
-          {months.map((month, index) => (
-            <option key={index} value={index}>{month}</option>
-          ))}
-        </select>
+      <p>Budget for {month} {year}</p>
 
-        <select value={year} id="budget_year" onChange={(event) => setYear(event.target.value)}>
-          <option value="">Select Year</option>
-          {years.map((year) => (
-            <option key={year} value={year}>{year}</option>
-          ))}
-        </select>
-
-        <button type="submit" onClick={handleClick}> Get Budget </button>
-      </form>
+      <DatePicker
+        selected={startDate}
+        onChange={(date) => setStartDate(date)}
+        dateFormat="MM/yyyy"
+        showMonthYearPicker
+        showFullMonthYearPicker
+        showFourColumnMonthYearPicker
+      />
+      <button type="submit" onClick={handleClick}> Get Budget </button>
 
       { monthlyBudget.length > 0 &&
         <><><p>Budget for {months[month]} {year}</p>

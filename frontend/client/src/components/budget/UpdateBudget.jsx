@@ -4,13 +4,13 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 
-const ViewAddBudget = () => {
+const UpdateBudget = () => {
   const [amount, setAmount ] = useState("")
   const [startDate, setStartDate] = useState(new Date());
   const [category, setCategory ] = useState("")
-  const [submitted, setSubmitted] = useState(false);
+  const [updated, setUpdated] = useState(false);
 
-  const { viewAddBudget } = useBudgetHook();
+  const { updateBudget } = useBudgetHook();
 
 
   const handleCategoryChange = (event) => {
@@ -21,8 +21,8 @@ const ViewAddBudget = () => {
 
   const handleClick = (event) => {
     event.preventDefault()
-    viewAddBudget(amount, startDate, category)
-    setSubmitted(true);
+    updateBudget(amount, category)
+    setUpdated(true);
     setAmount("");
     setStartDate(new Date());
     setCategory("");
@@ -30,7 +30,7 @@ const ViewAddBudget = () => {
 
   return (
     <div>
-      <p>Create a Budget</p>
+      <p>Update Budget Amount for Category</p>
 
       <form>
         <table>
@@ -65,15 +65,15 @@ const ViewAddBudget = () => {
             />
           </td></tr>
           <tr><td>
-            <button type="submit" onClick={handleClick}> Add Budget </button>
+            <button type="submit" onClick={handleClick}> Update Budget </button>
           </td></tr>
         </table>
       </form>
 
-      {submitted && <p>Budget added successfully!</p>}
+      {updated && <p>Budget Updated successfully!</p>}
 
     </div>
   )
 }
 
-export default ViewAddBudget;
+export default UpdateBudget;

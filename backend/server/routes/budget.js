@@ -7,7 +7,6 @@ router.get('/:month/:year', (req, res) => {
   const month = req.params.month;
   const year = req.params.year;
   const userId = 1; 
-  //const userId = req.session.userId;
        
   getBudgetByCategory(userId, month, year)
       .then((result) => {
