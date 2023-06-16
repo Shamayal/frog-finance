@@ -1,14 +1,19 @@
-import ViewNetTotal from "../../../components/budget/ViewNetTotal"
-import ViewExpensesTransactions from "../../../components/budget/expenses/ViewTransactionsByMonth"
-import ViewExpensesByCategory from "../../../components/budget/expenses/ViewExpensesByCategory"
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import React, { useState } from 'react';
-
-import { useExpensesHook } from '../../../hooks/expenses';
+import ViewNetTotal from "../../../components/budget/ViewNetTotal"
+import ViewExpensesTransactions from "../../../components/budget/expenses/ViewTransactionsByMonth"
+import ViewExpensesByCategory from "../../../components/budget/expenses/ViewExpensesByCategory"
+import { useExpensesHook } from '../../../hooks/expenses'
 
 const ExpenseView = () => {
   const [startDate, setStartDate] = useState(new Date());
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const { viewNetTotal, netTotal } = useExpensesHook();
+  const { viewExpensesByCategory, expensesByCategory } = useExpensesHook();
+  const { viewExpensesTransactions, expensesTransactions } = useExpensesHook();
+
 
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -19,17 +24,14 @@ const ExpenseView = () => {
 
   const month = getMonth(startDate);
   const year = startDate.getFullYear();
-
-  const { viewNetTotal, netTotal } = useExpensesHook();
-  const { viewExpensesByCategory, expensesByCategory } = useExpensesHook();
-  const { viewExpensesTransactions, expensesTransactions } = useExpensesHook();
-
+  console.log("selected: ", month, year)
 
   const handleClick = (event) => {
     event.preventDefault()
-    viewNetTotal(startDate)
+    setIsSubmitted(true);
+    viewNetTotal(startDate);
     viewExpensesByCategory(startDate)
-    viewExpensesTransactions(startDate)
+    viewExpensesTransactions(startDate);
   }
 
   return (
@@ -45,11 +47,20 @@ const ExpenseView = () => {
         showFullMonthYearPicker
         showFourColumnMonthYearPicker
       />
-      <button type="submit" onClick={handleClick}> Get All Transactions </button>
+      <button type="submit" onClick={handleClick}> Submit to View Expenses </button>
 
-      {netTotal.length > 0 && <ViewNetTotal month={month} year={year} netTotal={netTotal} />}
-      {expensesByCategory.length > 0 && <ViewExpensesByCategory month={month} year={year} expensesByCategory={expensesByCategory} />}
-      {expensesTransactions.length > 0 && <ViewExpensesTransactions month={month} year={year} months={months} expensesTransactions={expensesTransactions} />}
+      {isSubmitted && (
+        <div>
+          <ViewNetTotal month={month} year={year} netTotal={netTotal}/>
+          <ViewExpensesByCategory month={month} year={year} expensesByCategory={expensesByCategory}/>
+          <ViewExpensesTransactions months={months} month={month} year={year} expensesTransactions={expensesTransactions}/>
+        </div>
+      )}
+
+      {/* {netTotal.length > 0 && <ViewNetTotal month={month} year={year} netTotal={netTotal} />} */}
+      {/* {expensesByCategory.length > 0 && <ViewExpensesByCategory month={month} year={year} expensesByCategory={expensesByCategory} />} */}
+      {/* {expensesTransactions.length > 0 && <ViewExpensesTransactions month={month} year={year} months={months} expensesTransactions={expensesTransactions} />} */}
+
     </div>
   );
 };
