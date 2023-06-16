@@ -7,13 +7,9 @@ const CreateSavingsGoal = () => {
   const [goalAmount, setGoalAmount] = useState("")
   const [currentAmount, setCurrentAmount] = useState("")
 
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  const { createSavingsGoal, currentSavingsGoal, viewSavingsGoal  } = useSavingsHook();
-
-  console.log("create goal page - csg state", currentSavingsGoal)
-
-
+  const { createSavingsGoal, currentSavingsGoal, viewSavingsGoal } = useSavingsHook();
 
   const handleClick = (event) => {
     event.preventDefault()
@@ -22,14 +18,17 @@ const navigate = useNavigate();
     });
   }
 
+  useEffect(() => {
+    viewSavingsGoal()
+  }, []);
 
   return (
     <div>
       <h1>Create New Savings Goal: </h1>
 
-      {currentSavingsGoal.length > 0 && <p>You already have an active savings goal. Click here to view it</p>}
+      {currentSavingsGoal && <p>You already have an active savings goal. Click here to view it</p>}
 
-      {currentSavingsGoal.length === 0 &&
+      {!currentSavingsGoal &&
 
         <form action="">
 
