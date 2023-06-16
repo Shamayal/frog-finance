@@ -34,6 +34,8 @@ const ExpenseView = () => {
     viewExpensesTransactions(startDate);
   }
 
+  console.log('expenses transactions lenght', expensesTransactions.length);
+
   return (
     <div>
       <h2>This is the Expense View Page</h2>
@@ -49,17 +51,23 @@ const ExpenseView = () => {
       />
       <button type="submit" onClick={handleClick}> Submit to View Expenses </button>
 
-      {isSubmitted && (
+      {/* {netTotal.length > 0 && <ViewNetTotal month={month} year={year} netTotal={netTotal} />}
+      {expensesByCategory.length > 0 && <ViewExpensesByCategory month={month} year={year} expensesByCategory={expensesByCategory} />} */}
+      {/* {expensesTransactions.length > 0 && <ViewExpensesTransactions month={month} year={year} months={months} expensesTransactions={expensesTransactions} />} */}
+
+      {isSubmitted && expensesTransactions.length > 0 ? (
         <div>
           <ViewNetTotal month={month} year={year} netTotal={netTotal}/>
           <ViewExpensesByCategory month={month} year={year} expensesByCategory={expensesByCategory}/>
           <ViewExpensesTransactions months={months} month={month} year={year} expensesTransactions={expensesTransactions}/>
         </div>
-      )}
+      ) : null} 
 
-      {/* {netTotal.length > 0 && <ViewNetTotal month={month} year={year} netTotal={netTotal} />} */}
-      {/* {expensesByCategory.length > 0 && <ViewExpensesByCategory month={month} year={year} expensesByCategory={expensesByCategory} />} */}
-      {/* {expensesTransactions.length > 0 && <ViewExpensesTransactions month={month} year={year} months={months} expensesTransactions={expensesTransactions} />} */}
+      {isSubmitted && expensesTransactions.length < 1 ? (
+        <div>
+          <h4>No expenses logged in {month} {year}.</h4>
+        </div>
+      ) : null} 
 
     </div>
   );

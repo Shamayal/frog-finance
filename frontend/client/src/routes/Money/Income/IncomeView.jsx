@@ -49,13 +49,28 @@ const IncomeView = () => {
       />
       <button type="submit" onClick={handleClick}> Submit to View Income </button>
 
-      {isSubmitted && (
+      {/* {isSubmitted && (
         <div>
           <ViewNetTotal month={month} year={year} netTotal={netTotal}/>
           <ViewIncomeByMonth month={month} year={year} incomeByMonth={incomeByMonth}/>
           <ViewIncomePayments months={months} month={month} year={year} incomePayments={incomePayments}/>
         </div>
-      )}
+      )} */}
+
+      {isSubmitted && incomePayments.length > 0 ? (
+        <div>
+          <ViewNetTotal month={month} year={year} netTotal={netTotal}/>
+          <ViewIncomeByMonth month={month} year={year} incomeByMonth={incomeByMonth}/>
+          <ViewIncomePayments months={months} month={month} year={year} incomePayments={incomePayments}/>
+        </div>
+      ) : null} 
+
+      {isSubmitted && incomePayments.length < 1 ? (
+        <div>
+          <h4>No income made in {month} {year}.</h4>
+        </div>
+      ) : null} 
+
     </div>
   );
 };
