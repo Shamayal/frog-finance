@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDebtHook } from '../../hooks/debt';
 
-const MakeDebtPayment = () => {
+const MakeDebtPayment = (props) => {
   const { addDebtPayment } = useDebtHook();
 
   const [debtPaymentAmount, setDebtPaymentAmount] = useState('');
@@ -14,7 +14,6 @@ const MakeDebtPayment = () => {
 
   return (
     <div>
-      <h1> Add a debt payment </h1>
       <form action="">
         <label htmlFor="debt_payment_amount" className="sr-only">
           Amount paid:
@@ -42,15 +41,14 @@ const MakeDebtPayment = () => {
           onChange={(event) => setDebtGoalId(event.target.value)}
         />
 
-        <br />
-
-
-        <button type="submit" onClick={handleClick}>
-          add payment
-        </button>
+        <div className='modalFooter'>
+          <button className='btn btn-danger' onClick={() => props.setDebtModal(false)}>cancel</button>
+          <button type="submit" className='btn btn-primary' onClick={handleClick}>
+            add payment
+          </button>
+        </div>
 
       </form>
-
     </div>
   );
 };

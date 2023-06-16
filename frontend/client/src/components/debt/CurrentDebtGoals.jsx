@@ -1,8 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDebtHook } from '../../hooks/debt';
+import '../../styles/Modal.css';
+import ModalDebtPayment from './ModalDebtPayment';
 
 const ViewDebtGoals = () => {
   const { viewDebtGoals, currentDebtGoals } = useDebtHook();
+
+  const [ debtModal, setDebtModal ] = useState(false)
 
   useEffect(() => {
     viewDebtGoals();
@@ -33,13 +37,15 @@ const ViewDebtGoals = () => {
               <div className="progress w-50" role="progressbar" aria-label="Success example" aria-valuenow={width} aria-valuemin={0} aria-valuemax={100}>
                 <div className="progress-bar bg-success" style={{ width: `${width}%` }}>{width}%</div>
               </div>
-              <button className='btn btn-light'>
+              <button className='btn btn-light openModalBtn' onClick={() => setDebtModal(true)} >
                 Update payments
               </button>
             </section>
           );
         })
       )}
+      {debtModal && <ModalDebtPayment setDebtModal={setDebtModal} />}
+
     </div>
   );
 
