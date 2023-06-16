@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSavingsHook } from '../../hooks/savings';
+import 'bootstrap/dist/css/bootstrap.css';
 
 const CreateSavingsGoal = () => {
   const [savingName, setSavingName] = useState("")
@@ -26,7 +27,12 @@ const CreateSavingsGoal = () => {
     <div>
       <h1>Create New Savings Goal: </h1>
 
-      {currentSavingsGoal && <p>You already have an active savings goal. Click here to view it</p>}
+      {currentSavingsGoal &&
+        <div>
+          <p>You already have an active savings goal. To stay focused, leap towards one saving goal at a time</p>
+          <button className='btn btn-light' onClick={() => navigate("/savings/progress")}>view savings goal</button>
+        </div>
+      }
 
       {!currentSavingsGoal &&
 
@@ -74,7 +80,7 @@ const CreateSavingsGoal = () => {
 
           <br />
 
-          <button type="submit" onClick={handleClick}>Create Goal</button>
+          <button className='btn btn-light' type="submit" onClick={handleClick}>Create Goal</button>
         </form>
 
       }
