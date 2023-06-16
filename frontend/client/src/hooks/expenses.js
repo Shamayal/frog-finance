@@ -23,7 +23,7 @@ export const useExpensesHook = () => {
       dataResponse: "json"
     })
       .then((res) => {
-        console.log("expenses by category data:", res.data)
+        // console.log("expenses by category data:", res.data)
         setExpensesByCategory(res.data.total_expenses_by_category)
       })
       .catch((error) => {
@@ -47,7 +47,7 @@ export const useExpensesHook = () => {
       dataResponse: "json"
     })
       .then((res) => {
-        console.log("expenses transactions:", res.data)
+        // console.log("expenses transactions:", res.data)
         setExpensesTransactions(res.data.all_transactions_per_month)
       })
       .catch((error) => {
@@ -63,7 +63,7 @@ export const useExpensesHook = () => {
 
     axios.post('http://localhost:3030/expenses/add', obj)
       .then((res) => {
-        console.log("expense added: ", res.data)
+        // console.log("expense added: ", res.data)
         setAddExpenses(res.data.expense_added)
       })
       .catch((error) => {
@@ -87,7 +87,7 @@ export const useExpensesHook = () => {
       dataResponse: "json"
     })
       .then((res) => {
-        console.log("net total data:", res.data)
+        // console.log("net total data:", res.data)
         setNetTotal(res.data.net_total)
       })
       .catch((error) => {

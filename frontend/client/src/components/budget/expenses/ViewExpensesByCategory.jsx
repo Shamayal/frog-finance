@@ -6,28 +6,29 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 import "./ViewExpensesByCategory.css";
 
-const ViewExpensesByCategory = () => {
-  const [startDate, setStartDate] = useState(new Date());
+const ViewExpensesByCategory = (props) => {
+  console.log(props)
+  // const [startDate, setStartDate] = useState(new Date());
 
-  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  // const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-  function getMonth(startDate) {
-    const monthIndex = startDate.getMonth();
-    return months[monthIndex];
-  }
+  // function getMonth(startDate) {
+  //   const monthIndex = startDate.getMonth();
+  //   return months[monthIndex];
+  // }
 
-  const month = getMonth(startDate);
-  const year = startDate.getFullYear();
-  console.log(month, year)
+  // const month = getMonth(startDate);
+  // const year = startDate.getFullYear();
+  // console.log(month, year)
 
-  const { viewExpensesByCategory, expensesByCategory } = useExpensesHook();
+  // const { viewExpensesByCategory, expensesByCategory } = useExpensesHook();
 
-  const handleClick = (event) => {
-    event.preventDefault()
-    viewExpensesByCategory(startDate)
-  }
+  // const handleClick = (event) => {
+  //   event.preventDefault()
+  //   viewExpensesByCategory(startDate)
+  // }
 
-  const sortedExpensesByCategory = [...expensesByCategory].sort((a, b) => {
+  const sortedExpensesByCategory = [...(props.expensesByCategory)].sort((a, b) => {
     return b.total_amount - a.total_amount;
   });
 
@@ -71,9 +72,9 @@ const ViewExpensesByCategory = () => {
   return (
     <div>
       <div>------------------------------------------------------------</div>
-      <p>Total Expenses By Category Spent in {month} {year}</p>
+      <p>Total Expenses By Category Spent in {props.month} {props.year}</p>
 
-      <DatePicker
+      {/* <DatePicker
         selected={startDate}
         onChange={(date) => setStartDate(date)}
         dateFormat="MM/yyyy"
@@ -81,7 +82,7 @@ const ViewExpensesByCategory = () => {
         showFullMonthYearPicker
         showFourColumnMonthYearPicker
       />
-      <button type="submit" onClick={handleClick}> Get Expenses By Category </button>
+      <button type="submit" onClick={handleClick}> Get Expenses By Category </button> */}
 
       <table>
         <thead>
