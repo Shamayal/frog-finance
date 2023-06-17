@@ -1,7 +1,7 @@
 
 
 /* From the google video*/
-*,
+/* *,
 *::before,
 *::after {
   margin: 0;
@@ -17,29 +17,29 @@ img {
 
 svg {
   pointer-events: none;
-}
+} */
 
 :root {
   /* fonts */
-  --fs-200: clamp(0.78rem, calc(0.71rem + 0.35vw), 0.96rem);
+  /* --fs-200: clamp(0.78rem, calc(0.71rem + 0.35vw), 0.96rem);
   --fs-300: clamp(0.94rem, calc(0.84rem + 0.51vw), 1.2rem);
   --fs-400: clamp(1.13rem, calc(0.98rem + 0.73vw), 1.5rem);
   --fs-500: clamp(1.94rem, calc(1.56rem + 1.92vw), 2.93rem);
   --fs-600: clamp(2.8rem, calc(2.11rem + 3.47vw), 4.58rem);
   --lh-1: 1;
   --lh-1-1: 1.1;
-  --lh-1-4: 1.4;
+  --lh-1-4: 1.4; */
 
   /* colors */
-  --accent: 183 74% 44%;
+  /* --accent: 183 74% 44%;
   --bkg: 190 60% 98%;
   --text: 185 26% 9%;
   --muted: 183 8% 55%;
   --light: 180 14% 85%;
-  --warning: 4 66% 63%;
+  --warning: 4 66% 63%; */
 
   /* utils */
-  --space-xs: 8px;
+  /* --space-xs: 8px;
   --space-sm: 16px;
   --space-md: 24px;
   --space-lg: 32px;
@@ -50,11 +50,11 @@ svg {
   --round-md: 10px;
   --round-lg: 25px;
   --round-full: 100vmax;
-
+ */
 
 }
 
-body {
+/* body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: var(--fs-400);
@@ -67,11 +67,11 @@ body {
   -webkit-text-size-adjust: 100%;
   background-color: hsl(var(--bkg));
   color: hsl(var(--text));
-}
+} */
 
 /* typography */
 
-h1,
+/* h1,
 h2,
 h3,
 h4,
@@ -79,9 +79,9 @@ h5,
 h6 {
   font-weight: bold;
   line-height: var(--lh-1);
-}
+} */
 
-h1,
+/* h1,
 .h1 {
   font-size: var(--fs-500);
 }
@@ -109,21 +109,21 @@ small {
 
 p {
   max-width: var(--content);
-}
+} */
 
 /* color utils */
 
-.accent {
+/* .accent {
   color: hsl(var(--accent));
 }
 
 .muted {
   color: hsl(var(--muted));
-}
+} */
 
 /* links and buttons */
 
-:where(a, .btn) {
+/* :where(a, .btn) {
   --color: hsl(var(--text));
   --backdrop: hsl(var(--accent));
   font: inherit;
@@ -144,9 +144,9 @@ p {
 
 :where(a, .btn):focus {
   outline: none;
-}
+} */
 
-:where(a, .btn):is(:hover, :focus-visible) {
+/* :where(a, .btn):is(:hover, :focus-visible) {
   -webkit-box-shadow: 0 0 0 3px hsl(var(--bkg)), 0 0 0 6px var(--backdrop);
   box-shadow: 0 0 0 3px hsl(var(--bkg)), 0 0 0 6px var(--backdrop);
 }
@@ -170,14 +170,14 @@ p {
   max-width: -moz-fit-content;
   max-width: fit-content;
   cursor: pointer;
-}
-
+} */
+/*
 :where(.btn):is(:hover, :focus-visible) {
   background-color: var(--backdrop);
   color: var(--color);
-}
+} */
 
-:where(.btn--dark) {
+/* :where(.btn--dark) {
   gap: var(--space-sm);
   --backdrop: hsl(var(--text));
 }
@@ -207,11 +207,11 @@ p {
 
 .btn[disabled] {
   opacity: 0.5;
-}
+} */
 
 /* utility layouts */
 
-.flex-lg {
+/* .flex-lg {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -278,10 +278,10 @@ p {
 
 [hidden] {
   display: none;
-}
+} */
 
 /* main layout */
-.layout {
+/* .layout {
   display: -ms-grid;
   display: grid;
   min-height: 100vh;
@@ -301,10 +301,10 @@ main {
   display: -ms-grid;
   display: grid;
   place-items: start;
-}
+} */
 
 /* navbar */
-nav {
+/* nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -337,14 +337,14 @@ nav a {
   nav a span {
     display: none;
   }
-}
+} */
 
 /* forms */
-label {
+/* label {
   font-size: var(--fs-300);
   font-weight: bold;
-}
-
+} */
+/*
 input,
 select {
   width: 100%;
@@ -373,10 +373,10 @@ select {
   border-color: hsl(var(--accent));
   -webkit-box-shadow: 0 0 0 1px hsl(var(--accent));
   box-shadow: 0 0 0 1px hsl(var(--accent));
-}
+} */
 
 /* form */
-.form-wrapper {
+/* .form-wrapper {
   -webkit-box-flex: 1;
   -ms-flex: 1 1 48%;
   flex: 1 1 48%;
@@ -403,7 +403,7 @@ select {
   border: 2px dashed hsl(var(--text));
   border-radius: calc(var(--round-lg) * 0.6);
   z-index: -1;
-}
+} */
 
 .budget-inputs {
   display: -webkit-box;
@@ -412,12 +412,12 @@ select {
   gap: var(--space-md);
 }
 
-@media screen and (max-width: 725px) {
+/* @media screen and (max-width: 725px) {
   .expense-inputs {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
   }
-}
+} */
 
 /* budgets */
 .budgets {
@@ -509,7 +509,7 @@ progress[value]::-webkit-progress-value {
 }
 
 /* error pages */
-.error {
+/* .error {
   -ms-grid-row-align: center;
   -ms-grid-column-align: center;
   place-self: center;
@@ -520,10 +520,10 @@ progress[value]::-webkit-progress-value {
   gap: var(--space-lg);
   padding-block: var(--space-lg);
   text-align: center;
-}
+} */
 
 /* chart component */
-.table {
+/* .table {
   overflow-x: auto;
 }
 
@@ -561,4 +561,4 @@ table a {
   background-color: hsl(var(--accent));
   padding: var(--space-xs) var(--space-sm);
   border-radius: var(--round-full);
-}
+} */
