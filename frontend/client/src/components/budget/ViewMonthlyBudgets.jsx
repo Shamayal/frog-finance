@@ -1,18 +1,14 @@
 import React, { useState  } from 'react';
 import { useBudgetHook } from '../../hooks/budgets';
-import Chart from "chart.js/auto";
-import { CategoryScale } from "chart.js";
-import "./ViewMonthlyBudget.css";
-import { Line } from "react-chartjs-2";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import BudgetItem from "./BudgetItem";
+import { generateRandomColor } from "../helpers/helpers";
 
 // to view expenses by category and see how much left in budget
 const ViewMonthlyBudgets = () => {
-  Chart.register(CategoryScale);
 
   const [startDate, setStartDate] = useState(new Date());
-
   const { viewMonthlyBudget, monthlyBudget } = useBudgetHook();
 
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -29,10 +25,9 @@ const ViewMonthlyBudgets = () => {
     event.preventDefault()
     viewMonthlyBudget(startDate)
   }
-
    
   return (
-    <div>
+    <div className="dashboard">
       <p>Budget for {month} {year}</p>
 
       <DatePicker
@@ -46,7 +41,17 @@ const ViewMonthlyBudgets = () => {
       <button type="submit" onClick={handleClick}> Get Budget </button>
 
       { monthlyBudget.length > 0 &&
-        <><p>Budget for {month} {year}</p>
+        <>
+        <h2>Budgets for {month} {year}</h2>
+        <div className="budgets">
+          {
+            monthlyBudget.map((budget) => (
+              <BudgetItem key={budget.id} budget={budget} />
+            ))
+          }
+        </div>
+
+        <p>Budget for {month} {year}</p>
         <table border={1}>
           <thead>
             <tr color='yellow'>
@@ -67,30 +72,10 @@ const ViewMonthlyBudgets = () => {
             ))}
           </tbody>
         </table>
-        <p>Graph for Budget (vs) Expenses for {month} {year}</p>
-        <div className="lineContainer">
-          <Line
-              data={{
-                labels: monthlyBudget.map((data) => data.category),
-                datasets: [{
-                  label: 'Budget',
-                  data: monthlyBudget.map((data) => data.budget_amount.toLocaleString()),
-                  borderColor: ['rgb(0, 0, 255)'],
-                  backgroundColor: ['rgba(0, 0, 255, 0.5)'],
-
-                },
-                {
-                  label: 'Expenses',
-                  data: monthlyBudget.map((data) => data.expense_amount.toLocaleString()),
-                  borderColor: ['rgb(255, 0, 0)'],
-                  backgroundColor: ['rgba(255, 0, 0, 0.5)'],
-                }]
-              }} />
-        </div></>
+      </>
       }
     </div>
   )
 }
-
 
 export default ViewMonthlyBudgets;

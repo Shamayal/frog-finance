@@ -4,8 +4,8 @@ import axios from 'axios';
 export const useBudgetHook = () => {
   const [ monthlyBudget, setMonthlyBudget ] = useState([]);
   const [ notBudgetCategories, setNotBudgetCategories ] = useState([]);
-  const [ setCreateBudget ] = useState([]);
-  const [ setUpdateBudget ] = useState([]);
+  const [ setCreateBudget ] = useState();
+  const [ setUpdateBudget ] = useState();
 
   const viewMonthlyBudget = (startDate) => {
     const budgetMonth = () => {
