@@ -41,11 +41,11 @@ export const menuItems = [
             url: '/money/budget/add',
           },
           {
-            title: 'Update Spending Categories',
+            title: 'Update Budget',
             url: '/money/budget/update',
           },
           {
-            title: 'Monthly Overview',
+            title: 'View Budget',
             url: 'money/budget/view',
           }
         ]

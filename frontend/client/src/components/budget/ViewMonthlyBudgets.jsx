@@ -3,7 +3,6 @@ import { useBudgetHook } from '../../hooks/budgets';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import BudgetItem from "./BudgetItem";
-import { generateRandomColor } from "../helpers/helpers";
 
 // to view expenses by category and see how much left in budget
 const ViewMonthlyBudgets = () => {
@@ -27,9 +26,12 @@ const ViewMonthlyBudgets = () => {
   }
    
   return (
-    <div className="dashboard">
-      <p>Budget for {month} {year}</p>
+    <div className="form-wrapper">
+      <h2 className="h3">
+        Budget for {month} {year}
+      </h2>
 
+    <div className="flex-sm">
       <DatePicker
         selected={startDate}
         onChange={(date) => setStartDate(date)}
@@ -38,7 +40,8 @@ const ViewMonthlyBudgets = () => {
         showFullMonthYearPicker
         showFourColumnMonthYearPicker
       />
-      <button type="submit" onClick={handleClick}> Get Budget </button>
+    </div>
+      <button type="submit"  className="btn btn--dark" onClick={handleClick}> Get Budget </button>
 
       { monthlyBudget.length > 0 &&
         <>
@@ -52,7 +55,7 @@ const ViewMonthlyBudgets = () => {
         </div>
 
         <p>Budget for {month} {year}</p>
-        <table border={1}>
+        <table>
           <thead>
             <tr color='yellow'>
               <th>Category</th>
