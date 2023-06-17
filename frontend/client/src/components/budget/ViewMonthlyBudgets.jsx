@@ -1,53 +1,67 @@
-import React, { useCallback, useState, useContext, useEffect } from 'react';
-// import NavigationBar from '../components/NavigationBar'
+import React, { useState  } from 'react';
 import { useBudgetHook } from '../../hooks/budgets';
-import Chart from "chart.js/auto";
-import { CategoryScale } from "chart.js";
-import { Pie } from "react-chartjs-2";
-import { Bar } from "react-chartjs-2";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import BudgetItem from "./BudgetItem";
 
 // to view expenses by category and see how much left in budget
 const ViewMonthlyBudgets = () => {
-  Chart.register(CategoryScale);
-  const [month, setMonth ] = useState("")
-  const [year, setYear ] = useState("")
 
+  const [startDate, setStartDate] = useState(new Date());
   const { viewMonthlyBudget, monthlyBudget } = useBudgetHook();
 
-  const months = ['January','February','March','April','May','June','July','August','September','August','October','November','December']
-  const years = [2023, 2022, 2021]
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+  function getMonth(startDate) {
+    const monthIndex = startDate.getMonth();
+    return months[monthIndex];
+  }
+
+  const month = getMonth(startDate);
+  const year = startDate.getFullYear();
 
   const handleClick = (event) => {
     event.preventDefault()
-    viewMonthlyBudget(month + 1, year)
+    viewMonthlyBudget(startDate)
   }
-
    
   return (
-    <div>
-      <form action="">
-        <select value={month} id="budget_month" onChange={(event) => setMonth(Number(event.target.value))}>
-          <option value="">Select Month</option>
-          {months.map((month, index) => (
-            <option key={index} value={index}>{month}</option>
-          ))}
-        </select>
+    <div className="form-wrapper">
+      <h2 className="h3">
+        Budget for {month} {year}
+      </h2>
 
-        <select value={year} id="budget_year" onChange={(event) => setYear(event.target.value)}>
-          <option value="">Select Year</option>
-          {years.map((year) => (
-            <option key={year} value={year}>{year}</option>
-          ))}
-        </select>
-
-        <button type="submit" onClick={handleClick}> Get Budget </button>
-      </form>
+    <div className="flex-sm">
+      <DatePicker
+        selected={startDate}
+        onChange={(date) => setStartDate(date)}
+        dateFormat="MM/yyyy"
+        showMonthYearPicker
+        showFullMonthYearPicker
+        showFourColumnMonthYearPicker
+      />
+    </div>
+      <button type="submit"  className="btn btn--dark" onClick={handleClick}> Get Budget </button>
 
       { monthlyBudget.length > 0 &&
-        <><><p>Budget for {months[month]} {year}</p>
-        <table border={1}>
+        <>
+        <h2>Budgets for {month} {year}</h2>
+        <div className="budgets">
+          {
+            monthlyBudget.map((budget) => (
+              <BudgetItem key={budget.id} budget={budget} />
+            ))
+          }
+        </div>
+        
+      <div className="form-wrapper">
+        <h2 className="h3">
+          Budget for {month} {year}
+        </h2>
+
+        <table>
           <thead>
-            <tr color='yellow'>
+            <tr>
               <th>Category</th>
               <th>Budget Amount</th>
               <th>Total Expenses</th>
@@ -64,129 +78,11 @@ const ViewMonthlyBudgets = () => {
               </tr>
             ))}
           </tbody>
-        </table></>
-        <table><tbody><tr><td>
-          <h2 style={{ textAlign: "center" }}>Budget Pie Chart</h2>
-          <Pie
-            data={{
-              labels: monthlyBudget.map((data) => data.category),
-              datasets: [{
-                //label: 'Expenses on Category',
-                data: monthlyBudget.map((data) => data.budget_amount.toLocaleString()),
-                backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(255, 159, 64, 0.2)',
-                  'rgba(255, 205, 86, 0.2)',
-                  'rgba(75, 192, 192, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(153, 102, 255, 0.2)',
-                  'rgba(201, 203, 207, 0.2)'
-                ],
-                borderColor: ['rgb(255, 99, 132)',
-                  'rgb(255, 159, 64)',
-                  'rgb(255, 205, 86)',
-                  'rgb(75, 192, 192)',
-                  'rgb(54, 162, 235)',
-                  'rgb(153, 102, 255)',
-                  'rgb(201, 203, 207)'
-                ],
-                borderWidth: 1
-              }]
-            }} />
-        </td>
-        <td>
-          <h2 style={{ textAlign: "center" }}>Expenses Pie Chart</h2>
-          <Pie
-            data={{
-              labels: monthlyBudget.map((data) => data.category),
-              datasets: [{
-                //label: 'Expenses on Category',
-                data: monthlyBudget.map((data) => data.expense_amount.toLocaleString()),
-                backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(255, 159, 64, 0.2)',
-                  'rgba(255, 205, 86, 0.2)',
-                  'rgba(75, 192, 192, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(153, 102, 255, 0.2)',
-                  'rgba(201, 203, 207, 0.2)'
-                ],
-                borderColor: ['rgb(255, 99, 132)',
-                  'rgb(255, 159, 64)',
-                  'rgb(255, 205, 86)',
-                  'rgb(75, 192, 192)',
-                  'rgb(54, 162, 235)',
-                  'rgb(153, 102, 255)',
-                  'rgb(201, 203, 207)'
-                ],
-                borderWidth: 1
-              }]
-            }} />
-        </td>
-        </tr>
-        <tr><td>
-          <h2 style={{ textAlign: "center" }}>Expenses Bar Chart</h2>
-          <Bar
-            data={{
-              labels: monthlyBudget.map((data) => data.category),
-              datasets: [{
-                label: 'Budget on Category',
-                data: monthlyBudget.map((data) => data.budget_amount.toLocaleString()),
-                backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(255, 159, 64, 0.2)',
-                  'rgba(255, 205, 86, 0.2)',
-                  'rgba(75, 192, 192, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(153, 102, 255, 0.2)',
-                  'rgba(201, 203, 207, 0.2)'
-                ],
-                borderColor: ['rgb(255, 99, 132)',
-                  'rgb(255, 159, 64)',
-                  'rgb(255, 205, 86)',
-                  'rgb(75, 192, 192)',
-                  'rgb(54, 162, 235)',
-                  'rgb(153, 102, 255)',
-                  'rgb(201, 203, 207)'
-                ],
-                borderWidth: 1
-              }]
-            }} />
-            </td>
-            <td>
-            <h2 style={{ textAlign: "center" }}>Expenses Bar Chart</h2>
-          <Bar
-            data={{
-              labels: monthlyBudget.map((data) => data.category),
-              datasets: [{
-                label: 'Expenses on Category',
-                data: monthlyBudget.map((data) => data.expense_amount.toLocaleString()),
-                backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(255, 159, 64, 0.2)',
-                  'rgba(255, 205, 86, 0.2)',
-                  'rgba(75, 192, 192, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(153, 102, 255, 0.2)',
-                  'rgba(201, 203, 207, 0.2)'
-                ],
-                borderColor: ['rgb(255, 99, 132)',
-                  'rgb(255, 159, 64)',
-                  'rgb(255, 205, 86)',
-                  'rgb(75, 192, 192)',
-                  'rgb(54, 162, 235)',
-                  'rgb(153, 102, 255)',
-                  'rgb(201, 203, 207)'
-                ],
-                borderWidth: 1
-              }]
-            }} />
-            </td></tr></tbody>
-        </table></>
+        </table>
+      </div></>
       }
     </div>
   )
 }
-
 
 export default ViewMonthlyBudgets;

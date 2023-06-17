@@ -37,11 +37,15 @@ export const menuItems = [
         title: 'Budget',
         submenu: [
           {
-            title: 'Update Spending Categories',
+            title: 'Create Budget',
+            url: '/money/budget/add',
+          },
+          {
+            title: 'Update Budget',
             url: '/money/budget/update',
           },
           {
-            title: 'Monthly Overview',
+            title: 'View Budget',
             url: 'money/budget/view',
           }
         ]

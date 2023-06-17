@@ -109,11 +109,11 @@ INSERT INTO income (user_id, income_date, amount) VALUES (1, '2023-05-04', 1500)
 INSERT INTO income (user_id, income_date, amount) VALUES (1, '2023-04-15', 2500);
 
 -- budgets
-INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 2000, 1, 500, '2023-06-01'); -- housing
+INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 950, 1, 500, '2023-06-01'); -- housing
 INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 400, 2, 150, '2023-06-04'); -- food
 INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 500, 3, 100, '2023-06-01'); -- transportation
 INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 300, 4, 150, '2023-06-10'); -- healthcare
-INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 1000, 5, 650, '2023-06-03'); -- education
+INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 700, 5, 650, '2023-06-03'); -- education
 INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 400, 6, 50, '2023-06-03'); -- shopping
 INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 100, 7, 20, '2023-06-10'); -- subscriptions
 INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 200, 8, 150, '2023-06-06'); -- communications
@@ -121,7 +121,17 @@ INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_a
 INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 400, 10, 350, '2023-06-04'); -- hobbies
 INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 500, 11, 450, '2023-06-04'); -- travel
 INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 100, 12, 50, '2023-06-04'); -- pets
-INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 700, 13, 650, '2023-06-04'); -- other
+INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 950, 1, 500, '2023-01-01'); -- housing
+INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 400, 2, 150, '2023-01-04'); -- food
+INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 500, 3, 100, '2023-02-01'); -- transportation
+INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 300, 4, 150, '2023-02-10'); -- healthcare
+INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 700, 5, 650, '2023-03-03'); -- education
+INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 400, 6, 50, '2023-03-03'); -- shopping
+INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 100, 7, 20, '2023-04-10'); -- subscriptions
+INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 200, 8, 150, '2023-04-06'); -- communications
+INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 200, 9, 100, '2023-05-04'); -- entertainment
+INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 400, 10, 350, '2023-05-04'); -- hobbies
+
 
 -- expenses
 INSERT INTO expenses (user_id, expense_date, amount, category_id, sub_category_id) VALUES (1, '2023-02-17', 2000, 1, 1); -- housing, rent/mortgage
