@@ -1,5 +1,11 @@
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faDollarSign, faSackDollar } from '@fortawesome/free-solid-svg-icons'
+
 import { BrowserRouter as Router, Routes , Route} from "react-router-dom";
 import "./App.css";
+
+import ReactDOM from 'react-dom'
+
 
 import NavigationBar from "./components/NavigationBar.jsx"
 import HomePage from "./routes/HomePage.jsx"
@@ -25,6 +31,9 @@ import Stocks from "./routes/Stocks/Stocks";
 
 import LearnMoney from "./routes/Learn/LearnMoney.jsx";
 import LearnFinance from "./routes/Learn/LearnFinance";
+
+library.add(faDollarSign, faSackDollar)
+
 
 function App() {
 
