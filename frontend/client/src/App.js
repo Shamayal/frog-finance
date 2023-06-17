@@ -1,8 +1,11 @@
-// from video
-import { BrowserRouter as Router, Routes , Route} from "react-router-dom";
-import { useEffect } from "react";
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faDollarSign, faSackDollar } from '@fortawesome/free-solid-svg-icons'
 
+import { BrowserRouter as Router, Routes , Route} from "react-router-dom";
 import "./App.css";
+
+import ReactDOM from 'react-dom'
+
 
 import NavigationBar from "./components/NavigationBar.jsx"
 import HomePage from "./routes/HomePage.jsx"
@@ -30,11 +33,14 @@ import Stocks from "./routes/Stocks/Stocks";
 import LearnMoney from "./routes/Learn/LearnMoney.jsx";
 import LearnFinance from "./routes/Learn/LearnFinance";
 
+library.add(faDollarSign, faSackDollar)
+
+
 function App() {
 
   return (
     <main className="column">
-    
+
       <Router>
         <NavigationBar />
         <Routes>
@@ -68,24 +74,6 @@ function App() {
         </Routes>
       </Router>
 
-{/* Example from david: */}
-      {/* <Router>
-        <Nav />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route
-            path="/about"
-            element={
-              <ProtectedRoute user={user}>
-                <About />
-              </ProtectedRoute>
-            }
-          />
-          <Route path="*" element={<h1>404 Page Not Found</h1>} />
-          <Route path="/products/*" element={<ProductList />} />
-        </Routes>
-      </Router> */}
-      
     </main>
   );
 }

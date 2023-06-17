@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDebtHook } from '../../hooks/debt';
 
-const MakeDebtPayment = () => {
-  const { addDebtPayment } = useDebtHook();
+const MakeDebtPayment = (props) => {
+  const { addDebtPayment, viewDebtGoals } = useDebtHook();
 
   const [debtPaymentAmount, setDebtPaymentAmount] = useState('');
   const [debtGoalId, setDebtGoalId] = useState('');
@@ -10,47 +10,58 @@ const MakeDebtPayment = () => {
   const handleClick = (event) => {
     event.preventDefault()
     addDebtPayment(debtPaymentAmount, debtGoalId)
+    props.setOpenModal(false)
   }
+
+  useEffect(() => {
+    viewDebtGoals();
+  }, []);
+
 
   return (
     <div>
-      <h1> Add a debt payment </h1>
-      <form action="">
-        <label htmlFor="debt_payment_amount" className="sr-only">
+      <form action="" className='font-quicksand'>
+
+        <label htmlFor="debt_payment_amount">
           Amount paid:
         </label>
-        <input
-          type="number"
-          value={debtPaymentAmount}
-          name="debt_payment_amount"
-          id="debt_payment_amount"
-          placeholder='$0'
-          onChange={(event) => setDebtPaymentAmount(event.target.value)}
-        />
+        <div class="input-group mb-3">
+          <span class="input-group-text">$</span>
+          <input
+            type="number" class="form-control"
+            aria-label="Amount (to the nearest dollar)"
+            value={debtPaymentAmount}
+            name="debt_payment_amount"
+            id="debt_payment_amount"
+            placeholder='0'
+            onChange={(event) => setDebtPaymentAmount(event.target.value)} />
+          <span class="input-group-text">.00</span>
+        </div>
 
-        <br />
-
-        <label htmlFor="debt_goal_id" className="sr-only">
+        <label htmlFor="debt_goal_id">
           Debt goal id:
         </label>
-        <input
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">#</span>
+          <input
           type="number"
+          class="form-control"
+          placeholder="id"
           value={debtGoalId}
           name="debt_goal_id"
           id="debt_goal_id"
-          placeholder='id #'
           onChange={(event) => setDebtGoalId(event.target.value)}
-        />
+          />
+        </div>
 
-        <br />
-
-
-        <button type="submit" onClick={handleClick}>
-          add payment
-        </button>
+        <div className='modal-footer'>
+          <button className='btn btn-danger' onClick={() => props.setOpenModal(false)}>cancel</button>
+          <button type="submit" className='btn btn-primary' onClick={handleClick}>
+            add payment
+          </button>
+        </div>
 
       </form>
-
     </div>
   );
 };

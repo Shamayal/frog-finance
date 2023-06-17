@@ -90,7 +90,7 @@ export const menuItems = [
   },
   {
     title: 'Stocks',
-    url: '',
+    url: 'stocks',
   },
   {
     title: 'Learn',

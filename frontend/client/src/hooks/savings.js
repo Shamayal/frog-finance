@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 export const useSavingsHook = () => {
-  const [currentSavingsGoal, setCurrentSavingsGoal] = useState(null);
+  const [currentSavingsGoal, setCurrentSavingsGoal] = useState([]);
   const [pastSavingsGoal, setPastSavingsGoal] = useState([]);
 
   const viewSavingsGoal = () => {
@@ -44,11 +44,13 @@ export const useSavingsHook = () => {
     }
 
 
-    axios.post(`http://localhost:3030/savings/new`, data)
+  return axios.post(`http://localhost:3030/savings/new`, data)
       .catch((error) => {
         console.error('Error fetching photos:', error);
       });
   }
+
+
 
   return {
     viewSavingsGoal,
