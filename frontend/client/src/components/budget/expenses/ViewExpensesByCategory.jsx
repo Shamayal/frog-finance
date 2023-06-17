@@ -1,33 +1,16 @@
-import React, { useState } from 'react';
-import { useExpensesHook } from '../../../hooks/expenses';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+// import React, { useState } from 'react';
+// import { useExpensesHook } from '../../../hooks/expenses';
+// import DatePicker from 'react-datepicker';
+// import 'react-datepicker/dist/react-datepicker.css';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 import "./ViewExpensesByCategory.css";
 
-const ViewExpensesByCategory = () => {
-  const [startDate, setStartDate] = useState(new Date());
+const ViewExpensesByCategory = (props) => {
 
-  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  console.log('view expense by category props:', props);
 
-  function getMonth(startDate) {
-    const monthIndex = startDate.getMonth();
-    return months[monthIndex];
-  }
-
-  const month = getMonth(startDate);
-  const year = startDate.getFullYear();
-  console.log(month, year)
-
-  const { viewExpensesByCategory, expensesByCategory } = useExpensesHook();
-
-  const handleClick = (event) => {
-    event.preventDefault()
-    viewExpensesByCategory(startDate)
-  }
-
-  const sortedExpensesByCategory = [...expensesByCategory].sort((a, b) => {
+  const sortedExpensesByCategory = [...(props.expensesByCategory)].sort((a, b) => {
     return b.total_amount - a.total_amount;
   });
 
@@ -40,6 +23,7 @@ const ViewExpensesByCategory = () => {
     categoryLabels.push(expense.category_name);
     categoryData.push(expense.total_amount);
   });
+  
 
   const data = {
     labels: categoryLabels,
@@ -71,18 +55,7 @@ const ViewExpensesByCategory = () => {
   return (
     <div>
       <div>------------------------------------------------------------</div>
-      <p>Total Expenses By Category Spent in {month} {year}</p>
-
-      <DatePicker
-        selected={startDate}
-        onChange={(date) => setStartDate(date)}
-        dateFormat="MM/yyyy"
-        showMonthYearPicker
-        showFullMonthYearPicker
-        showFourColumnMonthYearPicker
-      />
-      <button type="submit" onClick={handleClick}> Get Expenses By Category </button>
-
+      <p>Total Expenses By Category Spent in {props.month} {props.year}</p>
       <table>
         <thead>
           <tr>
