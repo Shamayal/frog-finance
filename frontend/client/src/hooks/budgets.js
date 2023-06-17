@@ -30,7 +30,7 @@ export const useBudgetHook = () => {
     });
   }
 
-  const viewAddBudget = (amount, startDate, category) => {
+  const createBudget = (amount, startDate, category) => {
 
     const formatDate = startDate.toISOString().split('T')[0];
 
@@ -87,7 +87,7 @@ export const useBudgetHook = () => {
   return {
     viewMonthlyBudget,
     monthlyBudget,
-    viewAddBudget,
+    createBudget,
     updateBudget,
     viewNotBudgetCategories,
     notBudgetCategories
