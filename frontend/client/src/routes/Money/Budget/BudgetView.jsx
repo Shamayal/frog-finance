@@ -1,5 +1,3 @@
-import '../../../../src/styles/budget.css'
-
 import ViewMonthlyBudgets from "../../../components/budget/ViewMonthlyBudgets"
 const BudgetView = () => {
   return (
