@@ -12,6 +12,7 @@ code {
     monospace;
 }*/
 
+/* From the google video*/
 *,
 *::before,
 *::after {
@@ -391,7 +392,7 @@ select {
   -webkit-box-flex: 1;
   -ms-flex: 1 1 48%;
   flex: 1 1 48%;
-  max-width: 800px;
+  max-width: 1000px;
   position: relative;
   display: -ms-grid;
   display: grid;
@@ -539,7 +540,7 @@ progress[value]::-webkit-progress-value {
 }
 
 table {
-  width: 70%;
+  width: 100%;
 }
 
 tr:nth-child(odd) {
@@ -559,6 +560,7 @@ td,
 th {
   text-align: center;
   padding: var(--space-xs);
+  font-size: var(--fs-200);
 }
 
 table .btn {

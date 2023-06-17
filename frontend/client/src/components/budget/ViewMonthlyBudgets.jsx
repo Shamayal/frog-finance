@@ -53,11 +53,15 @@ const ViewMonthlyBudgets = () => {
             ))
           }
         </div>
+        
+      <div className="form-wrapper">
+        <h2 className="h3">
+          Budget for {month} {year}
+        </h2>
 
-        <p>Budget for {month} {year}</p>
         <table>
           <thead>
-            <tr color='yellow'>
+            <tr>
               <th>Category</th>
               <th>Budget Amount</th>
               <th>Total Expenses</th>
@@ -75,7 +79,7 @@ const ViewMonthlyBudgets = () => {
             ))}
           </tbody>
         </table>
-      </>
+      </div></>
       }
     </div>
   )
