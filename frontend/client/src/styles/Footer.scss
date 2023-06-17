@@ -1,0 +1,60 @@
+$font-family: 'Roboto', sans-serif;
+$font-title: 'Caveat', cursive;
+
+footer {
+  width: 100%;
+  background-color: #643F0C;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 20px;
+  color: white;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.social-icons {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: x-large;
+  padding-left: 40%;
+  padding-right: 40%;
+}
+
+.footer-title {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 2rem;
+  margin-bottom: 0;
+  h2 {
+    font-family: $font-title;
+    font-size: xx-large;
+    color: white;
+  }
+  h5 {
+    color: white;
+  }
+}
+
+.footer-copyright {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  i {
+    margin-right: 0.5rem;
+  }
+}
