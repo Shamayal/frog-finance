@@ -6,7 +6,7 @@ header {
 .nav-area {
   display: flex;
   align-items: center;
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: 0 auto;
   padding: 10px 20px;
 }
@@ -15,14 +15,25 @@ header {
   text-decoration: none;
   font-size: 25px;
   color: inherit;
-  margin-right: 20px;
+  margin: 0 20px;
+}
+
+.menu-auth {
+  margin: 0 20px;
 }
 
 .menus {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   flex-wrap: wrap;
   list-style: none;
+  width: 100%;
+  padding: 0;
+}
+
+.menu-items-container {
+  display: flex;
 }
 
 .menu-items {

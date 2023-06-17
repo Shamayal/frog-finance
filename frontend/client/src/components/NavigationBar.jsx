@@ -12,12 +12,21 @@ const NavigationBar = () => {
   const { isLoading, error } = useAuth0();
 
   return (
-      <nav className='navbar font-quicksand'>
-        <ul className="menus">
+    <nav className='navbar font-quicksand'>
+      <ul className="menus">
+
+        <div className="logo">
+          <li>Frog Finance</li>
+        </div>
+
+        <div className="menu-items-container">
           {menuItems.map((menu, index) => {
             const depthLevel = 0;
             return <MenuItems items={menu} key={index} depthLevel={depthLevel} />;
           })}
+        </div>
+
+        <div className="menu-auth">
           <li>
             {error && <p>Authentication Error</p>}
             {!error && isLoading && <p>Loading...</p>}
@@ -25,8 +34,9 @@ const NavigationBar = () => {
             <LoginButton />
             <LogoutButton />
           </li>
-        </ul>
-      </nav>
+        </div>
+      </ul>
+    </nav>
   );
 };
 
