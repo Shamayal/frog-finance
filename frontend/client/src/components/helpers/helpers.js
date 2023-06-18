@@ -12,7 +12,4 @@ export const formatPercentage = (amt) => {
   })
 }
 
-export const generateRandomColor = (num) => {
-  return `${ num * 150} 65% 50%`
-}
 
