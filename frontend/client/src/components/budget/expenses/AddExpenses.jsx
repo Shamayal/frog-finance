@@ -40,7 +40,18 @@ const ViewAddExpenses = () => {
   };
 
   const handleClick = (event) => {
-    event.preventDefault()
+    event.preventDefault();
+
+    if (!category) {
+      toast.error("Please select a category!");
+      return;
+    }
+
+    if (!subCategory) {
+      toast.error("Please select a sub-category!");
+      return;
+    }
+
     if (parseFloat(amount) > 0) {
       viewAddExpenses(amount, startDate, category, subCategory)
       setAmount("");
