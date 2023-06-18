@@ -18,7 +18,6 @@ progress {
 small {
   font-size: clamp(0.78rem, calc(0.71rem + 0.35vw), 0.96rem);
   line-height: 1;
-  color:brown
 }
 
 .budgets {

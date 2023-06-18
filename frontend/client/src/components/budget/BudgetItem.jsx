@@ -10,7 +10,7 @@ const BudgetItem = ({ budget }) => {
         <p>{formatCurrency(budget_amount)} Budgeted</p>
       </div>
       <progress max={budget_amount} value={expense_amount}>
-        <p>{formatPercentage(expense_amount / budget_amount)}</p>
+        {formatPercentage(expense_amount / budget_amount)}
       </progress>
       <div className="progress-text">
         <small>{formatCurrency(expense_amount)} spent</small>
