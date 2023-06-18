@@ -7,14 +7,12 @@ import { Toaster, toast } from 'react-hot-toast';
 const ViewAddIncome = () => {
   const [amount, setAmount ] = useState("")
   const [startDate, setStartDate] = useState(new Date());
-  const [submitted, setSubmitted] = useState(false);
 
   const { viewAddIncome } = useIncomeHook();
 
   const handleClick = (event) => {
     event.preventDefault()
     viewAddIncome(amount, startDate)
-    setSubmitted(true);
     setAmount("");
     setStartDate(new Date());
     toast.success('Successfully added income!')
@@ -26,7 +24,6 @@ const ViewAddIncome = () => {
 
   return (
     <div>
-      <div>------------------------------------------------------------</div>
       <p>Add Income</p>
 
       <form>
@@ -42,11 +39,6 @@ const ViewAddIncome = () => {
 
         <button type="submit" onClick={handleClick}> Add Income </button>
       </form>
-
-      {submitted && <p>Income added successfully!</p>}
-
-
-      <div>------------------------------------------------------------</div>
     </div>
   )
 }
