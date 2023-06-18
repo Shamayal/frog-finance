@@ -1,6 +1,6 @@
 import '../../styles/home.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import servicesImage from '../../images/services.jpg';
+
 
 
 const Services = () => {
