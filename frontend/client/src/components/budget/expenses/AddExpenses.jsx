@@ -41,12 +41,17 @@ const ViewAddExpenses = () => {
 
   const handleClick = (event) => {
     event.preventDefault()
-    viewAddExpenses(amount, startDate, category, subCategory)
-    setAmount("");
-    setStartDate(new Date());
-    setCategory("");
-    setSubCategory("");
-    toast.success('Successfully added expense!')
+    if (parseFloat(amount) > 0) {
+      viewAddExpenses(amount, startDate, category, subCategory)
+      setAmount("");
+      setStartDate(new Date());
+      setCategory("");
+      setSubCategory("");
+      toast.success('Successfully added expense!')
+    } else {
+      toast.error('Expense must be greater than $0!')
+    }
+    
   }
 
   return (
