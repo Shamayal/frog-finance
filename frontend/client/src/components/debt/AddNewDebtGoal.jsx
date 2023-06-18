@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDebtHook } from '../../hooks/debt';
+import { Toaster, toast } from 'react-hot-toast';
 
 const CreateDebtGoal = () => {
   const [ debtName, setDebtName ] = useState("");
@@ -14,6 +15,7 @@ const CreateDebtGoal = () => {
   const handleClick = (event) => {
     event.preventDefault()
     createDebtGoal(debtName, debtAmount, interestRate).then(() => navigate("/debt/progress"))
+    toast.success('Successfully create a debt goal!');
   }
 
   return (

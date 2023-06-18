@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDebtHook } from '../../hooks/debt';
+import { Toaster, toast } from 'react-hot-toast';
 
 const MakeDebtPayment = (props) => {
   const { addDebtPayment, viewDebtGoals } = useDebtHook();
@@ -11,6 +12,7 @@ const MakeDebtPayment = (props) => {
     event.preventDefault()
     addDebtPayment(debtPaymentAmount, debtGoalId)
     props.setOpenModal(false)
+    toast.success('Successfully updated your debt payments!')
   }
 
   useEffect(() => {

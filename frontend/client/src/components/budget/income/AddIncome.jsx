@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useIncomeHook } from '../../../hooks/income';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-
+import { Toaster, toast } from 'react-hot-toast';
 
 const ViewAddIncome = () => {
   const [amount, setAmount ] = useState("")
@@ -17,6 +17,7 @@ const ViewAddIncome = () => {
     setSubmitted(true);
     setAmount("");
     setStartDate(new Date());
+    toast.success('Successfully added income!')
   }
 
   const handleDateChange = (date) => {

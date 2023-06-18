@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useBudgetHook } from '../../hooks/budgets';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { Toaster, toast } from 'react-hot-toast';
 
 
 const CreateBudget = () => {
@@ -19,11 +20,11 @@ const CreateBudget = () => {
     setCategory(selectedCategory);
   };
 
-  let handleDateChange = date => { 
+  let handleDateChange = date => {
     setStartDate(date);
     viewNotBudgetCategories(date);
   };
-  
+
   const handleClick = (event) => {
     event.preventDefault()
     createBudget(amount, startDate, category)
@@ -31,6 +32,7 @@ const CreateBudget = () => {
     setAmount("");
     setStartDate(new Date());
     setCategory("");
+    toast.success('Successfully created budget!')
   }
 
   return (
@@ -40,7 +42,7 @@ const CreateBudget = () => {
       </h2>
 
       <form>
-      <div>  
+      <div>
         <label htmlFor="budget_date">Budget Date:</label>
         <DatePicker
           showIcon
@@ -48,7 +50,7 @@ const CreateBudget = () => {
           onChange={handleDateChange}
         />
       </div>
-      <div>  
+      <div>
         <label htmlFor="budget_category">Category:</label>
         <select id="budget_category" value={category} onChange={handleCategoryChange}>
           <option value="">Select Category</option>
@@ -59,7 +61,7 @@ const CreateBudget = () => {
           ))}
         </select>
       </div>
-      <div>  
+      <div>
         <label htmlFor="budget_amount">Budget Amount:</label>
         <input type="number" value={amount} id="budget_amount" onChange={(event) => setAmount(event.target.value)} />
       </div >

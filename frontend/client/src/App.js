@@ -35,16 +35,22 @@ import Stocks from "./routes/Stocks/Stocks";
 
 import LearnMoney from "./routes/Learn/LearnMoney.jsx";
 import LearnFinance from "./routes/Learn/LearnFinance";
+import { Toaster, toast } from 'react-hot-toast';
 
 library.add(faDollarSign, faSackDollar, faHandHoldingDollar, faArrowTrendUp, faChalkboardUser, faMoneyBillTransfer, faCircleDollarToSlot)
 
 
 function App() {
 
+
   return (
+
     <main className="column">
 
+
+    <div><Toaster/></div>
       <Router>
+
         <NavigationBar />
         <Routes>
           <Route path="/" element={<HomePage />} />

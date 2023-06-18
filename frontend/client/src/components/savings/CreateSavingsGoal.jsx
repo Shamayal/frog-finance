@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSavingsHook } from '../../hooks/savings';
 import 'bootstrap/dist/css/bootstrap.css';
+import { Toaster, toast } from 'react-hot-toast';
 
 const CreateSavingsGoal = () => {
   const [savingName, setSavingName] = useState("")
@@ -16,6 +17,7 @@ const CreateSavingsGoal = () => {
     event.preventDefault()
     createSavingsGoal(savingName, goalAmount, currentAmount).then(() => {
       navigate("/savings/progress")
+      toast.success('Successfully create a savings goal!')
     });
   }
 

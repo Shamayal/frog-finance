@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useExpensesHook } from '../../../hooks/expenses';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { Toaster, toast } from 'react-hot-toast';
 
 
 const ViewAddExpenses = () => {
@@ -47,6 +48,7 @@ const ViewAddExpenses = () => {
     setStartDate(new Date());
     setCategory("");
     setSubCategory("");
+    toast.success('Successfully added expense!')
   }
 
   return (

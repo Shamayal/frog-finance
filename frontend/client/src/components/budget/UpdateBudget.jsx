@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useBudgetHook } from '../../hooks/budgets';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { Toaster, toast } from 'react-hot-toast';
 
 
 const UpdateBudget = () => {
@@ -26,6 +27,7 @@ const UpdateBudget = () => {
     setAmount("");
     setStartDate(new Date());
     setCategory("");
+    toast.success('Successfully updated budget!')
   }
 
   return (
@@ -33,9 +35,9 @@ const UpdateBudget = () => {
       <h2>
         Update Budget Amount for Category
       </h2>
- 
+
       <form>
-      <div> 
+      <div>
         <label htmlFor="budget_category">Category:</label>
         <select id="budget_category" value={category} onChange={handleCategoryChange}>
           <option value="">Select Category</option>
@@ -54,11 +56,11 @@ const UpdateBudget = () => {
           <option value="13">Other</option>
         </select>
       </div>
-      <div>  
+      <div>
         <label htmlFor="budget_amount">Budget Amount:</label>
         <input type="number" value={amount} id="budget_amount" onChange={(event) => setAmount(event.target.value)} />
       </div>
-      <div> 
+      <div>
       <label htmlFor="budget_date">Budget Date:</label>
         <DatePicker
           showIcon
