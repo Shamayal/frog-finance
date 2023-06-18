@@ -1,0 +1,47 @@
+.savings-goal-section {
+  padding: 30px 0;
+}
+
+.savings-goal-section .row {
+  margin-top: 30px;
+}
+
+.savings-goal-section .col {
+  padding: 40px 50px;
+  max-width: 47%;
+}
+
+
+.savings-page-how-it-works {
+  height: 500px;
+}
+
+.savings-page-how-it-works h4 {
+  padding-bottom: 25px;
+}
+
+.btn-light:hover {
+  background-color: #3B7601;
+  color: white;
+}
+
+/* Create Savings page */
+.create-savings-container {
+  background-image: url('https://images.unsplash.com/photo-1633158829875-e5316a358c6f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.create-savings-text-bg {
+  background-color: rgba(246, 242, 242, 0.6);
+  padding: 40px 25px;
+  width: 75%;
+  margin-top: 40px;
+}
+
+.create-savings-container form input {
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
