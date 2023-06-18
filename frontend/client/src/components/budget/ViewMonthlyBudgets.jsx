@@ -2,6 +2,7 @@ import React, { useState  } from 'react';
 import { useBudgetHook } from '../../hooks/budgets';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import '../../styles/budget.css';
 import BudgetItem from "./BudgetItem";
 
 // to view expenses by category and see how much left in budget
@@ -26,12 +27,12 @@ const ViewMonthlyBudgets = () => {
   }
    
   return (
-    <div className="form-wrapper">
-      <h2 className="h3">
+    <div>
+      <h2>
         Budget for {month} {year}
       </h2>
 
-    <div className="flex-sm">
+    <div>
       <DatePicker
         selected={startDate}
         onChange={(date) => setStartDate(date)}
@@ -41,7 +42,7 @@ const ViewMonthlyBudgets = () => {
         showFourColumnMonthYearPicker
       />
     </div>
-      <button type="submit"  className="btn btn--dark" onClick={handleClick}> Get Budget </button>
+      <button type="submit" onClick={handleClick}> Get Budget </button>
 
       { monthlyBudget.length > 0 &&
         <>
@@ -54,8 +55,8 @@ const ViewMonthlyBudgets = () => {
           }
         </div>
         
-      <div className="form-wrapper">
-        <h2 className="h3">
+      <div>
+        <h2>
           Budget for {month} {year}
         </h2>
 
