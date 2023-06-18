@@ -20,36 +20,36 @@ const useConfettiHelper = () => {
     refAnimationInstance.current &&
       refAnimationInstance.current({
         ...opts,
-        origin: { y: 0 },
-        particleCount: Math.floor(2000 * particleRatio)
+        origin: { y: 0.2 },
+        particleCount: Math.floor(3000 * particleRatio)
       });
   }, []);
 
   const fire = useCallback(() => {
     makeShot(0.25, {
-      spread: 326,
-      startVelocity: 130
+      spread: 200,
+      startVelocity: 55
     });
 
     makeShot(0.2, {
-      spread: 60
+      spread: 200
     });
 
     makeShot(0.35, {
-      spread: 100,
+      spread: 200,
       decay: 0.91,
       scalar: 0.8
     });
 
     makeShot(0.1, {
-      spread: 120,
+      spread: 200,
       startVelocity: 25,
       decay: 0.92,
-      scalar: 1.2
+      scalar: 0.8
     });
 
     makeShot(0.1, {
-      spread: 120,
+      spread: 200,
       startVelocity: 45
     });
   }, [makeShot]);
