@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Services = () => {
   return (
-    <section className="wrapper font-quicksand">
+    <section className="wrapper font-quicksand services-container">
 
 
       <h1 className="text-center fontweight-700 font-poppins">Take Your Finances <br /> to the Next Level</h1>
