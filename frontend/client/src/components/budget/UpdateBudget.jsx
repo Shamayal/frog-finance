@@ -29,13 +29,13 @@ const UpdateBudget = () => {
   }
 
   return (
-    <div className="form-wrapper">
-      <h2 className="h3">
+    <div>
+      <h2>
         Update Budget Amount for Category
       </h2>
  
       <form>
-      <div className="flex-sm"> 
+      <div> 
         <label htmlFor="budget_category">Category:</label>
         <select id="budget_category" value={category} onChange={handleCategoryChange}>
           <option value="">Select Category</option>
@@ -54,11 +54,11 @@ const UpdateBudget = () => {
           <option value="13">Other</option>
         </select>
       </div>
-      <div className="flex-sm">  
+      <div>  
         <label htmlFor="budget_amount">Budget Amount:</label>
         <input type="number" value={amount} id="budget_amount" onChange={(event) => setAmount(event.target.value)} />
       </div>
-      <div className="flex-sm"> 
+      <div> 
       <label htmlFor="budget_date">Budget Date:</label>
         <DatePicker
           showIcon
@@ -66,7 +66,7 @@ const UpdateBudget = () => {
           onChange={(date) => setStartDate(date)}
         />
       </div>
-        <button type="submit" className="btn btn--dark" onClick={handleClick}> Update Budget </button>
+        <button type="submit" onClick={handleClick}> Update Budget </button>
 
       </form>
 
