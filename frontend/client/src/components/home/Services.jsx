@@ -6,11 +6,11 @@ import servicesImage from '../../images/services.jpg';
 const Services = () => {
   return (
     <section className="wrapper font-quicksand">
-      <div>
-        {/* <h3>Reach Your Goals Faster With</h3>
-        <h1>Rocket Finance</h1> */}
+      {/* <div>
+        <h3>Reach Your Goals Faster With</h3>
+        <h1>Rocket Finance</h1>
       <img src={servicesImage} alt="" />
-      </div>
+      </div> */}
 
       <h1 className="text-center fontweight-700 font-poppins">Take Your Finances <br /> to the Next Level</h1>
 
