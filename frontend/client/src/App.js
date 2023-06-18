@@ -1,5 +1,7 @@
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faDollarSign, faSackDollar } from '@fortawesome/free-solid-svg-icons'
+import { faDollarSign, faSackDollar, faHandHoldingDollar, faArrowTrendUp, faChalkboardUser, faMoneyBillTransfer, faCircleDollarToSlot } from '@fortawesome/free-solid-svg-icons'
+
+
 
 import { BrowserRouter as Router, Routes , Route} from "react-router-dom";
 import "./App.css";
@@ -33,7 +35,7 @@ import Stocks from "./routes/Stocks/Stocks";
 import LearnMoney from "./routes/Learn/LearnMoney.jsx";
 import LearnFinance from "./routes/Learn/LearnFinance";
 
-library.add(faDollarSign, faSackDollar)
+library.add(faDollarSign, faSackDollar, faHandHoldingDollar, faArrowTrendUp, faChalkboardUser, faMoneyBillTransfer, faCircleDollarToSlot)
 
 
 function App() {

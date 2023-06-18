@@ -1,3 +1,4 @@
+
 .progress-text {
   display: flex;
   align-items: center;
@@ -40,5 +41,4 @@ small {
   text-decoration: none;
   /*color: hsl(183 74% 44%);*/
 }
-
 

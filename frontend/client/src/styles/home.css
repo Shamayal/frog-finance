@@ -1,0 +1,23 @@
+
+.col {
+  padding: 20px;
+}
+
+.services {
+  padding-bottom: 70px;
+  border-bottom: 3px solid black;
+}
+
+.individual-services-container {
+  width: 90%;
+  padding: 40px 0;
+}
+
+.individual-services-container .row {
+  min-height: 400px;
+  padding-bottom: 50px;
+}
+
+.individual-services-container .col {
+  padding: 100px 40px;
+}

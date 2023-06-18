@@ -17,7 +17,7 @@ function Modal({ setOpenModal }) {
           </button>
         </div>
         <div className="title">
-          <FontAwesomeIcon icon="sack-dollar" className="modalDollarIcon" />
+          <FontAwesomeIcon icon="sack-dollar" className="modalIcon" />
           <h1 className="font-quicksand">Add a debt payment:</h1>
         </div>
         <div className="body">

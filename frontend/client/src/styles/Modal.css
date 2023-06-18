@@ -54,17 +54,6 @@ margin: 25px 10px 0;
   margin-right: 10px;
 }
 
-.modalDollarIcon {
-  background-color: rgb(5, 179, 243);
-  color: white;
-  border-radius: 100%;
-  padding: 15px;
-  width: 30px;
-  height: 30px;
-  margin-bottom: 20px;
-
-}
-
 .input-group {
   width: 50%;
   margin: 0 auto;
