@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useBudgetHook } from '../../hooks/budgets';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { Toaster, toast } from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
 
 const CreateBudget = () => {
+  useEffect(() => {
+    handleDateChange(new Date());
+ }, []);
   const [amount, setAmount ] = useState("")
   const [startDate, setStartDate] = useState(new Date());
   const [category, setCategory ] = useState("")
@@ -15,7 +19,6 @@ const CreateBudget = () => {
 
 
   const handleCategoryChange = (event) => {
-    console.log(event.target.value);
     const selectedCategory = event.target.value;
     setCategory(selectedCategory);
   };
@@ -52,6 +55,7 @@ const CreateBudget = () => {
       </div>
       <div>
         <label htmlFor="budget_category">Category:</label>
+
         <select id="budget_category" value={category} onChange={handleCategoryChange}>
           <option value="">Select Category</option>
           {notBudgetCategories.map(category => (
@@ -69,7 +73,8 @@ const CreateBudget = () => {
       <button type="submit" onClick={handleClick}> Add Budget </button>
 
       </form>
-
+      {notBudgetCategories.length == 0 && <><p>Created this month Budget for all Categories, You Can Update the Budge for the Category by clicking link below...</p>
+        <Link to='/money/budget/update'>Update Budge</Link></> }      
       {submitted && <p>Budget added successfully!</p>}
 
     </div>
