@@ -1,6 +1,8 @@
 import "../../src/styles/HomePage.css"
 import frog from "../media/frog.mp4"
 import frogLeaf from "../media/frog_leaf.mp4"
+import Services from "../components/home/Services";
+import IndividualServicesInfo from "../components/home/IndividualServicesInfo";
 
 const HomePage = () => {
   return (
@@ -11,6 +13,8 @@ const HomePage = () => {
       <div className="homepage-content">
         <h1>Frog Finance</h1>
         <h3>Leap towards financial stability!</h3>
+        <Services />
+        <IndividualServicesInfo />
       </div>
     </div>
   );
