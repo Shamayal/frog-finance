@@ -1,21 +1,27 @@
-import React, { useCallback, useState, useContext, useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useSavingsHook } from '../../hooks/savings';
-
+import ReactCanvasConfetti from "react-canvas-confetti";
+import useConfettiHook from '../../hooks/confetti';
 
 const ViewPastSavingsGoals = () => {
-
   const { viewPastSavingsGoal, pastSavingsGoal } = useSavingsHook();
-  console.log("check pastSavingGoal state", pastSavingsGoal)
+  const { fire, getInstance, canvasStyles } = useConfettiHook();
 
   useEffect(() => {
-    viewPastSavingsGoal()
-  }, [])
+    viewPastSavingsGoal();
+  }, []);
 
   return (
     <div>
-      <h1>Past Savings Goal: </h1>
-      {pastSavingsGoal.length === 0 && <p>No savings goals have been reached yet</p>
-      }
+      <h1>Past Savings Goal:</h1>
+      {pastSavingsGoal.length === 0 && <p>No savings goals have been reached yet</p>}
+
+      {pastSavingsGoal.length > 0 && (
+        <>
+          <button onClick={fire}>Fire</button>
+          <ReactCanvasConfetti refConfetti={getInstance} style={canvasStyles} />
+        </>
+      )}
 
       {pastSavingsGoal.length > 0 && (
         pastSavingsGoal.map((pastSaving) => (
@@ -30,13 +36,11 @@ const ViewPastSavingsGoals = () => {
               <div className="progress-bar bg-success" style={{ width: '100%' }}>100%</div>
             </div>
             <br />
-
           </section>
         ))
       )}
-
     </div>
-  )
-}
+  );
+};
 
 export default ViewPastSavingsGoals;
