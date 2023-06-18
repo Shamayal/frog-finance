@@ -11,6 +11,7 @@ import ReactDOM from 'react-dom'
 
 import NavigationBar from "./components/NavigationBar.jsx"
 import HomePage from "./routes/HomePage.jsx"
+import Footer from './components/Footer';
 
 import IncomeAdd from "./routes/Money/Income/IncomeAdd";
 import IncomeView from "./routes/Money/Income/IncomeView";
@@ -74,6 +75,7 @@ function App() {
           <Route path="*" element={<h1>404 Page Not Found</h1>} />
 
         </Routes>
+        <Footer />
       </Router>
 
     </main>
