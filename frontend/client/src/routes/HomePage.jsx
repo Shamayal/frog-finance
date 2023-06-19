@@ -1,5 +1,4 @@
 import "../../src/styles/HomePage.css"
-import frog from "../media/frog.mp4"
 import frogLeaf from "../media/frog_leaf.mp4"
 import Services from "../components/home/Services";
 import IndividualServicesInfo from "../components/home/IndividualServicesInfo";

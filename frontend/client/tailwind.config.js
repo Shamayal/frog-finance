@@ -8,6 +8,8 @@ module.exports = {
         white: "white",
         none: "none",
         lightblue: '#F4F9FC',
+        lightgreen: '#BBD187',
+        darkgreen: '#526E11'
       },
       fontFamily: {
         quicksand: ["Quicksand", "sans-serif"],
