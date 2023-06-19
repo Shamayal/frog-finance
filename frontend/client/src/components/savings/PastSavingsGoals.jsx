@@ -5,7 +5,6 @@ import ReactCanvasConfetti from "react-canvas-confetti";
 import useConfettiHook from '../../hooks/confetti';
 import '../../styles/savings.css';
 
-
 const ViewPastSavingsGoals = () => {
   const navigate = useNavigate();
   const { viewPastSavingsGoal, pastSavingsGoal } = useSavingsHook();
@@ -20,7 +19,6 @@ const ViewPastSavingsGoals = () => {
       <h1 className='font-poppins'>Grow your savings <br /> Leap forward one goal at a time</h1>
 
       <main className='row justify-content-between'>
-
 
         <h4 className='font-poppins'>Saving Achievments - Completed Goals: </h4>
 
@@ -57,6 +55,7 @@ const ViewPastSavingsGoals = () => {
                 <div className="progress w-50" role="progressbar" aria-label="Success example" aria-valuenow={100} aria-valuemin={0} aria-valuemax={100}>
                   <div className="progress-bar bg-success" style={{ width: '100%' }}>100%</div>
                 </div>
+
                 <div className='congrats-container'>
                   <button onClick={fire} className="congrats-confetti rounded-md">Congrats!</button>
                   <ReactCanvasConfetti refConfetti={getInstance} style={canvasStyles} />
