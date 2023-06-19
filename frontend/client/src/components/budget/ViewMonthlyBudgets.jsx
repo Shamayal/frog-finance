@@ -60,12 +60,12 @@ const ViewMonthlyBudgets = () => {
         </form>
       </section>
       <section className='col budget-page-how-it-works bg-lightgray rounded-md'>
-        <h4 className='font-poppins'> How It Works</h4>
-        <p> Choose a Category to set Budget Amount, whether it's a Housing, Food, Transportation — whatever you need! </p>
-        <p>Fill in the form - Select a Category </p>
-        <p> Choose the Month and Year to set the Budgt for that Category.</p>
-        <p> Enter the Budget Amount to set for the Month and Year Selected, then it will store and you can view the Budget and expenses..</p>
-        <p>Once you've created the budget for one Category, come back & create a new one!</p>
+        <h4 className='font-poppins'> How It Works </h4>
+        <p> Display the Budget Amounts that you created for Housing, Food, Transportation — whatever you need! </p>
+        <p> View the Category Name, Budget and Amount spend for each Category on Progress bar </p>
+        <p> View the Amount Spent for each Category for that month </p>
+        <p> Calcualted and Dispaly the remaining amount need to sepend for each Category..</p>
+        <p> Select any month and See the Budget for each Category, come back & view a other one! </p>
       </section>
     </main>
   </div>
