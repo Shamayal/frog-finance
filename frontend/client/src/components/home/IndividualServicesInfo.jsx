@@ -5,7 +5,7 @@ const IndividualServicesInfo = () => {
   return (
     <section className="wrapper individual-services-container text-center font-quicksand">
       <div className='row'>
-        <div className='col bg-lightgreen rounded-md'>
+        <div className='col bg-lightblue rounded-md'>
           <h2 className="fontweight-700 font-poppins">Manage your money</h2>
           <p>With Frog Finance, managing your money is easy. </p>
           <p>Keep track of all the income you earn & every expense you make </p>
@@ -27,7 +27,7 @@ const IndividualServicesInfo = () => {
           <p>View and update your budgets any time</p>
 
         </div>
-        <div className='col bg-lightgreen rounded-md'>
+        <div className='col bg-lightblue rounded-md'>
           <h2 className="fontweight-700 font-poppins">Create Monthly Budgets</h2>
           <p>Choose from a wide range of categories and set your budget each month</p>
           <p>Easily view your monthly progress to see how you're doing </p>
@@ -35,7 +35,7 @@ const IndividualServicesInfo = () => {
         </div>
       </div>
       <div className='row'>
-        <div className='col bg-lightgreen rounded-md'>
+        <div className='col bg-lightblue rounded-md'>
           <h2 className="fontweight-700 font-poppins">Set Savings Goals</h2>
           <p>Create a savings goal whenever you have a goal in mind</p>
           <p>Sit back and watch as your savings automatically update according to your income and expenses</p>
@@ -53,7 +53,7 @@ const IndividualServicesInfo = () => {
           <p>Keep track of all your debts in one spot</p>
           <p>View all the debts you've paid off to keep track of your accomplishments</p>
         </div>
-        <div className='col bg-lightgreen rounded-md'>
+        <div className='col bg-lightblue rounded-md'>
           <h2 className="fontweight-700 font-poppins">Pay Down Debt</h2>
           <p>Leap out of debt with Frog Finance. Our debt goals help you visualize your debt, and allow you to watch your progress as you pay it down.</p>
 

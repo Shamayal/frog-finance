@@ -76,7 +76,7 @@ button span {
 
 .menu-items a:hover,
 .menu-items button:hover {
-  background-color: #bbd187ab;
+  background-color: #f2f2f2;
 }
 
 .arrow::after {
