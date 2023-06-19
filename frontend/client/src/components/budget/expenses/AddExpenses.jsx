@@ -42,6 +42,11 @@ const ViewAddExpenses = () => {
   const handleClick = (event) => {
     event.preventDefault();
 
+    if (parseFloat(amount) <= 0 || isNaN(parseFloat(amount))) {
+      toast.error("Expense must be greater than $0!");
+      return;
+    }
+
     if (!category) {
       toast.error("Please select a category!");
       return;
@@ -51,16 +56,15 @@ const ViewAddExpenses = () => {
       toast.error("Please select a sub-category!");
       return;
     }
+    
 
-    if (parseFloat(amount) > 0) {
+    if (parseFloat(amount) > 0 && category && subCategory) {
       viewAddExpenses(amount, startDate, category, subCategory)
       setAmount("");
       setStartDate(new Date());
       setCategory("");
       setSubCategory("");
       toast.success('Successfully added expense!')
-    } else {
-      toast.error('Expense must be greater than $0!')
     }
     
   }

@@ -56,7 +56,8 @@ const ViewAddIncome = () => {
             onChange={handleDateChange}
           />
         </div>
-
+        <br />
+        <br />
         <button type="submit" className="btn btn-dark" onClick={handleClick}>
           Add Income
         </button>

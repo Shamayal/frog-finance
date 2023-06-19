@@ -5,3 +5,7 @@
   align-items: flex-start;
   flex-direction: row;
 }
+
+.form-control {
+  width: 500px;
+}
