@@ -1,6 +1,6 @@
 footer {
   width: 100%;
-  background-color: #8EBD19;
+  background-color: #BBD187;
   margin-top: 150px;
 }
 
@@ -15,7 +15,7 @@ footer {
   flex-direction: row;
   justify-content: space-around;
   margin: 20px;
-  color: white;
+  color: #526E11;
   padding-left: 20%;
   padding-right: 20%;
 }
@@ -36,6 +36,7 @@ footer {
   flex-direction: column;
   margin: 2rem;
   margin-bottom: 0;
+  color: #526E11;
   h2 {
     font-size: xx-large;
     color: white;
@@ -50,8 +51,4 @@ footer {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  color: white;
-  i {
-    margin-right: 0.5rem;
-  }
 }

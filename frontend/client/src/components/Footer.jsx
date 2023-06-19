@@ -1,11 +1,12 @@
 import "../styles/Footer.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Footer = () => {
   return (
     <footer>
       <div className="footer-container">
         <div className="footer-links">
-          <ul className="links">
+          <ul className="links font-quicksand">
             <li>Home</li>
             <li>About Us</li>
             <li>FAQ</li>
@@ -17,14 +18,16 @@ const Footer = () => {
           <i className="fa-brands fa-twitter"></i>
           <i className="fa-brands fa-instagram"></i>
           <i className="fa-brands fa-youtube"></i>
+          <FontAwesomeIcon icon="sack-dollar" className="modalIcon" />
+          <i className="fa-brands fa-facebook fa-spin fa-spin-reverse" style={{ color: '#526e11' }}></i>
+
         </div>
-        <div className="footer-title">
+        <div className="footer-title fontweight-700 font-poppins">
           <h2>Frog Finance</h2>
-          <h5><em>Where pre-loved furniture finds a new home!</em></h5>
+          <h5 className="font-quicksand"><em>The first hop towards financial freedom!</em></h5>
         </div>
-        <div className="footer-copyright">
-          <i className="fa-regular fa-copyright"></i>
-          <h6>2023: Frog Finance, Inc. All rights reserved.</h6>
+        <div className="footer-copyright font-quicksand">
+          <h6>© 2023: Frog Finance, Inc. All rights reserved.</h6>
         </div>
       </div>
     </footer>
