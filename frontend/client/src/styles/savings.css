@@ -54,6 +54,13 @@
   color: white;
 }
 
+.congrats-container {
+  padding: 10px 0;
+}
 
+.congrats-confetti {
+  background-color: rgb(102, 213, 250);
+  padding: 5px 10px;
+}
 
 
