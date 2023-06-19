@@ -9,7 +9,9 @@
 
 .debt-goal-section .col {
   padding: 40px 50px;
-  max-width: 47%;
+  min-width: 45%;
+  max-width: 48%;
+  margin-bottom: 30px;
 }
 
 .debt-page-how-it-works {
