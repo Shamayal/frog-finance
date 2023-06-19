@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDebtHook } from '../../hooks/debt';
+import '../../styles/debt.css';
 
 const ViewPaidOffDebts = () => {
   const { viewPaidOffDebts, paidOffDebts } = useDebtHook();
@@ -11,8 +12,8 @@ const ViewPaidOffDebts = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Paid Off Debts:</h1>
+    <div className='wrapper debt-goal-section font-quicksand debt-achievements-pg'>
+      <h1 className='font-poppins'>Pay down your debt <br /> Leap forward one goal at a time</h1>
 
       {paidOffDebts.length === 0 && <p>No paid off debts yet</p>
       }
@@ -31,7 +32,6 @@ const ViewPaidOffDebts = () => {
           </section>
         ))
       )}
-
     </div>
   );
 };
