@@ -21,7 +21,7 @@ import ExpenseView from "./routes/Money/Expenses/ExpensesView";
 
 import BudgetUpdate from "./routes/Money/Budget/BudgetUpdate";
 import BudgetView from "./routes/Money/Budget/BudgetView";
-import CreateBudget from "./routes/Money/Budget/CreateBudget";
+import BudgetCreation from "./routes/Money/Budget/BudgetCreation";
 
 import SavingsAdd from "./routes/Savings/SavingsAdd";
 import SavingsProgress from "./routes/Savings/SavingsProgress";
@@ -61,7 +61,7 @@ function App() {
           <Route path="/money/expenses/add" element={<ExpensesAdd />} />
           <Route path="/money/expenses/view" element={<ExpenseView />} />
 
-          <Route path="/money/budget/add" element={<CreateBudget />} />
+          <Route path="/money/budget/add" element={<BudgetCreation />} />
           <Route path="/money/budget/update" element={<BudgetUpdate />} />
           <Route path="/money/budget/view" element={<BudgetView />} />
 
