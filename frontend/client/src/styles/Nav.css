@@ -3,12 +3,22 @@ header {
   color: #212529;
 }
 
+.navbar {
+  border-bottom: 1px solid rgb(230, 230, 230);
+  align-items: center;
+}
+
 .nav-area {
   display: flex;
   align-items: center;
   /* max-width: 1200px; */
   margin: 0 auto;
   padding: 10px 20px;
+}
+
+nav ul {
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 .logo {

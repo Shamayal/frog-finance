@@ -8,6 +8,7 @@ module.exports = {
         white: "white",
         none: "none",
         lightblue: '#F4F9FC',
+        lightgray: '#F8F8F8',
         lightgreen: '#BBD187',
         darkgreen: '#526E11'
       },
@@ -35,7 +36,7 @@ module.exports = {
     plugin(function ({ addComponents }) {
       addComponents({
         ".wrapper": {
-          maxWidth: "1400px",
+          maxWidth: "1500px",
           width: "95%",
           margin: "0 auto",
         },
