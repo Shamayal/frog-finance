@@ -8,15 +8,23 @@ const Profile = () => {
     // use context and share state
     // can make own usecontext with user_id
     // local and sessions
-    console.log(window.sessionStorage)
-    console.log(window.localStorage)
+    // console.log(window.sessionStorage)
+    // console.log(window.localStorage)
 
+// // Save data to sessionStorage
+// sessionStorage.setItem("key", "value");
+
+// // Get saved data from sessionStorage
+// let data = sessionStorage.getItem("key");
 
     useEffect(() => {
-        axios.post('http://localhost:3030/users/logincheck', {id: user.sub})
+
+        // Ask alvin: how to change these into set and get session storage?
+        const sub = '25353413bgr';
+        const nickname = 'test user';
+        const email = "test@example.com";
+        axios.post('http://localhost:3030/users/logincheck', {id: sub, email: email, nickname: nickname})
         .then(data => console.log(data))
-
-
     }, [isAuthenticated])
 
     return (
