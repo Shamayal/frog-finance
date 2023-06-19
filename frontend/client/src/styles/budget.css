@@ -39,6 +39,55 @@ small {
   padding: calc(24px / 1.5) calc(24px / 1.2);
   gap: 16px;
   text-decoration: none;
-  /*color: hsl(183 74% 44%);*/
 }
+
+.budget-goal-section {
+  padding: 30px 0;
+}
+
+.budget-page-how-it-works {
+  height: 500px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.budget-text-bg {
+  background-color: rgba(246, 242, 242, 0.5);
+  padding: 40px 25px;
+  width: 75%;
+  margin-top: 40px;
+  margin-left: 80px;
+}
+
+.create-budget-container {
+  background-image: url('https://www.debt.org/wp-content/uploads/2012/03/Create-Budget.jpg');
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
+  align-content: center;
+}
+
+.create-budget-container form input {
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.create-budget-container form select {
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  width: 43%;
+}
+.create-budget-container form label {
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+.btn-light:hover {
+  background-color: #3B7601;
+  color: green
+}
+
+
 
