@@ -6,7 +6,7 @@ const BudgetItem = ({ budget }) => {
   return (
     <div className="budget">
       <div className="progress-text">
-        <h3>{category}</h3>
+        <h4>{category}</h4>
         <p>{formatCurrency(budget_amount)} Budgeted</p>
       </div>
       <progress max={budget_amount} value={expense_amount}>
