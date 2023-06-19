@@ -1,13 +1,12 @@
 footer {
   width: 100%;
-  background-color: #BBD187;
+  background-color: #526E11;
   margin-top: 150px;
 }
 
 .footer-container {
   display: flex;
   flex-direction: column;
-
 }
 
 .links {
@@ -15,7 +14,7 @@ footer {
   flex-direction: row;
   justify-content: space-around;
   margin: 20px;
-  color: #526E11;
+  color: #BBD187;
   padding-left: 20%;
   padding-right: 20%;
 }
@@ -34,16 +33,9 @@ footer {
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 2rem;
-  margin-bottom: 0;
-  color: #526E11;
-  h2 {
-    font-size: xx-large;
-    color: white;
-  }
-  h5 {
-    color: white;
-  }
+  margin: 1rem;
+  margin-bottom: 0.5rem;
+  color: white;
 }
 
 .footer-copyright {
@@ -51,4 +43,5 @@ footer {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  color: #BBD187;
 }
