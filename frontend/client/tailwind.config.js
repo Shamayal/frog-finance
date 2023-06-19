@@ -40,7 +40,7 @@ module.exports = {
           margin: "0 auto",
         },
         ".modalIcon": {
-          backgroundColor: "rgb(5, 179, 243)",
+          backgroundColor: "#526E11",
           color: "white",
           borderRadius: "100%",
           padding: "15px",
