@@ -1,6 +1,3 @@
-h1 {
-  color: white;
-}
 .homepage {
   width: 100%;
   height: 100vh;
@@ -9,10 +6,29 @@ h1 {
 }
 
 .homepage-content {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  justify-content: space-between;
   z-index: 1;
-  padding: 20px;
+  padding: 60px;
   color: white;
+  height: 450px;
+}
+
+.title {
+  font-size: 120px;
+}
+
+.slogan {
+  font-size: 25px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  width: 600px;
 }
 
 .back-video {

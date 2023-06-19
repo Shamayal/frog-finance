@@ -1,10 +1,12 @@
 import "../../src/styles/HomePage.css"
-import frog from "../media/frog.mp4"
 import frogLeaf from "../media/frog_leaf.mp4"
 import Services from "../components/home/Services";
 import IndividualServicesInfo from "../components/home/IndividualServicesInfo";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const HomePage = () => {
+  const { loginWithRedirect } = useAuth0();
+
 
   return (
 
@@ -17,8 +19,14 @@ const HomePage = () => {
       </video>
 
       <div className="homepage-content">
-        <h1>Frog Finance</h1>
-        <h3>Leap towards financial stability!</h3>
+        <h1 className="title fontweight-700 font-poppins"><strong>Frog Finance</strong></h1>
+        <br />
+        <h3 className="slogan font-poppins">Leap towards financial stability, one hop at a time!</h3>
+        <div className="button-container">
+          <button className="btn btn-light" onClick={() => loginWithRedirect()}>
+            Sign Up
+          </button>
+        </div>
       </div>
 
       </div>
