@@ -1,3 +1,26 @@
+/* Styling for: Create Savings Goal page */
+.create-savings-container {
+  background-image: url('https://www.centralbank.net/uploadedfiles/images/articles/lc-tips-how-to-save-more.jpg?v=1D79E7ED35EEB00');
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
+}
+
+.create-savings-container form input {
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+/* Styling for: Current Savings Goal page */
+.current-savings-container {
+    background-image: url('https://images.unsplash.com/photo-1633158829875-e5316a358c6f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+    background-size: cover;
+    background-position: left;
+    background-repeat: no-repeat;
+  }
+
+  /* Styling for: ALL savings pages */
 .savings-goal-section {
   padding: 30px 0;
 }
@@ -11,7 +34,6 @@
   max-width: 47%;
 }
 
-
 .savings-page-how-it-works {
   height: 500px;
 }
@@ -20,28 +42,20 @@
   padding-bottom: 25px;
 }
 
-.btn-light:hover {
-  background-color: #3B7601;
-  color: white;
-}
-
-/* Create Savings page */
-.create-savings-container {
-  background-image: url('https://images.unsplash.com/photo-1633158829875-e5316a358c6f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.create-savings-text-bg {
-  background-color: rgba(246, 242, 242, 0.6);
+.savings-text-bg {
+  background-color: rgba(246, 242, 242, 0.7);
   padding: 40px 25px;
   width: 75%;
   margin-top: 40px;
 }
 
-.create-savings-container form input {
-  margin-bottom: 10px;
-  padding: 5px 10px;
-  border-radius: 10px;
+.btn-light:hover {
+  background-color: #3B7601;
+  color: white;
 }
+
+.progress {
+  min-height: 30px;
+}
+
 

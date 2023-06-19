@@ -30,10 +30,11 @@ const CreateSavingsGoal = () => {
 
 
           <main className='row justify-content-between'>
+
             <section className='col create-savings-container bg-lightgray rounded-md'>
-              <h4 className='font-poppins'> Create a Savings Goals </h4>
+              <h4 className='font-poppins'> <span>Create a Savings Goal  </span> </h4>
               {currentSavingsGoal &&
-                <div className='create-savings-text-bg rounded-md'>
+                <div className='savings-text-bg rounded-md'>
                   <p>You already have an active savings goal</p>
                   <p>Leap towards one goal at a time to stay focused</p>
                   <p>Click the button below to see your current savings progress</p>
@@ -42,11 +43,12 @@ const CreateSavingsGoal = () => {
               }
 
               {!currentSavingsGoal &&
-                <form className='create-savings-text-bg rounded-md'>
+                <form className='savings-text-bg rounded-md'>
 
                   <label htmlFor="saving_name">
                     What are you saving for?
                   </label>
+                  <br />
                   <input
                     type="text"
                     value={savingName}
