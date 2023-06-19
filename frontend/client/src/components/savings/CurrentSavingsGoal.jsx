@@ -55,7 +55,6 @@ const ViewSavingsGoals = () => {
           )}
         </section>
 
-
         <section className='col savings-page-how-it-works bg-lightgray rounded-md'>
           <h4 className='font-poppins'> How It Works</h4>
           <p>View your current savings goal and keep track of your progress.  </p>
