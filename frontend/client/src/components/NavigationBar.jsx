@@ -4,6 +4,7 @@ import LoginButton from "./authentication/LoginButton";
 import LogoutButton from "./authentication/LogoutButton";
 import Profile from "./authentication/Profile";
 import "../styles/Nav.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { menuItems } from "../menuItems";
 import MenuItems from './MenuItems';
@@ -12,14 +13,15 @@ const NavigationBar = () => {
   const { isLoading, error } = useAuth0();
 
   return (
-    <nav className='navbar font-quicksand'>
+    <nav className='navbar'>
       <ul className="menus">
 
-        <div className="logo">
-          <li>Frog Finance</li>
+        <div className="logo fontweight-700 font-poppins">
+          <FontAwesomeIcon icon="frog" className="fa-bounce fa-regular fa-lg" style={{ color: '#526E11' }} />
+          <li><strong>Frog Finance</strong></li>
         </div>
 
-        <div className="menu-items-container">
+        <div className="menu-items-container font-quicksand">
           {menuItems.map((menu, index) => {
             const depthLevel = 0;
             return <MenuItems items={menu} key={index} depthLevel={depthLevel} />;

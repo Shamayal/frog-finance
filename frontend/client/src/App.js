@@ -1,5 +1,5 @@
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faDollarSign, faSackDollar, faHandHoldingDollar, faArrowTrendUp, faChalkboardUser, faMoneyBillTransfer, faCircleDollarToSlot } from '@fortawesome/free-solid-svg-icons'
+import { faDollarSign, faSackDollar, faHandHoldingDollar, faArrowTrendUp, faChalkboardUser, faMoneyBillTransfer, faCircleDollarToSlot, faFrog } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -37,7 +37,7 @@ import LearnMoney from "./routes/Learn/LearnMoney.jsx";
 import LearnFinance from "./routes/Learn/LearnFinance";
 import { Toaster, toast } from 'react-hot-toast';
 
-library.add(faDollarSign, faSackDollar, faHandHoldingDollar, faArrowTrendUp, faChalkboardUser, faMoneyBillTransfer, faCircleDollarToSlot)
+library.add(faDollarSign, faSackDollar, faHandHoldingDollar, faArrowTrendUp, faChalkboardUser, faMoneyBillTransfer, faCircleDollarToSlot, faFrog)
 
 
 function App() {
