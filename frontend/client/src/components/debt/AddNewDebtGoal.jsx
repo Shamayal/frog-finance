@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDebtHook } from '../../hooks/debt';
 import { Toaster, toast } from 'react-hot-toast';
+import '../../styles/savings.css';
 
 const CreateDebtGoal = () => {
-  const [ debtName, setDebtName ] = useState("");
-  const [ debtAmount, setDebtAmount ] = useState("");
-  const [ interestRate, setInterestRate ] = useState("");
+  const [debtName, setDebtName] = useState("");
+  const [debtAmount, setDebtAmount] = useState("");
+  const [interestRate, setInterestRate] = useState("");
 
   const navigate = useNavigate();
 
@@ -19,109 +20,70 @@ const CreateDebtGoal = () => {
   }
 
   return (
-    <div>
-      <h1>Create a New Debt Goal: </h1>
-      <form action="">
+    <div className='wrapper debt-goal-section font-quicksand'>
+      <h1 className='font-poppins'>Pay down your debt <br /> Leap forward one goal at a time</h1>
 
-        <label htmlFor="debt_name">
-        Debt you would like to pay off:
-        </label>
-        <input
-          type="text"
-          value={debtName}
-          name="debt_name"
-          id="debt_name"
-          placeholder='debt name'
-          onChange={(event) => setDebtName(event.target.value)}
-        />
+      <main className='row justify-content-between'>
+        <section className='col create-debt-container bg-lightgray rounded-md'>
+          <h4 className='font-poppins'>Create a debt goal</h4>
+          <form className='debt-text-bg rounded-md'>
 
-        <br />
+            <label htmlFor="debt_name">
+              Debt you would like to pay off:
+            </label>
+            <input
+              type="text"
+              value={debtName}
+              name="debt_name"
+              id="debt_name"
+              placeholder='debt name'
+              onChange={(event) => setDebtName(event.target.value)}
+            />
+            <br />
 
+            <label htmlFor="debt_amount">
+              Amount of debt:
+            </label>
+            <br />
+            <input
+              type="number"
+              value={debtAmount}
+              name="debt_amount"
+              id="debt_amount"
+              placeholder='$0'
+              onChange={(event) => setDebtAmount(event.target.value)}
+            />
+            <br />
 
-        <label htmlFor="debt_amount">
-          Amount of debt:
-        </label>
-        <input
-          type="number"
-          value={debtAmount}
-          name="debt_amount"
-          id="debt_amount"
-          placeholder='$0'
-          onChange={(event) => setDebtAmount(event.target.value)}
-        />
+            <label htmlFor="interest_rate">
+              Interest rate:
+            </label>
+            <br />
+            <input
+              type="number"
+              value={interestRate}
+              name="interest_rate"
+              id="interest_rate"
+              placeholder='0.00%'
+              onChange={(event) => setInterestRate(event.target.value)}
+            />
+            <br />
 
-        <br />
+            <button className='btn btn-light' type="submit" onClick={handleClick}>Create Goal</button>
+          </form>
 
-        <label htmlFor="interest_rate">
-          Interest rate:
-        </label>
-        <input
-          type="number"
-          value={interestRate}
-          name="interest_rate"
-          id="interest_rate"
-          placeholder='0.00%'
-          onChange={(event) => setInterestRate(event.target.value)}
-        />
+        </section>
 
-        <br />
+        <section className='col debt-page-how-it-works bg-lightgray rounded-md'>
+          <h4 className='font-poppins'> How It Works</h4>
+          <p> Keep track of all your debts in one place. For each debt, you can create a new goal and track your progress.</p>
+          <p>Fill in the form - name of the debt, the amount you need to pay off, and the interest rate. </p>
+          <p> Create your goal, and watch your progress as you make payments towards each debt.</p>
+          <p>Come back & create a new goal any time you need to!</p>
+          <p>Once a debt has been paid off, you can view it on the Paid Off page. </p>
+        </section>
 
-        <button  className='btn btn-light' type="submit" onClick={handleClick}>Create Goal</button>
-      </form>
-
-{/* tailwind form (unfinished): */}
-{/*
-      <form className="w-full max-w-md">
-  <div className="md:flex md:items-center mb-6">
-
-    <div className="md:w-1/3">
-      <label className="block text-gray-700 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="inline-full-name">
-      Debt to pay off:
-      </label>
-    </div>
-
-    <div className="md:w-2/3">
-      <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name" type="text" value="" placeholder='Debt Name' />
-    </div>
-  </div>
-
-  <div className="md:flex md:items-center mb-6">
-    <div className="md:w-1/3">
-      <label className="block text-gray-700 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="inline-password">
-        Amount of debt
-      </label>
-    </div>
-
-    <div className="md:w-2/3">
-      <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-password" type="number" placeholder="$0" />
-    </div>
-  </div>
-
-  <div className="md:flex md:items-center mb-6">
-    <div className="md:w-1/3">
-      <label className="block text-gray-700 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="inline-password">
-        Interest Rate
-      </label>
-    </div>
-
-    <div className="md:w-2/3">
-      <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-password" type="number" placeholder="0.00%" />
-    </div>
-  </div>
-
-  <div className="md:flex md:items-center">
-    <div className="md:w-1/3"></div>
-    <div className="md:w-2/3">
-      <button className="shadow bg-blue-600 hover:bg-blue-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
-        Create Goal
-      </button>
-    </div>
-  </div>
-
-</form> */}
-
-
-
+      </main>
     </div>
   )
 }

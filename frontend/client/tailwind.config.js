@@ -8,6 +8,9 @@ module.exports = {
         white: "white",
         none: "none",
         lightblue: '#F4F9FC',
+        lightgray: '#F8F8F8',
+        lightgreen: '#BBD187',
+        darkgreen: '#526E11'
       },
       fontFamily: {
         quicksand: ["Quicksand", "sans-serif"],
@@ -33,12 +36,12 @@ module.exports = {
     plugin(function ({ addComponents }) {
       addComponents({
         ".wrapper": {
-          maxWidth: "1400px",
+          maxWidth: "1500px",
           width: "95%",
           margin: "0 auto",
         },
         ".modalIcon": {
-          backgroundColor: "rgb(5, 179, 243)",
+          backgroundColor: "#526E11",
           color: "white",
           borderRadius: "100%",
           padding: "15px",

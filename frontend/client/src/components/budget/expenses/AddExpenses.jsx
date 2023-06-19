@@ -10,7 +10,6 @@ const ViewAddExpenses = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [category, setCategory ] = useState("")
   const [subCategory, setSubCategory ] = useState("")
-  const [submitted, setSubmitted] = useState(false);
 
   const { viewAddExpenses } = useExpensesHook();
 
@@ -41,19 +40,37 @@ const ViewAddExpenses = () => {
   };
 
   const handleClick = (event) => {
-    event.preventDefault()
-    viewAddExpenses(amount, startDate, category, subCategory)
-    setSubmitted(true);
-    setAmount("");
-    setStartDate(new Date());
-    setCategory("");
-    setSubCategory("");
-    toast.success('Successfully added expense!')
+    event.preventDefault();
+
+    if (parseFloat(amount) <= 0 || isNaN(parseFloat(amount))) {
+      toast.error("Expense must be greater than $0!");
+      return;
+    }
+
+    if (!category) {
+      toast.error("Please select a category!");
+      return;
+    }
+
+    if (!subCategory) {
+      toast.error("Please select a sub-category!");
+      return;
+    }
+    
+
+    if (parseFloat(amount) > 0 && category && subCategory) {
+      viewAddExpenses(amount, startDate, category, subCategory)
+      setAmount("");
+      setStartDate(new Date());
+      setCategory("");
+      setSubCategory("");
+      toast.success('Successfully added expense!')
+    }
+    
   }
 
   return (
     <div>
-      <div>------------------------------------------------------------</div>
       <p>Add Expense</p>
 
       <form>
@@ -95,11 +112,6 @@ const ViewAddExpenses = () => {
 
         <button type="submit" onClick={handleClick}> Add Expense </button>
       </form>
-
-      {submitted && <p>Expense added successfully!</p>}
-
-
-      <div>------------------------------------------------------------</div>
     </div>
   )
 }
