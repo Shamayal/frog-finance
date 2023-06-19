@@ -4,7 +4,8 @@ const addUser = (nickname, email, auth_id) => {
   return db.query(
     `
     INSERT INTO users (nickname, email, auth_id)
-    VALUES ($1, $2, $3);
+    VALUES ($1, $2, $3)
+    RETURNING *;
     `, [nickname, email, auth_id])
     .then((res) => {
       return res;
@@ -13,7 +14,7 @@ const addUser = (nickname, email, auth_id) => {
 
 const verifyUser = (auth_id) => {
   return db.query(`
-    SELECT auth_id
+    SELECT *
     FROM users
     WHERE users.auth_id = $1
     `, [auth_id])
