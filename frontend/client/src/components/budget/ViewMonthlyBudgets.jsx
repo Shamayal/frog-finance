@@ -27,62 +27,48 @@ const ViewMonthlyBudgets = () => {
   }
    
   return (
-    <div>
-      <h2>
-        Budget for {month} {year}
-      </h2>
+  <div className='wrapper budget-create-section font-quicksand'>
+    <h1 className='font-poppins'>View the Budget for Category</h1>
 
-    <div>
-      <DatePicker
-        selected={startDate}
-        onChange={(date) => setStartDate(date)}
-        dateFormat="MM/yyyy"
-        showMonthYearPicker
-        showFullMonthYearPicker
-        showFourColumnMonthYearPicker
-      />
-    </div>
-      <button type="submit" onClick={handleClick}> Get Budget </button>
+    <main className='row justify-content-between'>
+      <section className='col create-budget-container bg-lightgray rounded-md'>
+      <h4 className='font-poppins'> <span>Budget for {month} {year} </span> </h4>
+        <form className='budget-view-bg rounded-md'>
+        <label htmlFor="budget_date">Budget Date:</label>
+        <DatePicker
+          selected={startDate}
+          onChange={(date) => setStartDate(date)}
+          dateFormat="MM/yyyy"
+          showMonthYearPicker
+          showFullMonthYearPicker
+          showFourColumnMonthYearPicker
+        />
 
-      { monthlyBudget.length > 0 &&
-        <>
-        <h2>Budgets for {month} {year}</h2>
-        <div className="budgets">
-          {
-            monthlyBudget.map((budget) => (
-              <BudgetItem key={budget.id} budget={budget} />
-            ))
-          }
-        </div>
-        
-      <div>
-        <h2>
-          Budget for {month} {year}
-        </h2>
-
-        <table>
-          <thead>
-            <tr>
-              <th>Category</th>
-              <th>Budget Amount</th>
-              <th>Total Expenses</th>
-              <th>Budget Reached</th>
-            </tr>
-          </thead>
-          <tbody>
-            {monthlyBudget.map((budget, index) => (
-              <tr key={`${budget.id}_${index}`}>
-                <td>{budget.category}</td>
-                <td>${budget.budget_amount.toLocaleString()}</td>
-                <td>${budget.expense_amount.toLocaleString()}</td>
-                <td>{String(budget.budget_reached)}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div></>
-      }
-    </div>
+        <button type="submit" className='btn btn-dark' onClick={handleClick}> Get Budget </button>
+        <br /><br />
+        { monthlyBudget.length > 0 &&
+          <>
+          <h2>Budgets for {month} {year}</h2>
+          <div className="budgets">
+            {
+              monthlyBudget.map((budget) => (
+                <BudgetItem key={budget.id} budget={budget} />
+              ))
+            }
+          </div></>
+        }
+        </form>
+      </section>
+      <section className='col budget-page-how-it-works bg-lightgray rounded-md'>
+        <h4 className='font-poppins'> How It Works</h4>
+        <p> Choose a Category to set Budget Amount, whether it's a Housing, Food, Transportation — whatever you need! </p>
+        <p>Fill in the form - Select a Category </p>
+        <p> Choose the Month and Year to set the Budgt for that Category.</p>
+        <p> Enter the Budget Amount to set for the Month and Year Selected, then it will store and you can view the Budget and expenses..</p>
+        <p>Once you've created the budget for one Category, come back & create a new one!</p>
+      </section>
+    </main>
+  </div>
   )
 }
 

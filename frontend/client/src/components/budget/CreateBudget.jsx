@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useBudgetHook } from '../../hooks/budgets';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { Toaster, toast } from 'react-hot-toast';
-import 'bootstrap/dist/css/bootstrap.css';
+import { toast } from 'react-hot-toast';
+import '../../styles/budget.css';
 import { Link } from 'react-router-dom';
 
 
@@ -40,7 +40,7 @@ const CreateBudget = () => {
   }
 
   return (
-    <div className='wrapper budget-goal-section font-quicksand '>
+    <div className='wrapper budget-create-section font-quicksand'>
       <h1 className='font-poppins'>New Budget for Category</h1>
 
       <main className='row justify-content-between'>
@@ -54,7 +54,7 @@ const CreateBudget = () => {
             onChange={handleDateChange}
           />
 
-          <label htmlFor="budget_category">Category:</label><br />
+          <label htmlFor="budget_category">Category:</label><br/>
           <select id="budget_category" value={category} onChange={handleCategoryChange}>
             <option value="">Select Category</option>
             {notBudgetCategories.map(category => (
@@ -64,7 +64,7 @@ const CreateBudget = () => {
             ))}
           </select>
 
-          <br /><label htmlFor="budget_amount">Budget Amount:</label><br />
+          <br /><label htmlFor="budget_amount">Budget Amount:</label><br/>
           <input type="number" value={amount} id="budget_amount" onChange={(event) => setAmount(event.target.value)} />
  
           <br />
