@@ -63,7 +63,7 @@ const IncomeView = () => {
               </button>
             </form>
             {isSubmitted && incomePayments.length > 0 ? (
-              <div>
+              <div className="income-text-bg rounded-md">
                 <ViewNetTotal month={month} year={year} netTotal={netTotal}/>
                 <ViewIncomeByMonth month={month} year={year} incomeByMonth={incomeByMonth}/>
                 <ViewIncomePayments months={months} month={month} year={year} incomePayments={incomePayments}/>
@@ -71,7 +71,7 @@ const IncomeView = () => {
             ) : null} 
 
             {isSubmitted && incomePayments.length < 1 ? (
-              <div>
+              <div className="income-text-bg rounded-md">
                 <h4 className="font-poppins">No income made in {month} {year}.</h4>
               </div>
             ) : null}

@@ -65,7 +65,7 @@ const ExpenseView = () => {
               </button>
             </form>
             {isSubmitted && expensesTransactions.length > 0 ? (
-              <div>
+              <div className="expenses-text-bg rounded-md">
                 <ViewNetTotal month={month} year={year} netTotal={netTotal}/>
                 <ViewExpensesByCategory className="" month={month} year={year} expensesByCategory={expensesByCategory}/>
                 <ViewExpensesTransactions className="" months={months} month={month} year={year} expensesTransactions={expensesTransactions}/>
@@ -73,7 +73,7 @@ const ExpenseView = () => {
             ) : null} 
 
             {isSubmitted && expensesTransactions.length < 1 ? (
-              <div>
+              <div className="expenses-text-bg rounded-md">
                 <h4>No expenses logged in {month} {year}.</h4>
               </div>
             ) : null}
