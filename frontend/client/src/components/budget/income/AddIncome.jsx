@@ -3,25 +3,26 @@ import { useIncomeHook } from '../../../hooks/income';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Toaster, toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import "../../../styles/income.css"
 
 const ViewAddIncome = () => {
+  const navigate = useNavigate();
   const [amount, setAmount ] = useState("")
   const [startDate, setStartDate] = useState(new Date());
 
   const { viewAddIncome } = useIncomeHook();
 
-  const handleClick = (event) => {
-    event.preventDefault()
+  const handleClick = async (event) => {
+    event.preventDefault();
     if (parseFloat(amount) > 0) {
-      viewAddIncome(amount, startDate)
-      setAmount("");
-      setStartDate(new Date());
-      toast.success('Successfully added income!');
+        await viewAddIncome(amount, startDate);
+        navigate('/money/income/view');
+        toast.success('Successfully added income!');
     } else {
       toast.error('Income must be greater than $0!');
     }
-  }
+  };
 
   const handleDateChange = (date) => {
     setStartDate(date);
