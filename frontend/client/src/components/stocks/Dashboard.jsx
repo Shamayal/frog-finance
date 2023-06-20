@@ -8,9 +8,10 @@ import Chart from "./Charts";
 
 const Dashboard = ({children}) => {
   return (
+    <div className="stocks-container">
+        <h1 className='font-poppin wrapper'>Diversify your pond<br />Learn stocks</h1>
+        <div className="h-screen grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-8 md:grid-rows-7 xl:grid-rows-5 auto-rows-fr gap-6 p-5 font-quicksand">
 
-
-    <div className="h-screen grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-8 md:grid-rows-7 xl:grid-rows-5 auto-rows-fr gap-6 p-10 font-quicksand">
 
       <div className="col-span-1 md:col-span-2 xl:col-span-3 row-span-1">
         <h1 className="text-5xl"> {mockCompanyDetails.name}</h1>
@@ -36,6 +37,10 @@ const Dashboard = ({children}) => {
       </div>
 
     </div>
+    </div>
+
+
+
   )
 }
 
