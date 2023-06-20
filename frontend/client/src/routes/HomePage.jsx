@@ -10,31 +10,28 @@ const HomePage = () => {
 
   return (
 
-    <div>
+    <>
 
-      <div className="homepage">
+      <div className="homepage font-poppins ">
 
-      <video autoPlay loop muted playsInline className="back-video">
-        <source src={frogLeaf} type="video/mp4" />
-      </video>
+        <video autoPlay loop muted playsInline className="back-video">
+          <source src={frogLeaf} type="video/mp4" />
+        </video>
 
-      <div className="homepage-content">
-        <h1 className="title fontweight-700 font-poppins"><strong>Frog Finance</strong></h1>
-        <br />
-        <h3 className="slogan font-poppins">Leap towards financial stability, one hop at a time!</h3>
-        <div className="button-container">
-          <button className="btn btn-light" onClick={() => loginWithRedirect()}>
-            Sign Up
+        <div className="homepage-content text-right">
+          <h1 className="homepage-title fontweight-700"><strong>Frog Finance</strong></h1>
+          <h2 className="slogan">Leap towards financial stability</h2>
+          <button className="btn btn-dark homepage-get-started-btn" onClick={() => loginWithRedirect()}>
+            Hop In & Get Started
           </button>
         </div>
-      </div>
 
       </div>
-
       <Services />
-    <IndividualServicesInfo />
+      <IndividualServicesInfo />
 
-    </div> // outter div
+
+    </>
 
   );
 

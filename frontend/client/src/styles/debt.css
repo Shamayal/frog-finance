@@ -67,10 +67,6 @@
 }
 
 /* Styling for: Completed Debt Goal page */
-.debt-achievements-pg h1 {
-  margin-top: -27px;
-}
-
 .no-completed-debt-container {
   background-image: url('https://images.unsplash.com/photo-1600636214973-8ccfde1f6a67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80');
   background-size: cover;
@@ -80,7 +76,7 @@
 }
 
 .completed-debt-container {
-  background-image: url('https://images.unsplash.com/photo-1569705460033-cfaa4bf9f822?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80');
+  background-image: url('https://images.unsplash.com/photo-1530323588099-931c746ab7f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=627&q=80');
   background-size: cover;
   background-repeat: no-repeat;
   margin-top: 6px;
