@@ -38,6 +38,7 @@ const CreateDebtGoal = () => {
               id="debt_name"
               placeholder='debt name'
               onChange={(event) => setDebtName(event.target.value)}
+              required
             />
             <br />
 
@@ -52,6 +53,7 @@ const CreateDebtGoal = () => {
               id="debt_amount"
               placeholder='$0'
               onChange={(event) => setDebtAmount(event.target.value)}
+              required
             />
             <br />
 
@@ -66,6 +68,7 @@ const CreateDebtGoal = () => {
               id="interest_rate"
               placeholder='0.00%'
               onChange={(event) => setInterestRate(event.target.value)}
+              required
             />
             <br />
 

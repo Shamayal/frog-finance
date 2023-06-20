@@ -56,6 +56,7 @@ const CreateSavingsGoal = () => {
                     id="saving_name"
                     placeholder='goal name'
                     onChange={(event) => setSavingName(event.target.value)}
+                    required
                   />
 
                   <label htmlFor="goal_amount">
@@ -67,6 +68,7 @@ const CreateSavingsGoal = () => {
                     id="goal_amount"
                     placeholder='$0'
                     onChange={(event) => setGoalAmount(event.target.value)}
+                    required
                   />
 
                   <label htmlFor="current_amount">
