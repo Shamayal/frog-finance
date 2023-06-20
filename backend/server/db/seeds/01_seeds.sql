@@ -137,7 +137,7 @@ INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_a
 INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 100, 3, 12, '2023-05-01'); -- transportation
 INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 70, 8, 40, '2023-05-01'); -- communication
 INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 20, 9, 30, '2023-05-01'); -- entertainment
-INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 100, 10, 60, '2023-05-01'); -- hobbies
+INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 100, 10, 85, '2023-05-01'); -- hobbies
 INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 400, 11, 60, '2023-05-01'); -- travel
 INSERT INTO budgets (user_id, budget_amount, category_id, total_spent, updated_at) VALUES (1, 100, 12, 100, '2023-05-01'); -- pets
 
@@ -151,7 +151,7 @@ INSERT INTO expenses (user_id, expense_date, amount, category_id, sub_category_i
 INSERT INTO expenses (user_id, expense_date, amount, category_id, sub_category_id) VALUES (1, '2023-05-25', 12, 3, 13); -- transportation, public transit
 INSERT INTO expenses (user_id, expense_date, amount, category_id, sub_category_id) VALUES (1, '2023-05-23', 40, 8, 34); -- communications, phone bill
 INSERT INTO expenses (user_id, expense_date, amount, category_id, sub_category_id) VALUES (1, '2023-05-15', 30, 9, 37); -- entertainment, Movies
-INSERT INTO expenses (user_id, expense_date, amount, category_id, sub_category_id) VALUES (1, '2023-05-03', 60, 10, 42); -- hobbies, Equipment and Supplies
+INSERT INTO expenses (user_id, expense_date, amount, category_id, sub_category_id) VALUES (1, '2023-05-03', 85, 10, 42); -- hobbies, Equipment and Supplies
 INSERT INTO expenses (user_id, expense_date, amount, category_id, sub_category_id) VALUES (1, '2023-05-11', 60, 11, 47); -- travel, Accomodations
 INSERT INTO expenses (user_id, expense_date, amount, category_id, sub_category_id) VALUES (1, '2023-05-16', 100, 12, 52); -- pets, Food
 
