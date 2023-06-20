@@ -70,7 +70,7 @@ const CreateBudget = () => {
           <br />
           <br />
           <button type="submit" className='btn btn-dark' onClick={handleClick}> Add Budget </button><br/><br/>
-          {notBudgetCategories.length === 0 && <><label>Created this month Budget for all Categories, You Can Update the Budge for the Category by clicking link below...</label>
+          {notBudgetCategories.length === 0 && <><label>Created this month Budget for all Categories, You Can Update the Budget for the Category by clicking link below...</label>
           <Link to='/money/budget/update'>Update Budge</Link></> }    
           {submitted && <h1 className='font-poppins'>Budget added successfully!</h1>}
         </form>
