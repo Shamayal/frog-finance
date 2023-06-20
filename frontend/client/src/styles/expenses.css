@@ -1,26 +1,26 @@
-/* Styling for: ALL income pages */
-.income-add-section {
+/* Styling for: ALL expenses pages */
+.expenses-add-section {
   padding: 30px 0;
 }
 
-.income-add-section .row {
+.expenses-add-section .row {
   margin-top: 30px;
 }
 
-.income-add-section .col {
+.expenses-add-section .col {
   padding: 40px 50px;
   max-width: 47%;
 }
 
-.income-page-how-it-works {
-  height: 500px;
+.expenses-page-how-it-works {
+  height: 520px;
 }
 
-.income-page-how-it-works h4 {
+.expenses-page-how-it-works h4 {
   padding-bottom: 25px;
 }
 
-.income-text-bg {
+.expenses-text-bg {
   background-color: rgba(246, 242, 242, 0.7);
   padding: 40px 25px;
   width: 75%;
@@ -33,19 +33,24 @@
 }
 
 
-/* Styling for: Add Income page */
-.add-income-container {
-  background-image: url('https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
+/* Styling for: Add Expense page */
+.add-expenses-container {
+  background-image: url('https://images.pexels.com/photos/3962285/pexels-photo-3962285.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
   background-size: cover;
   background-position: left;
   background-repeat: no-repeat;
 }
 
-.add-income-container form input {
+.add-expenses-container form input {
   margin-bottom: 10px;
   padding: 5px 10px;
   border-radius: 10px;
 }
+
+/* .categories {
+  display: flex;
+  flex-direction: row;
+} */
 
 /* Styling for: Current Savings Goal page */
 .current-savings-container {
@@ -93,5 +98,3 @@ margin-top: -27px;
   background-color: rgb(35, 215, 246);
   padding: 5px 10px;
 }
-
-

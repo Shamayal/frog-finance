@@ -3,6 +3,7 @@ import { useExpensesHook } from '../../../hooks/expenses';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Toaster, toast } from 'react-hot-toast';
+import "../../../styles/expenses.css"
 
 
 const ViewAddExpenses = () => {
@@ -70,48 +71,75 @@ const ViewAddExpenses = () => {
   }
 
   return (
-    <div>
-      <p>Add Expense</p>
+    <div className='wrapper expenses-add-section font-quicksand '>
+        <h1 className='font-poppins'>Manage your finances<br />Your first hop to financial freedom</h1>
+        <main className='row justify-content-between'>
+          <section className='col add-expenses-container bg-lightgray rounded-md'>
+            <h4 className='font-poppins'> <span>Add Expense</span> </h4>
+            <form className="expenses-text-bg rounded-md">
+              <label htmlFor="expense_spent">Amount Spent:</label>
+              <br />
+                <input
+                  type="number"
+                  value={amount}
+                  id="expense_spent"
+                  placeholder="$0"
+                  onChange={(event) => setAmount(event.target.value)}
+                />
+                <br />
+              <label>Select Month:</label>
+                <DatePicker
+                  showIcon
+                  selected={startDate}
+                  onChange={(date) => setStartDate(date)}
+                />
+                <br />
+              <div className="categories">
+                <label htmlFor="expense_category">Category:</label>
+                <br />
+                  <select id="expense_category" value={category} onChange={handleCategoryChange}>
+                    <option value="">Select Category</option>
+                    <option value="1">Housing</option>
+                    <option value="2">Food</option>
+                    <option value="3">Transportation</option>
+                    <option value="4">Healthcare</option>
+                    <option value="5">Education</option>
+                    <option value="6">Shopping</option>
+                    <option value="7">Subscriptions</option>
+                    <option value="8">Communication</option>
+                    <option value="9">Entertainment</option>
+                    <option value="10">Hobbies</option>
+                    <option value="11">Travel</option>
+                    <option value="12">Pets</option>
+                    <option value="13">Other</option>
+                  </select>
+                <br />
+                <label htmlFor="expense_subcategory">Subcategory:</label>
+                <br />
+                  <select id="expense_subcategory" value={subCategory} onChange={handleSubCategoryChange}>
+                    <option value="">Select Subcategory</option>
+                    {categorySubcategoriesMap[category]?.map((subcategory) => (
+                    <option key={subcategory.id} value={subcategory.id}>{subcategory.name}</option>
+                    ))}
+                  </select>
 
-      <form>
+              </div>
+                <br />
+              <button type="submit" className="btn btn-dark" onClick={handleClick}>
+                Add Expense
+              </button>
+            </form>
+          </section>
 
-        <label htmlFor="expense_spent">Amount Spent:</label>
-        <input type="number" value={amount} id="expense_spent" onChange={(event) => setAmount(event.target.value)} />
-
-        <DatePicker
-          showIcon
-          selected={startDate}
-          onChange={(date) => setStartDate(date)}
-        />
-
-        <label htmlFor="expense_category">Category:</label>
-        <select id="expense_category" value={category} onChange={handleCategoryChange}>
-          <option value="">Select Category</option>
-          <option value="1">Housing</option>
-          <option value="2">Food</option>
-          <option value="3">Transportation</option>
-          <option value="4">Healthcare</option>
-          <option value="5">Education</option>
-          <option value="6">Shopping</option>
-          <option value="7">Subscriptions</option>
-          <option value="8">Communication</option>
-          <option value="9">Entertainment</option>
-          <option value="10">Hobbies</option>
-          <option value="11">Travel</option>
-          <option value="12">Pets</option>
-          <option value="13">Other</option>
-        </select>
-
-        <label htmlFor="expense_subcategory">Subcategory:</label>
-        <select id="expense_subcategory" value={subCategory} onChange={handleSubCategoryChange}>
-          <option value="">Select Subcategory</option>
-          {categorySubcategoriesMap[category]?.map((subcategory) => (
-            <option key={subcategory.id} value={subcategory.id}>{subcategory.name}</option>
-          ))}
-        </select>
-
-        <button type="submit" onClick={handleClick}> Add Expense </button>
-      </form>
+            <section className='col expenses-page-how-it-works bg-lightgray rounded-md'>
+              <h4 className='font-poppins'> How It Works</h4>
+              <p>With bills, necessities, and additional purchases, expenses can pile up on us and make it hard to keep track of the amount of money we are spending.</p>
+              <p>You can use the "Add Expense" feature on Frog Finance to keep a record of where your money is going!</p>
+              <p>Frog Finance allows you to select from 13 different main categories, such as "Housing", and "Food". Pick the one that aligns with your expense for better classification. You will then be promped to select a sub-category. We have a total of 58 sub-categories, for example "Groceries" and "Dining Out" for "Food" to cover all the types of expenses you might make!</p>
+              <p>Fill in the form - the amount of money you spent, and the date you made the expense. Select a category and a sub-category.</p>
+              <p>This will allow you to understand your spending patterns in detail and provide insight on where you might want to cut costs!</p>
+            </section>
+          </main>
     </div>
   )
 }
