@@ -4,12 +4,14 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import '../../styles/budget.css';
 import BudgetItem from "./BudgetItem";
+import { Link } from 'react-router-dom';
 
 // to view expenses by category and see how much left in budget
 const ViewMonthlyBudgets = () => {
 
   const [startDate, setStartDate] = useState(new Date());
   const { viewMonthlyBudget, monthlyBudget } = useBudgetHook();
+  const [ budgetFlag, setBudgetFlag ] = useState(false);
 
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -24,16 +26,18 @@ const ViewMonthlyBudgets = () => {
   const handleClick = (event) => {
     event.preventDefault()
     viewMonthlyBudget(startDate)
+    if(monthlyBudget.length === 0)
+      setBudgetFlag(true);
   }
    
   return (
-  <div className='wrapper budget-create-section font-quicksand'>
+  <div className={`wrapper font-quicksand ${monthlyBudget.length > 0 ? "budget-view-section" : "budget-create-section"}`} >
     <h1 className='font-poppins'>View the Budget for Category</h1>
 
     <main className='row justify-content-between'>
       <section className='col create-budget-container bg-lightgray rounded-md'>
       <h4 className='font-poppins'> <span>Budget for {month} {year} </span> </h4>
-        <form className='budget-view-bg rounded-md'>
+        <form className={`rounded-md ${monthlyBudget.length > 0 ? "budget-view-bg" : "budget-text-bg"}`} >
         <label htmlFor="budget_date">Budget Date:</label>
         <DatePicker
           selected={startDate}
@@ -56,17 +60,11 @@ const ViewMonthlyBudgets = () => {
               ))
             }
           </div></>
+         } {monthlyBudget.length === 0 && budgetFlag && <><label>Budget was not Created, Create a Budget on clicking link below...</label><Link to='/money/budget/add'>Create Budge</Link></>
         }
         </form>
       </section>
-      <section className='col budget-page-how-it-works bg-lightgray rounded-md'>
-        <h4 className='font-poppins'> How It Works</h4>
-        <p> Choose a Category to set Budget Amount, whether it's a Housing, Food, Transportation — whatever you need! </p>
-        <p>Fill in the form - Select a Category </p>
-        <p> Choose the Month and Year to set the Budgt for that Category.</p>
-        <p> Enter the Budget Amount to set for the Month and Year Selected, then it will store and you can view the Budget and expenses..</p>
-        <p>Once you've created the budget for one Category, come back & create a new one!</p>
-      </section>
+
     </main>
   </div>
   )
