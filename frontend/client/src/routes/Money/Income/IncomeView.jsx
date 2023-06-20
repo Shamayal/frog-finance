@@ -6,6 +6,7 @@ import ViewIncomeByMonth from "../../../components/budget/income/ViewIncomeByMon
 import ViewIncomePayments from "../../../components/budget/income/ViewIncomePayments"
 import { useIncomeHook } from '../../../hooks/income';
 import { useExpensesHook } from '../../../hooks/expenses'
+import "../../../styles/income.css"
 
 const IncomeView = () => {
   const [startDate, setStartDate] = useState(new Date());
@@ -40,34 +41,48 @@ const IncomeView = () => {
   }
 
   return (
-    <div>
-      <h2>This is the Income View Page</h2>
-      <h4>Here users can view their income totals!</h4>
+    <div className="wrapper income-add-section font-quicksand">
+      <h1 className='font-poppins'>Manage your finances<br />Your first hop to financial freedom</h1>
+      <main className='row justify-content-between'>
+          <section className='col add-income-container bg-lightgray rounded-md'>
+            <h4 className='font-poppins'> <span>View Income</span> </h4>
+            <form className="income-text-bg rounded-md">
+              <label>Select Month:</label>
+              <br />
+              <DatePicker
+                selected={startDate}
+                onChange={handleDateChange}
+                dateFormat="MM/yyyy"
+                showMonthYearPicker
+                showFullMonthYearPicker
+                showFourColumnMonthYearPicker
+              />
+                <br />
+              <button type="submit" className="btn btn-dark" onClick={handleClick}>
+                Submit
+              </button>
+            </form>
+            {isSubmitted && incomePayments.length > 0 ? (
+              <div className="income-text-bg rounded-md">
+                <ViewNetTotal month={month} year={year} netTotal={netTotal}/>
+                <ViewIncomeByMonth month={month} year={year} incomeByMonth={incomeByMonth}/>
+                <ViewIncomePayments months={months} month={month} year={year} incomePayments={incomePayments}/>
+              </div>
+            ) : null} 
 
-      <DatePicker
-        selected={startDate}
-        onChange={handleDateChange}
-        dateFormat="MM/yyyy"
-        showMonthYearPicker
-        showFullMonthYearPicker
-        showFourColumnMonthYearPicker
-      />
-      <button type="submit" onClick={handleClick}> Submit to View Income </button>
+            {isSubmitted && incomePayments.length < 1 ? (
+              <div className="income-text-bg rounded-md">
+                <h4 className="font-poppins">No income made in {month} {year}.</h4>
+              </div>
+            ) : null}
+          </section>
 
-      {isSubmitted && incomePayments.length > 0 ? (
-        <div>
-          <ViewNetTotal month={month} year={year} netTotal={netTotal}/>
-          <ViewIncomeByMonth month={month} year={year} incomeByMonth={incomeByMonth}/>
-          <ViewIncomePayments months={months} month={month} year={year} incomePayments={incomePayments}/>
-        </div>
-      ) : null} 
-
-      {isSubmitted && incomePayments.length < 1 ? (
-        <div>
-          <h4>No income made in {month} {year}.</h4>
-        </div>
-      ) : null} 
-
+            <section className='col income-page-how-it-works bg-lightgray rounded-md'>
+              <h4 className='font-poppins'> How It Works</h4>
+              <p>Select a month and year and Frog Finance will display the total amount of money you made as well as a breakdown of income earned by payment date.</p>
+              <p>This will allow you to see the amount of money you have to allocate towards your monthly expenses, savings goals, and debt payments.</p>
+            </section>
+          </main>
     </div>
   );
 };
