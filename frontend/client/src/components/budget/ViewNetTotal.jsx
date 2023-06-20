@@ -14,7 +14,6 @@ const ViewNetTotal = (props) => {
 
   return (
     <div>
-      <div>------------------------------------------------------------</div>
       <p>Net Total Saved in {props.month} {props.year}</p>
       <table>
         <thead>
@@ -36,7 +35,6 @@ const ViewNetTotal = (props) => {
           ))}
         </tbody>
       </table>
-      <div>------------------------------------------------------------</div>
     </div>
   )
 }
