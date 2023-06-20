@@ -3,25 +3,21 @@ const db = require('../connection.js');
 //Query to Fetch Budget amount and sum of expenses for the Category
 const getBudgetByCategory = (userId, month, year) => {
   return  db.query(`
-      SELECT categories.id, categories.category, budgets.budget_amount as budget_amount, 
-      CASE 
-        WHEN sum(expenses.amount) > 0
-        THEN sum(expenses.amount)
-        ELSE 0
-      END expense_amount, 
-      CASE 
-        WHEN budgets.budget_amount <= sum(expenses.amount)
-        THEN true
-        ELSE false
-      END budget_reached
-      from budgets
-      JOIN categories ON budgets.category_id = categories.id
-      LEFT JOIN expenses on budgets.category_id = expenses.category_id
-      WHERE budgets.user_id = $1
-      AND EXTRACT(MONTH FROM budgets.updated_at) = $2
-      AND EXTRACT(YEAR FROM budgets.updated_at) = $3
-      GROUP BY categories.category,categories.id, budgets.budget_reached, budgets.budget_amount
-      ORDER BY budgets.budget_amount desc`,[userId, month, year])
+  SELECT 
+  categories.id, 
+  categories.category, 
+  b.budget_amount as budget_amount, 
+  COALESCE(sum(expenses.amount),0) as expense_amount, 
+  budget_reached
+  FROM budgets b
+  JOIN categories ON b.category_id = categories.id
+  LEFT JOIN expenses on b.category_id = expenses.category_id and EXTRACT(MONTH FROM expenses.expense_date) = $2
+  AND EXTRACT(YEAR FROM expenses.expense_date) = $3
+  WHERE b.user_id = $1
+  AND EXTRACT(MONTH FROM b.updated_at) = $2
+  AND EXTRACT(YEAR FROM b.updated_at) = $3
+  GROUP BY categories.category,categories.id, b.budget_reached, b.budget_amount
+  ORDER BY b.budget_amount desc`,[userId, month, year])
     .then((result) => {
       return result;
     })
