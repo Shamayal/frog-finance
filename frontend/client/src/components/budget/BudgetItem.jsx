@@ -1,4 +1,5 @@
 import { formatCurrency, formatPercentage } from "../helpers/helpers";
+import '../../styles/budget.css';
 
 const BudgetItem = ({ budget }) => {
   const { category, budget_amount, expense_amount } = budget;
@@ -6,15 +7,26 @@ const BudgetItem = ({ budget }) => {
   return (
     <div className="budget">
       <div className="progress-text">
-        <h4>{category}</h4>
-        <p>{formatCurrency(budget_amount)} Budgeted</p>
+        <label>{category}</label>
+        <small>{formatCurrency(budget_amount)} Budgeted</small>
       </div>
-      <progress max={budget_amount} value={expense_amount}>
-        {formatPercentage(expense_amount / budget_amount)}
-      </progress>
+
+      {(() => {
+          const width = formatPercentage(expense_amount / budget_amount);
+
+          return (
+            <div className="progress" role="progressbar" aria-label="Success example" aria-valuenow={100} aria-valuemin={0} aria-valuemax={100}>
+              <div className="progress-bar bg-success" style={{ width: `${width}` }}>{width}</div>
+            </div>
+          );
+        })()}
       <div className="progress-text">
         <small>${formatCurrency(expense_amount)} spent</small>
-        <small>{formatCurrency(budget_amount - expense_amount)} remaining</small>
+        {
+          budget_amount > expense_amount ?
+            <small>{formatCurrency(budget_amount - expense_amount)} remaining</small>
+          : <label className="red-small">{formatCurrency(budget_amount - expense_amount)}</label>
+        }     
       </div>
     </div>
   )

@@ -21,7 +21,7 @@ const getBudgetByCategory = (userId, month, year) => {
       AND EXTRACT(MONTH FROM budgets.updated_at) = $2
       AND EXTRACT(YEAR FROM budgets.updated_at) = $3
       GROUP BY categories.category,categories.id, budgets.budget_reached, budgets.budget_amount
-      ORDER BY categories.id`,[userId, month, year])
+      ORDER BY budgets.budget_amount desc`,[userId, month, year])
     .then((result) => {
       return result;
     })

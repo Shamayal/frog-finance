@@ -46,7 +46,7 @@ const CreateBudget = () => {
       <main className='row justify-content-between'>
       <section className='col create-budget-container bg-lightgray rounded-md'>
       <h4 className='font-poppins'> <span>Create Budget  </span> </h4>
-        <form className='budget-text-bg rounded-md'>
+        <form className='budget-view-bg rounded-md'>
           <label htmlFor="budget_date">Budget Date:</label> 
           <DatePicker
             showIcon
@@ -70,7 +70,7 @@ const CreateBudget = () => {
           <br />
           <br />
           <button type="submit" className='btn btn-dark' onClick={handleClick}> Add Budget </button><br/><br/>
-          {notBudgetCategories.length == 0 && <><label>Created this month Budget for all Categories, You Can Update the Budge for the Category by clicking link below...</label>
+          {notBudgetCategories.length === 0 && <><label>Created this month Budget for all Categories, You Can Update the Budge for the Category by clicking link below...</label>
           <Link to='/money/budget/update'>Update Budge</Link></> }    
           {submitted && <h1 className='font-poppins'>Budget added successfully!</h1>}
         </form>
