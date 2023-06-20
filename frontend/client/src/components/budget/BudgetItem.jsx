@@ -13,10 +13,12 @@ const BudgetItem = ({ budget }) => {
 
       {(() => {
           const width = formatPercentage(expense_amount / budget_amount);
+          const progressBarColor = parseInt(width) < 80 ? 'bg-success' : (parseInt(width) < 100 ? 'bg-warning' : 'bg-danger');          
 
           return (
             <div className="progress" role="progressbar" aria-label="Success example" aria-valuenow={100} aria-valuemin={0} aria-valuemax={100}>
-              <div className="progress-bar bg-success" style={{ width: `${width}` }}>{width}</div>
+              
+              <div className={`progress-bar ${progressBarColor}`} style={{ width: `${width}` }}>{width}</div>
             </div>
           );
         })()}
