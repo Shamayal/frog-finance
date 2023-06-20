@@ -1,14 +1,19 @@
 import "../styles/Footer.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-const handleHomeClick = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-};
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
+  const navigate = useNavigate();
+
+  const handleHomeClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+    navigate("/", { replace: true });
+  };
+
   return (
     <footer>
       <div className="footer-container">
