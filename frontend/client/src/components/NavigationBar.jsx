@@ -17,7 +17,7 @@ const NavigationBar = () => {
       <ul className="menus">
 
         <div className="logo fontweight-700 font-poppins">
-          {/* <FontAwesomeIcon icon="frog" className="fa-bounce fa-regular fa-lg" style={{ color: '#526E11' }} /> */}
+          <FontAwesomeIcon icon="frog" className="fa-bounce fa-regular fa-lg" style={{ animationDuration: '5s', color: '#526E11'  }}  />
           <li><strong>Frog Finance</strong></li>
         </div>
 
