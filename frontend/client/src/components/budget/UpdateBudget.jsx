@@ -34,7 +34,7 @@ const UpdateBudget = () => {
 
   return (
     <div className='wrapper budget-create-section font-quicksand'>
-    <h1 className='font-poppins'>Update Budget Amount for Category</h1>
+    <h1 className='font-poppins'>Manage your finances<br /> Your first hop to financial freedom</h1>
 
     <main className='row justify-content-between'>
       <section className='col create-budget-container bg-lightgray rounded-md'>

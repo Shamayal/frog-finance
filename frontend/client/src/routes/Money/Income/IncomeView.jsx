@@ -42,7 +42,8 @@ const IncomeView = () => {
 
   return (
     <div className="wrapper income-add-section font-quicksand">
-      <h1 className='font-poppins'>Manage your finances<br />Your first hop to financial freedom</h1>
+      <h1 className='font-poppins'>Manage your finances<br /> Your first hop to financial freedom</h1>
+
       <main className='row justify-content-between'>
           <section className='col view-income-container bg-lightgray rounded-md'>
             <h4 className='font-poppins'> <span>View Income</span> </h4>

@@ -45,7 +45,7 @@ const ViewDebtGoals = () => {
 
         {currentDebtGoals.length > 0 && (
           currentDebtGoals.map((debtGoal) => {
-            const width = (debtGoal.amount_paid / debtGoal.initial_amount) * 100;
+            const width = (debtGoal.amount_paid / debtGoal.initial_amount).toFixed(2) * 100;
 
             return (
               <section className='col current-debt-container bg-lightgray rounded-md' key={debtGoal.debt_id}>

@@ -30,7 +30,8 @@ const ViewAddIncome = () => {
 
   return (
     <div className='wrapper income-add-section font-quicksand '>
-        <h1 className='font-poppins'>Manage your finances<br />Your first hop to financial freedom</h1>
+      <h1 className='font-poppins'>Manage your finances<br /> Your first hop to financial freedom</h1>
+
           <main className='row justify-content-between'>
             <section className='col add-income-container bg-lightgray rounded-md'>
               <h4 className='font-poppins'> <span>Add Income</span> </h4>

@@ -17,7 +17,7 @@ const ViewPastSavingsGoals = () => {
   return (
     <div className='wrapper savings-goal-section font-quicksand saving-achievements-pg'>
       <h1 className='font-poppins'>Grow your savings <br /> Leap forward one goal at a time</h1>
-
+      
       <main className='row justify-content-between'>
 
         <h4 className='font-poppins'>Saving Achievments - Completed Goals: </h4>

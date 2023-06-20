@@ -43,7 +43,7 @@ const ExpenseView = () => {
 
   return (
     <div className="wrapper expenses-add-section font-quicksand">
-      <h1 className='font-poppins'>Manage your finances<br />Your first hop to financial freedom</h1>
+      <h1 className='font-poppins'>Manage your finances<br /> Your first hop to financial freedom</h1>
 
       {/* add a savings rate % with information on what that value mean */}
       <main className='row justify-content-between'>

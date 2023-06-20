@@ -32,7 +32,8 @@ const ViewMonthlyBudgets = () => {
    
   return (
   <div className={`wrapper font-quicksand ${monthlyBudget.length > 0 ? "budget-view-section" : "budget-create-section"}`} >
-    <h1 className='font-poppins'>View the Budget for Category</h1>
+    <h1 className='font-poppins'>Manage your finances<br /> Your first hop to financial freedom</h1>
+
 
     <main className='row justify-content-between'>
       <section className='col create-budget-container bg-lightgray rounded-md'>

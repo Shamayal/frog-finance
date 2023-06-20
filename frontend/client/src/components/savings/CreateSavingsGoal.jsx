@@ -28,7 +28,6 @@ const CreateSavingsGoal = () => {
       <div className='wrapper savings-goal-section font-quicksand '>
         <h1 className='font-poppins'>Grow your savings <br /> Leap forward one goal at a time</h1>
 
-
           <main className='row justify-content-between'>
 
             <section className='col create-savings-container bg-lightgray rounded-md'>

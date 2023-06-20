@@ -72,7 +72,8 @@ const ViewAddExpenses = () => {
 
   return (
     <div className='wrapper expenses-add-section font-quicksand '>
-        <h1 className='font-poppins'>Manage your finances<br />Your first hop to financial freedom</h1>
+        <h1 className='font-poppins'>Manage your finances<br /> Your first hop to financial freedom</h1>
+
         <main className='row justify-content-between'>
           <section className='col add-expenses-container bg-lightgray rounded-md'>
             <h4 className='font-poppins'> <span>Add Expense</span> </h4>
