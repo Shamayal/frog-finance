@@ -1,10 +1,6 @@
-// import React, { useState } from 'react';
-// import { useExpensesHook } from '../../../hooks/expenses';
-// import DatePicker from 'react-datepicker';
-// import 'react-datepicker/dist/react-datepicker.css';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
-import "./ViewExpensesByCategory.css";
+import "../../../styles/expenses.css"
 
 const ViewExpensesByCategory = (props) => {
 
@@ -32,31 +28,48 @@ const ViewExpensesByCategory = (props) => {
         label: 'Total Amount $',
         data: categoryData,
         backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
+          'rgba(255, 3, 56, 0.2)', // red
+          'rgba(54, 162, 235, 0.2)', // blue
+          'rgba(250, 234, 5, 0.2)', // yellow
+          'rgba(75, 192, 79, 0.2)', // green
+          'rgba(153, 102, 255, 0.2)', // purple
+          'rgba(255, 159, 64, 0.2)', // orange
+          'rgba(60, 186, 163, 0.2)', // turquoise
+          'rgba(255, 71, 206, 0.2)', // pink
         ],
         borderColor: [
-          'rgba(255, 99, 132, 1)',
+          'rgba(255, 3, 56, 1)',
           'rgba(54, 162, 235, 1)',
           'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
+          'rgba(75, 192, 79, 1)',
           'rgba(153, 102, 255, 1)',
           'rgba(255, 159, 64, 1)',
+          'rgba(60, 186, 163, 1)',
+          'rgba(255, 71, 206, 1)',
         ],
         borderWidth: 1,
       },
     ],
   };
   
+  const options = {
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          font: {
+            size: 14, // Customize the font size
+            family: 'poppins', // Customize the font family
+          },
+          padding: 20, // Add spacing value in pixels
+        },
+      },
+    },
+  };
+
   return (
     <div>
-      <div>------------------------------------------------------------</div>
-      <p>Total Expenses By Category Spent in {props.month} {props.year}</p>
-      <table>
+      {/* <table>
         <thead>
           <tr>
             <th>Category Name</th>
@@ -71,12 +84,10 @@ const ViewExpensesByCategory = (props) => {
             </tr>
           ))}
         </tbody>
-      </table>
+      </table> */}
       <div className="pieContainer">
-        <Pie data={data}/>
+        <Pie data={data} options={options}/>
       </div>
-
-      <div>------------------------------------------------------------</div>
     </div>
   )
 }
