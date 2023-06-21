@@ -13,18 +13,18 @@ const ViewExpensesTransactions = (props) => {
 
   return (
     <div>
-      <div>------------------------------------------------------------</div>
-      <p>All Expense Transactions in {props.month} {props.year}</p>
-      <table>
+      <h5 className="font-poppins">All Transactions in {props.month} {props.year}</h5>
+      <br />
+      <table className="table table-striped">
         <thead>
           <tr>
-            <th>Expense Date</th>
-            <th>Category Name</th>
-            <th>Sub-Category Name</th>
-            <th>Amount Spent</th>
+            <th className="font-poppins">Expense Date</th>
+            <th className="font-poppins">Category</th>
+            <th className="font-poppins">Sub-Category</th>
+            <th className="font-poppins">Amount</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="font-quicksand">
           {sortedExpensesTransactions.map((transaction, index) => (
             <tr key={`${transaction.user_id}_${index}`}>
               <td>{props.months[transaction.expense_date.slice(5,7).padStart(2, '0') - 1]} {transaction.expense_date.slice(8, 10)}, {transaction.expense_date.slice(0,4)}</td>
@@ -35,7 +35,6 @@ const ViewExpensesTransactions = (props) => {
           ))}
         </tbody>
       </table>
-      <div>------------------------------------------------------------</div>
     </div>
   )
 }

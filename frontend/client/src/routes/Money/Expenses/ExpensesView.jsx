@@ -1,7 +1,6 @@
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import React, { useState } from 'react';
-import ViewNetTotal from "../../../components/budget/ViewNetTotal"
 import ViewExpensesTransactions from "../../../components/budget/expenses/ViewTransactionsByMonth"
 import ViewExpensesByCategory from "../../../components/budget/expenses/ViewExpensesByCategory"
 import { useExpensesHook } from '../../../hooks/expenses'
@@ -45,9 +44,8 @@ const ExpenseView = () => {
     <div className="wrapper expenses-add-section font-quicksand">
       <h1 className='font-poppins'>Manage your finances<br /> Your first hop to financial freedom</h1>
 
-      {/* add a savings rate % with information on what that value mean */}
       <main className='row justify-content-between'>
-          <section className='col add-expenses-container bg-lightgray rounded-md'>
+          <section className='col view-expenses-container bg-lightgray rounded-md'>
             <h4 className='font-poppins'> <span>View Expenses</span> </h4>
             <form className="expenses-text-bg rounded-md">
               <label>Select Month:</label>
@@ -64,19 +62,19 @@ const ExpenseView = () => {
                 Submit
               </button>
             </form>
-            {isSubmitted && expensesTransactions.length > 0 ? (
-              <div className="expenses-text-bg rounded-md">
-                <ViewNetTotal month={month} year={year} netTotal={netTotal}/>
-                <ViewExpensesByCategory className="" month={month} year={year} expensesByCategory={expensesByCategory}/>
-                <ViewExpensesTransactions className="" months={months} month={month} year={year} expensesTransactions={expensesTransactions}/>
-              </div>
-            ) : null} 
 
             {isSubmitted && expensesTransactions.length < 1 ? (
               <div className="expenses-text-bg rounded-md">
                 <h4>No expenses logged in {month} {year}.</h4>
               </div>
             ) : null}
+
+            {isSubmitted && expensesTransactions.length > 0 ? (
+              <div className="expenses-text-bg rounded-md">
+                <h5 className="font-poppins"> See below for your expenses summary.</h5>
+              </div>
+            ) : null} 
+
           </section>
 
             <section className='col expenses-page-how-it-works bg-lightgray rounded-md'>
@@ -85,6 +83,25 @@ const ExpenseView = () => {
               <p>This will allow you to see your spending patterns and adjust your budgets so that you can reach your savings goals and debt payments!</p>
             </section>
           </main>
+
+          {isSubmitted && expensesTransactions.length > 0 ? (
+            <main className='row justify-content-between'>
+              <section className='col transactions-expenses-container bg-lightgray rounded-md'>
+                <h4 className='font-poppins'> <span>Expenses: {month} {year} </span> </h4>
+                    <div className="transactions-expenses-text-bg rounded-md">
+                      <ViewExpensesTransactions className="" months={months} month={month} year={year} expensesTransactions={expensesTransactions}/>
+                    </div>
+              </section>
+
+              <section className='col expenses-category-chart rounded-md'>
+                <h4 className='font-poppins'>Expenses Category Breakdown for {month} {year}</h4>
+                <br />
+                <ViewExpensesByCategory className="" month={month} year={year} expensesByCategory={expensesByCategory}/>
+              </section>
+
+            </main>
+          ) : null}
+
     </div>
   );
 };

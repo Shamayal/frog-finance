@@ -20,6 +20,10 @@
   padding-bottom: 25px;
 }
 
+.expenses-category-chart {
+  height: 500px
+}
+
 .expenses-text-bg {
   background-color: rgba(246, 242, 242, 0.7);
   padding: 40px 25px;
@@ -27,10 +31,9 @@
   margin-top: 40px;
 }
 
-
 /* Styling for: Add Expense page */
 .add-expenses-container {
-  background-image: url('https://images.pexels.com/photos/3962285/pexels-photo-3962285.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+  background-image: url('https://images.pexels.com/photos/9016555/pexels-photo-9016555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
   background-size: cover;
   background-position: left;
   background-repeat: no-repeat;
@@ -42,54 +45,40 @@
   border-radius: 10px;
 }
 
-/* .categories {
-  display: flex;
-  flex-direction: row;
-} */
-
-/* Styling for: Current Savings Goal page */
-.current-savings-container {
-  background-image: url('https://images.unsplash.com/photo-1633158829875-e5316a358c6f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+/* Styling for: View Expense page */
+.view-expenses-container {
+  background-image: url('https://images.pexels.com/photos/4482896/pexels-photo-4482896.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
   background-size: cover;
   background-position: left;
   background-repeat: no-repeat;
 }
 
-/* Styling for: Completed Savings Goal page */
-
-.saving-achievements-pg h1 {
-margin-top: -27px;
-}
-
-.no-completed-savings-container {
-  background-image: url('https://images.unsplash.com/photo-1600636214973-8ccfde1f6a67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  margin-top: 10px;
-}
-
-.completed-savings-container {
-  background-image: url('https://images.unsplash.com/photo-1569705460033-cfaa4bf9f822?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80');
-  background-size: cover;
-  background-repeat: no-repeat;
-  margin-top: 6px;
-}
-
-.completed-savings-container h4 {
-  color: white;
-}
-
-.completed-savings-container .savings-text-bg {
-  padding: 20px 30px;
-  margin-top: 15px;
-}
-
-.congrats-container {
-  padding-top: 20px;
-}
-
-.congrats-confetti {
-  background-color: rgb(35, 215, 246);
+.view-expenses-container form input {
+  margin-bottom: 10px;
   padding: 5px 10px;
+  border-radius: 10px;
+}
+
+/* .categories {
+  display: flex;
+  flex-direction: row;
+} */
+
+.transactions-expenses-container {
+  background-image: url('https://images.pexels.com/photos/9218638/pexels-photo-9218638.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
+}
+
+.transactions-expenses-text-bg {
+  background-color: rgba(246, 242, 242, 0.7);
+  padding: 40px 25px;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.pieContainer {
+  width: 550px;
+  height: 550px;
 }

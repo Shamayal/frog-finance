@@ -137,7 +137,7 @@ const ViewAddExpenses = () => {
               <p>With bills, necessities, and additional purchases, expenses can pile up on us and make it hard to keep track of the amount of money we are spending.</p>
               <p>You can use the "Add Expense" feature on Frog Finance to keep a record of where your money is going!</p>
               <p>Frog Finance allows you to select from 13 different main categories, such as "Housing", and "Food". Pick the one that aligns with your expense for better classification. You will then be promped to select a sub-category. We have a total of 58 sub-categories, for example "Groceries" and "Dining Out" for "Food" to cover all the types of expenses you might make!</p>
-              <p>Fill in the form - the amount of money you spent, and the date you made the expense. Select a category and a sub-category.</p>
+              <p>Fill in the form - the amount of money you spent, the date you made the expense, and the appropriate category and sub-category.</p>
               <p>This will allow you to understand your spending patterns in detail and provide insight on where you might want to cut costs!</p>
             </section>
           </main>

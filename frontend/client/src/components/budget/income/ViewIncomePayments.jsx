@@ -8,16 +8,14 @@ const ViewIncomePayments = (props) => {
 
   return (
     <div>
-      <div>------------------------------------------------------------</div>
-      <p>Income Payments Received in {props.month} {props.year}</p>
-      <table>
+      <table className="table table-striped">
         <thead>
           <tr>
-            <th>Income Date</th>
-            <th>Amount</th>
+            <th className="font-poppins">Income Date</th>
+            <th className="font-poppins">Amount</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="font-quicksand">
           {sortedIncomePayments.map((payment, index) => (
             <tr key={`${payment.user_id}_${index}`}>
               <td>{props.months[payment.income_date.slice(5,7).padStart(2, '0') - 1]} {payment.income_date.slice(8, 10)}, {payment.income_date.slice(0,4)}</td>
@@ -26,7 +24,6 @@ const ViewIncomePayments = (props) => {
           ))}
         </tbody>
       </table>
-      <div>------------------------------------------------------------</div>
     </div>
   )
 }
