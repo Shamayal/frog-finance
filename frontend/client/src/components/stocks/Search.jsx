@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import { mockSearchResults } from "../../constants/mock";
+// import { mockSearchResults } from "../../constants/mock";
 import { XIcon, SearchIcon } from '@heroicons/react/solid';
 import SearchResults from "./SearchResults";
+import { stockApiHooks } from '../../hooks/stocks';
 
 const Search = () => {
+  const { searchSymbols } = stockApiHooks();
+
   const [searchInput, setSearchInput] = useState("");
-  const [bestMatches, setBestMatches] = useState(mockSearchResults.result)
+  const [bestMatches, setBestMatches] = useState([])
 
   // clear the search
   const clear = () => {
@@ -13,8 +16,19 @@ const Search = () => {
     setBestMatches([])
   }
 
-  const updateBestMatches = () => {
-    setBestMatches(mockSearchResults.result)
+  const updateBestMatches =async () => {
+    try {
+      if (searchInput) {
+        const searchResults = await searchSymbols(searchInput);
+        const result = searchResults.result;
+        setBestMatches(result)
+      }
+
+    }
+    catch(error){
+      setBestMatches([])
+      console.log(error)
+    }
   }
 
   return (

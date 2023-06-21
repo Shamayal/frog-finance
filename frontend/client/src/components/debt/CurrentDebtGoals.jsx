@@ -30,8 +30,8 @@ const ViewDebtGoals = () => {
               <div className='savings-text-bg rounded-md'>
                 <p>You don't have any current debt goals</p>
                 <p>Don't worry, you can create a new goal or view your past achievements </p>
-                <button className='btn btn-light m-2' onClick={() => navigate("/debt/add")}>New debt goal</button>
-                <button className='btn btn-light m-2' onClick={() => navigate("/debt/past")}>View paid off debts</button>
+                <button className='btn btn-dark m-2' onClick={() => navigate("/debt/add")}>New debt goal</button>
+                <button className='btn btn-dark m-2' onClick={() => navigate("/debt/past")}>View paid off debts</button>
               </div>
             </section>
 
@@ -46,6 +46,7 @@ const ViewDebtGoals = () => {
         {currentDebtGoals.length > 0 && (
           currentDebtGoals.map((debtGoal) => {
             const width = (debtGoal.amount_paid / debtGoal.initial_amount).toFixed(2) * 100;
+
 
             return (
               <section className='col current-debt-container bg-lightgray rounded-md' key={debtGoal.debt_id}>
@@ -66,8 +67,8 @@ const ViewDebtGoals = () => {
                     <div className="progress-bar bg-success" style={{ width: `${width}%` }}>{width}%</div>
                   </div>
                   <br />
-                  <button className='btn btn-light openModalBtn' onClick={() => setOpenModal(true)} >
-                    Update payments
+                  <button className='btn btn-dark openModalBtn' onClick={() => setOpenModal(true)} >
+                    Add a payment
                   </button>
 
                 </div>

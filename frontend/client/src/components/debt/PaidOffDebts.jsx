@@ -32,8 +32,8 @@ const ViewPaidOffDebts = () => {
                 <h4>No achievements yet</h4>
                 <p>You haven't completed any debt goals</p>
                 <p>Don't worry, you can view your current debt goals or create a goal if you don't have one yet! </p>
-                <button className='btn btn-light m-2' onClick={() => navigate("/debt/add")}>New debt goal</button>
-                <button className='btn btn-light m-2' onClick={() => navigate("/debt/progress")}>View current goals</button>
+                <button className='btn btn-dark m-2' onClick={() => navigate("/debt/add")}>New debt goal</button>
+                <button className='btn btn-dark m-2' onClick={() => navigate("/debt/progress")}>View current goals</button>
               </div>
             </section>
 
@@ -57,7 +57,7 @@ const ViewPaidOffDebts = () => {
                 <div className="progress-bar bg-success" style={{ width: '100%' }}>100%</div>
               </div>
               <div className='congrats-container'>
-                  <button onClick={fire} className="congrats-confetti rounded-md">Congrats!</button>
+                  <button onClick={fire} className="congrats-confetti btn btn-dark rounded-md">Congrats!</button>
                   <ReactCanvasConfetti refConfetti={getInstance} style={canvasStyles} />
                 </div>
                 </div>

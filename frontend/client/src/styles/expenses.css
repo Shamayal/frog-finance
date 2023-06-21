@@ -31,11 +31,6 @@
   margin-top: 40px;
 }
 
-.btn-light:hover {
-  background-color: #3B7601;
-  color: white;
-}
-
 /* Styling for: Add Expense page */
 .add-expenses-container {
   background-image: url('https://images.pexels.com/photos/9016555/pexels-photo-9016555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');

@@ -25,7 +25,7 @@ const ViewSavingsGoals = () => {
               <p>You don't have any savings goals yet</p>
               <p>Is there something you would like to save for?</p>
               <p>Click the button below to create a goal</p>
-              <button className='btn btn-light' onClick={() => navigate("/savings/add")}>create new goal</button>
+              <button className='btn btn-dark' onClick={() => navigate("/savings/add")}>Create new goal</button>
             </div>
           }
 
