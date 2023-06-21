@@ -17,7 +17,7 @@ const ViewPastSavingsGoals = () => {
   return (
     <div className='wrapper savings-goal-section font-quicksand saving-achievements-pg'>
       <h1 className='font-poppins'>Grow your savings <br /> Leap forward one goal at a time</h1>
-      
+
       <main className='row justify-content-between'>
 
         <h4 className='font-poppins'>Saving Achievments - Completed Goals: </h4>
@@ -29,8 +29,8 @@ const ViewPastSavingsGoals = () => {
                 <h4>No achievements yet</h4>
                 <p>You haven't completed any savings goals</p>
                 <p>Don't worry, you can view your current savings goals or create a goal if you don't have one yet! </p>
-                <button className='btn btn-light m-2' onClick={() => navigate("/savings/add")}>New savings goal</button>
-                <button className='btn btn-light m-2' onClick={() => navigate("/savings/progress")}>View current goals</button>
+                <button className='btn btn-dark m-2' onClick={() => navigate("/savings/add")}>New savings goal</button>
+                <button className='btn btn-dark m-2' onClick={() => navigate("/savings/progress")}>View current goals</button>
               </div>
             </section>
 
@@ -57,7 +57,7 @@ const ViewPastSavingsGoals = () => {
                 </div>
 
                 <div className='congrats-container'>
-                  <button onClick={fire} className="congrats-confetti rounded-md">Congrats!</button>
+                  <button onClick={fire} className="congrats-confetti btn btn-dark rounded-md">Congrats!</button>
                   <ReactCanvasConfetti refConfetti={getInstance} style={canvasStyles} />
                 </div>
               </div>

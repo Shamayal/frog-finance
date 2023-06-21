@@ -27,12 +27,6 @@
   margin-top: 40px;
 }
 
-.btn-light:hover {
-  background-color: #3B7601;
-  color: white;
-}
-
-
 /* Styling for: Create Savings Goal page */
 .create-savings-container {
   background-image: url('https://www.centralbank.net/uploadedfiles/images/articles/lc-tips-how-to-save-more.jpg?v=1D79E7ED35EEB00');
@@ -88,10 +82,3 @@ margin-top: -27px;
 .congrats-container {
   padding-top: 20px;
 }
-
-.congrats-confetti {
-  background-color: rgb(35, 215, 246);
-  padding: 5px 10px;
-}
-
-

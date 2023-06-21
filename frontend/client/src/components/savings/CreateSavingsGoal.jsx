@@ -37,7 +37,7 @@ const CreateSavingsGoal = () => {
                   <p>You already have an active savings goal</p>
                   <p>Leap towards one goal at a time to stay focused</p>
                   <p>Click the button below to see your current savings progress</p>
-                  <button className='btn btn-light' onClick={() => navigate("/savings/progress")}>view savings goal</button>
+                  <button className='btn btn-dark' onClick={() => navigate("/savings/progress")}>view savings goal</button>
                 </div>
               }
 
@@ -84,7 +84,7 @@ const CreateSavingsGoal = () => {
                   <br />
                   <br />
 
-                  <button className='btn btn-light' type="submit" onClick={handleClick}>Create Goal</button>
+                  <button className='btn btn-dark' type="submit" onClick={handleClick}>Create Goal</button>
                 </form>
               }
             </section>
