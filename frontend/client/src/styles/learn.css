@@ -1,0 +1,33 @@
+/* Styling for: ALL income pages */
+.learn-section {
+  padding: 30px 0;
+}
+
+.learn-section .row {
+  margin-top: 30px;
+}
+
+.learn-section .col {
+  padding: 40px 50px;
+  max-width: 47%;
+}
+
+.tip-box {
+  background-color: rgba(246, 242, 242, 0.7);
+  padding: 20px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 7px 7px rgba(0, 0, 0, 0.3);
+  width: 60%;
+}
+
+.tip-box h5 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.tip-box p {
+  font-size: 16px;
+  margin-bottom: 0;
+}
