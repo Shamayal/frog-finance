@@ -72,8 +72,8 @@ const IncomeView = () => {
 
           {isSubmitted && incomePayments.length > 0 ? (
             <div className="income-text-bg rounded-md">
-            <h5 className="font-poppins"> See below for your income summary.</h5>
-          </div>
+              <h5 className="font-poppins"> See below for your income summary.</h5>
+            </div>
           ) : null }
 
         </section>
