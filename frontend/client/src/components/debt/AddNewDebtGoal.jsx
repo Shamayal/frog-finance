@@ -31,6 +31,7 @@ const CreateDebtGoal = () => {
             <label htmlFor="debt_name">
               Debt you would like to pay off:
             </label>
+            <br />
             <input
               type="text"
               value={debtName}
