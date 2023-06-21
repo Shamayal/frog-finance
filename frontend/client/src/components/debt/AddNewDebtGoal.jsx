@@ -72,7 +72,7 @@ const CreateDebtGoal = () => {
             />
             <br />
 
-            <button className='btn btn-light' type="submit" onClick={handleClick}>Create Goal</button>
+            <button className='btn btn-dark' type="submit" onClick={handleClick}>Create Goal</button>
           </form>
 
         </section>
