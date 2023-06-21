@@ -5,9 +5,11 @@ import 'react-datepicker/dist/react-datepicker.css';
 import '../../styles/budget.css';
 import BudgetItem from "./BudgetItem";
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // to view expenses by category and see how much left in budget
 const ViewMonthlyBudgets = () => {
+  const navigate = useNavigate();
 
   const [startDate, setStartDate] = useState(new Date());
   const { viewMonthlyBudget, monthlyBudget } = useBudgetHook();
@@ -29,7 +31,7 @@ const ViewMonthlyBudgets = () => {
     if(monthlyBudget.length === 0)
       setBudgetFlag(true);
   }
-   
+
   return (
   <div className={`wrapper font-quicksand ${monthlyBudget.length > 0 ? "budget-view-section" : "budget-create-section"}`} >
     <h1 className='font-poppins'>Manage your finances<br /> Your first hop to financial freedom</h1>
@@ -49,7 +51,8 @@ const ViewMonthlyBudgets = () => {
           showFourColumnMonthYearPicker
         />
 
-        <button type="submit" className='btn btn-dark' onClick={handleClick}> Get Budget </button>
+        <button type="submit" className='btn btn-dark' onClick={handleClick}> View Budget </button>
+        <button type="submit" className='btn btn-dark m-2' onClick={() => navigate("/money/budget/update")}> Update Budget </button>
         <br /><br />
         { monthlyBudget.length > 0 &&
           <>

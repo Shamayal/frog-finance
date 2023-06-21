@@ -4,9 +4,10 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { toast } from 'react-hot-toast';
 import '../../styles/budget.css';
-
+import { useNavigate } from 'react-router-dom';
 
 const UpdateBudget = () => {
+  const navigate = useNavigate();
   const [amount, setAmount ] = useState("")
   const [startDate, setStartDate] = useState(new Date());
   const [category, setCategory ] = useState("")
@@ -22,15 +23,17 @@ const UpdateBudget = () => {
   };
 
 
-  const handleClick = (event) => {
-    event.preventDefault()
-    updateBudget(amount, category, startDate)
-    setUpdated(true);
-    setAmount("");
-    setStartDate(new Date());
-    setCategory("");
-    toast.success('Successfully updated budget!')
-  }
+  const handleClick = async (event) => {
+    event.preventDefault();
+    try {
+      await updateBudget(amount, category, startDate)
+      navigate("/money/budget/view");
+      setUpdated(true);
+      toast.success('Successfully created budget!');
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div className='wrapper budget-create-section font-quicksand'>

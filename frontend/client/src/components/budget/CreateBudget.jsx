@@ -5,15 +5,17 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { toast } from 'react-hot-toast';
 import '../../styles/budget.css';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 const CreateBudget = () => {
+  const navigate = useNavigate();
   const [amount, setAmount ] = useState("")
   const [startDate, setStartDate] = useState(new Date());
   const [category, setCategory ] = useState("")
   const [submitted, setSubmitted] = useState(false);
   const { createBudget, viewNotBudgetCategories, notBudgetCategories } = useBudgetHook();
-  
+
   useEffect(() => {
     handleDateChange(new Date());
   }, []);
@@ -29,15 +31,17 @@ const CreateBudget = () => {
     viewNotBudgetCategories(date);
   };
 
-  const handleClick = (event) => {
-    event.preventDefault()
-    createBudget(amount, startDate, category)
-    setSubmitted(true);
-    setAmount("");
-    setStartDate(new Date());
-    setCategory("");
-    toast.success('Successfully created budget!')
-  }
+  const handleClick = async (event) => {
+    event.preventDefault();
+    try {
+      await createBudget(amount, startDate, category);
+      navigate("/money/budget/view");
+      setSubmitted(true);
+      toast.success('Successfully created budget!');
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div className='wrapper budget-create-section font-quicksand'>
@@ -47,7 +51,7 @@ const CreateBudget = () => {
       <section className='col create-budget-container bg-lightgray rounded-md'>
       <h4 className='font-poppins'> <span>Create Budget  </span> </h4>
         <form className='budget-view-bg rounded-md'>
-          <label htmlFor="budget_date">Budget Date:</label> 
+          <label htmlFor="budget_date">Budget Date:</label>
           <DatePicker
             showIcon
             selected={startDate}
@@ -66,12 +70,12 @@ const CreateBudget = () => {
 
           <br /><label htmlFor="budget_amount">Budget Amount:</label><br/>
           <input type="number" value={amount} id="budget_amount" onChange={(event) => setAmount(event.target.value)} />
- 
+
           <br />
           <br />
           <button type="submit" className='btn btn-dark' onClick={handleClick}> Add Budget </button><br/><br/>
           {notBudgetCategories.length === 0 && <><label>Created this month Budget for all Categories, You Can Update the Budget for the Category by clicking link below...</label>
-          <Link to='/money/budget/update'>Update Budge</Link></> }    
+          <Link to='/money/budget/update'>Update Budge</Link></> }
           {submitted && <h1 className='font-poppins'>Budget added successfully!</h1>}
         </form>
       </section>
