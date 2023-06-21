@@ -9,7 +9,7 @@ import Chart from "./Charts";
 const Dashboard = ({children}) => {
   return (
     <div className="stocks-container">
-        <h1 className='font-poppin wrapper'>Diversify your pond<br />Learn stocks</h1>
+        <h1 className='font-poppin wrapper'>Learn stocks<br />Diversify your pond</h1>
         <div className="h-screen grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-8 md:grid-rows-7 xl:grid-rows-5 auto-rows-fr gap-6 p-5 font-quicksand">
 
 
