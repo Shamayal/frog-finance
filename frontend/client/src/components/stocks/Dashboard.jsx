@@ -1,6 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import Card from "./Card";
-import { mockCompanyDetails } from "../../constants/mock";
 import Search from "./Search";
 import Details from "./Details";
 import Overview from "./Overview";
