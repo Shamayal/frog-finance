@@ -1,11 +1,16 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSavingsHook } from '../../hooks/savings';
+// import { useIncomeHook } from '../../hooks/income';
+// import { useExpensesHook } from '../../hooks/expenses';
 import '../../styles/savings.css';
 
 const ViewSavingsGoals = () => {
   const navigate = useNavigate();
   const { viewSavingsGoal, currentSavingsGoal } = useSavingsHook();
+
+  // const { viewAddIncome, incomePayments, addIncome } = useIncomeHook();
+  // const { viewAddExpenses, expensesTransactions, addExpenses,  } = useExpensesHook();
 
   useEffect(() => {
     viewSavingsGoal();
@@ -46,7 +51,10 @@ const ViewSavingsGoals = () => {
                 const currentAmount = parseInt(currentSavingsGoal.current_amount);
                 console.log("check type current amount", currentAmount);
                 console.log("check goal amount", currentSavingsGoal.goal_amount)
-                const width = (currentAmount / currentSavingsGoal.goal_amount).toFixed(2) * 100;
+                const width = Math.round((currentAmount / currentSavingsGoal.goal_amount) * 100);
+
+
+
 
                 console.log('check width', width);
 

@@ -45,7 +45,7 @@ const ViewDebtGoals = () => {
 
         {currentDebtGoals.length > 0 && (
           currentDebtGoals.map((debtGoal) => {
-            const width = (debtGoal.amount_paid / debtGoal.initial_amount).toFixed(2) * 100;
+            const width = Math.round((debtGoal.amount_paid / debtGoal.initial_amount) * 100);
 
 
             return (
