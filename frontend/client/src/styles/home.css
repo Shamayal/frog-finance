@@ -1,43 +1,44 @@
 
 .col {
   padding: 20px;
+  margin: 20px;
 }
 
 .col1 {
-  background-size: cover;
-  background-position: left;
-  background-repeat: no-repeat;
-  padding: 20px 20px;
-  border-radius: 10px;
-  background-image: url('https://github.com/Shamayal/frog-finance/blob/styles/home/frontend/client/src/media/homepage-expenses.png?raw=true'); 
-}
-
-.col2 {
-  background-size: cover;
-  background-position: left;
-  background-repeat: no-repeat;
-  padding: 20px 20px;
-  border-radius: 10px;
-  width: 100px;;
-  background-image: url('https://github.com/Shamayal/frog-finance/blob/styles/home/frontend/client/src/media/homepage-budget.png?raw=true'); 
-}
-
-.col3 {
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   padding: 20px 20px;
   border-radius: 10px;
-  background-image: url('https://github.com/Shamayal/frog-finance/blob/styles/home/frontend/client/src/media/homepage-savings.png?raw=true'); 
+  background-image: url('https://github.com/Shamayal/frog-finance/blob/styles/home/frontend/client/src/media/homepage-expenses.png?raw=true');
 }
 
-.col4 {
-  background-size: cover;
-  background-position: left;
+.col2 {
+  background-size: contain;
+  background-position: center;
   background-repeat: no-repeat;
   padding: 20px 20px;
   border-radius: 10px;
-  background-image: url('https://github.com/Shamayal/frog-finance/blob/styles/home/frontend/client/src/media/homepage-debt.png?raw=true'); 
+  width: 100px;;
+  background-image: url('https://github.com/Shamayal/frog-finance/blob/styles/home/frontend/client/src/media/homepage-budget.png?raw=true');
+}
+
+.col3 {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 20px 20px;
+  border-radius: 10px;
+  background-image: url('https://github.com/Shamayal/frog-finance/blob/styles/home/frontend/client/src/media/homepage-savings.png?raw=true');
+}
+
+.col4 {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 20px 20px;
+  border-radius: 10px;
+  background-image: url('https://github.com/Shamayal/frog-finance/blob/styles/home/frontend/client/src/media/homepage-debt.png?raw=true');
 }
 
 .services-container {
