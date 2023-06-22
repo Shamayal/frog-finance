@@ -10,11 +10,11 @@ const CreateSavingsGoal = () => {
 
   const [savingName, setSavingName] = useState("")
   const [goalAmount, setGoalAmount] = useState("")
-  const [currentAmount, setCurrentAmount] = useState("")
+  // const [currentAmount, setCurrentAmount] = useState("")
 
   const handleClick = (event) => {
     event.preventDefault()
-    createSavingsGoal(savingName, goalAmount, currentAmount).then(() => {
+    createSavingsGoal(savingName, goalAmount).then(() => {
       navigate("/savings/progress")
       toast.success('Successfully create a savings goal!')
     });
@@ -69,7 +69,7 @@ const CreateSavingsGoal = () => {
                 onChange={(event) => setGoalAmount(event.target.value)}
                 required
               />
-
+{/*
               <label htmlFor="current_amount">
                 How much have you already saved?
               </label>
@@ -80,7 +80,7 @@ const CreateSavingsGoal = () => {
                 id="current_amount"
                 placeholder='$0'
                 onChange={(event) => setCurrentAmount(event.target.value)}
-              />
+              /> */}
               <br />
               <br />
 
