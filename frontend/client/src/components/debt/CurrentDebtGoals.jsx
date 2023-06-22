@@ -25,9 +25,9 @@ const ViewDebtGoals = () => {
         {/* No current dobt goals */}
         {currentDebtGoals.length === 0 &&
           <>
-            <section className='col no-completed-savings-container bg-lightgray rounded-md'>
+            <section className='col bg-lightgray rounded-md'>
               <h4>No debt goals yet</h4>
-              <div className='savings-text-bg rounded-md'>
+              <div className='debt-text-bg rounded-md'>
                 <p>You don't have any current debt goals</p>
                 <p>Don't worry, you can create a new goal or view your past achievements </p>
                 <button className='btn btn-dark m-2' onClick={() => navigate("/debt/add")}>New debt goal</button>
@@ -35,7 +35,7 @@ const ViewDebtGoals = () => {
               </div>
             </section>
 
-            <section className='col savings-page-how-it-works bg-lightgray rounded-md'>
+            <section className='col debt-page-how-it-works bg-lightgray rounded-md'>
               <h4 className='font-poppins'> How It Works</h4>
               <p>current debt goals - description</p>
             </section>
@@ -57,14 +57,19 @@ const ViewDebtGoals = () => {
                     <p><span className='font-poppins'>ID # </span> {debtGoal.debt_id}</p>
                   </div>
 
-                  <p><span className='font-poppins'>Initial Amount: </span> ${debtGoal.initial_amount}</p>
+                  <p><span className='font-poppins'>Initial Amount: </span> ${parseFloat(debtGoal.initial_amount).toLocaleString()}</p>
                   <p><span className='font-poppins'>Interest Rate: </span> {debtGoal.interest_rate}%</p>
+
                   {debtGoal.amount_paid === null && <p><span className='font-poppins'>Amount Paid Off: </span>  $0</p>}
-                  {debtGoal.amount_paid !== null && <p><span className='font-poppins'>Amount Paid Off: </span> ${debtGoal.amount_paid}</p>}
-                  <p><span className='font-poppins'>Amount Left: </span> ${debtGoal.amount_left}</p>
+
+                  {debtGoal.amount_paid !== null && <p><span className='font-poppins'>Amount Paid Off: </span> ${parseFloat(debtGoal.amount_paid).toLocaleString()}</p>}
+
+                  <p><span className='font-poppins'>Amount Left: </span> ${parseFloat(debtGoal.amount_left).toLocaleString()}</p>
+
                   <p><span className='font-poppins'>Progress: </span></p>
-                  <div className="progress w-60" role="progressbar" aria-label="Success example" aria-valuenow={width} aria-valuemin={0} aria-valuemax={100}>
-                    <div className="progress-bar bg-success" style={{ width: `${width}%` }}>{width}%</div>
+                  <div className="progress w-60 border border-black" role="progressbar" aria-label="Success example" aria-valuenow={width} aria-valuemin={0} aria-valuemax={100}>
+                  <div className="progress-bar bg-success" style={{ width: `${width}%` }}>{width}%</div>
+
                   </div>
                   <br />
                   <button className='btn btn-dark openModalBtn' onClick={() => setOpenModal(true)} >

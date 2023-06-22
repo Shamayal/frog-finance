@@ -50,9 +50,9 @@ const ViewPaidOffDebts = () => {
               <h4 className='font-poppins'>You paid off your {paidDebt.name}!</h4>
               <div className='debt-text-bg rounded-md'>
               <p><span className='font-poppins'>Debt Name: </span> {paidDebt.name}</p>
-              <p><span className='font-poppins'>Initial Amount: </span> ${paidDebt.initial_amount}.00</p>
+              <p><span className='font-poppins'>Initial Amount: </span> ${parseFloat(paidDebt.initial_amount).toLocaleString()}.00</p>
               <p><span className='font-poppins'>Amount Left: </span> $0</p>
-              <p>I<span className='font-poppins'>Interest Rate: </span> {paidDebt.interest_rate}%</p>
+              <p><span className='font-poppins'>Interest Rate: </span> {paidDebt.interest_rate}%</p>
               <div className="progress w-50" role="progressbar" aria-label="Success example" aria-valuenow={100} aria-valuemin={0} aria-valuemax={100}>
                 <div className="progress-bar bg-success" style={{ width: '100%' }}>100%</div>
               </div>
