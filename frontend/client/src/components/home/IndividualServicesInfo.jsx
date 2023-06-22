@@ -60,6 +60,32 @@ const IndividualServicesInfo = () => {
           <p>Update your debt each time you make a payment and watch the progress bar automatically update</p>
         </div>
       </div>
+      <div className='row'>
+        <div className='col bg-lightblue rounded-md'>
+          <h2 className="fontweight-700 font-poppins">Learn Stocks</h2>
+          <p>Interested in diversifying your portfolio?</p>
+          <p> Get familiar with stocks by learning about market trends</p>
+          <p>Search for a stock ticker, then view how the trend and price changes over a day, month, week, or year</p>
+        </div>
+        <div className='col col5'>
+        {/* <h6 className='fontweight-700 font-poppins'> Savings:</h6>
+          <p>Make a savings goal and work towards it</p>
+          <p>View all the past goals you've reached</p> */}
+        </div>
+      </div>
+      <div className='row'>
+        <div className='col col6'>
+          {/* <h6 className='fontweight-700 font-poppins'> Debt Goals:</h6>
+          <p>Keep track of all your debts in one spot</p>
+          <p>View all the debts you've paid off to keep track of your accomplishments</p> */}
+        </div>
+        <div className='col bg-lightblue rounded-md'>
+          <h2 className="fontweight-700 font-poppins">Finance 101</h2>
+          <p>Just like frogs leaping from one lily pad to another, understanding financial concepts and taking proactive steps can propel you towards a stable and secure future.</p>
+
+          <p>Read our blog posts to learn how to use these skills and make smart decisions on how you spend your hard-earned money to live the life you want!</p>
+        </div>
+      </div>
     </section>
   );
 };
