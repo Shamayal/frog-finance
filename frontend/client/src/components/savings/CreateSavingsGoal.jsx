@@ -81,7 +81,7 @@ const CreateSavingsGoal = () => {
           <h4 className='font-poppins'> How It Works</h4>
           <p> Choose a goal to work towards, whether it's a new car, school fees, an emergency fund, or a desk — whatever you need! </p>
           <p>Fill in the form - name of the goal, the amount you aim to save, and amount saved so far. </p>
-          <p> Unsure of your current savings? Leave it as zero and Frog Finance will calculate it for you based on your net income from the Money Management sections.</p>
+          <p> Frog Finance will calculate your current savings amount for you based on your net income from the Money Management sections.</p>
           <p> Create your goal, then sit back and watch your savings adjust automatically throughout the months as you add income and expenses. Now you will always know how much you have saved towards your goal.</p>
           <p>Once you've achieved your current goal, come back & create a new one!</p>
         </section>
