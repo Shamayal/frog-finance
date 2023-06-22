@@ -10,11 +10,11 @@ const CreateSavingsGoal = () => {
 
   const [savingName, setSavingName] = useState("")
   const [goalAmount, setGoalAmount] = useState("")
-  const [currentAmount, setCurrentAmount] = useState("")
+  // const [currentAmount, setCurrentAmount] = useState("")
 
-  const handleClick = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault()
-    createSavingsGoal(savingName, goalAmount, currentAmount).then(() => {
+    createSavingsGoal(savingName, goalAmount).then(() => {
       navigate("/savings/progress")
       toast.success('Successfully create a savings goal!')
     });
@@ -42,7 +42,7 @@ const CreateSavingsGoal = () => {
           }
 
           {!currentSavingsGoal &&
-            <form className='savings-text-bg rounded-md'>
+            <form className='savings-text-bg rounded-md' onSubmit={handleSubmit}>
 
               <label htmlFor="saving_name">
                 What are you saving for?
@@ -69,22 +69,10 @@ const CreateSavingsGoal = () => {
                 onChange={(event) => setGoalAmount(event.target.value)}
                 required
               />
-
-              <label htmlFor="current_amount">
-                How much have you already saved?
-              </label>
-              <input
-                type="number"
-                value={currentAmount}
-                name="current_amount"
-                id="current_amount"
-                placeholder='$0'
-                onChange={(event) => setCurrentAmount(event.target.value)}
-              />
               <br />
               <br />
 
-              <button className='btn btn-dark' type="submit" onClick={handleClick}>Create Goal</button>
+              <button className='btn btn-dark' type="submit">Create Goal</button>
             </form>
           }
         </section>
@@ -93,7 +81,7 @@ const CreateSavingsGoal = () => {
           <h4 className='font-poppins'> How It Works</h4>
           <p> Choose a goal to work towards, whether it's a new car, school fees, an emergency fund, or a desk — whatever you need! </p>
           <p>Fill in the form - name of the goal, the amount you aim to save, and amount saved so far. </p>
-          <p> Unsure of your current savings? Leave it as zero and Frog Finance will calculate it for you based on your net income from the Money Management sections.</p>
+          <p> Frog Finance will calculate your current savings amount for you based on your net income from the Money Management sections.</p>
           <p> Create your goal, then sit back and watch your savings adjust automatically throughout the months as you add income and expenses. Now you will always know how much you have saved towards your goal.</p>
           <p>Once you've achieved your current goal, come back & create a new one!</p>
         </section>

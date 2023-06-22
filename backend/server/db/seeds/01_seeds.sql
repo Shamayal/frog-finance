@@ -156,13 +156,13 @@ INSERT INTO expenses (user_id, expense_date, amount, category_id, sub_category_i
 INSERT INTO expenses (user_id, expense_date, amount, category_id, sub_category_id) VALUES (1, '2023-05-16', 100, 12, 52); -- pets, Food
 
 -- savings
-INSERT INTO savings (saving_name, goal_amount, current_amount, finished, date_created, date_finished, user_id) VALUES ('RRSP', 1000, 1000, TRUE, '2023-01-21', '2023-06-01', 1);
+-- INSERT INTO savings (saving_name, goal_amount, current_amount, finished, date_created, date_finished, user_id) VALUES ('RRSP', 1000, 1000, TRUE, '2023-01-21', '2023-06-02', 1);
 INSERT INTO savings (saving_name, goal_amount, current_amount, finished, date_created, date_finished, user_id) VALUES ('Desk', 100, 100, TRUE, '2023-05-21', '2023-05-30', 1);
 
 -- debt_goals
 INSERT INTO debt_goals (name, initial_amount, interest_rate, paid_off, user_id) VALUES ('Bank Loan', 6000, 10.00, FALSE, 1);
-INSERT INTO debt_goals (name, initial_amount, interest_rate, paid_off, user_id) VALUES ('Personal Loan', 1000, 5.00, TRUE, 1);
-INSERT INTO debt_goals (name, initial_amount, interest_rate, paid_off, user_id) VALUES ('Car Loan', 5000, 0, TRUE, 1);
+INSERT INTO debt_goals (name, initial_amount, interest_rate, paid_off, user_id) VALUES ('Personal Loan', 1000, 5, TRUE, 1);
+INSERT INTO debt_goals (name, initial_amount, interest_rate, paid_off, user_id) VALUES ('Car Loan', 5000, 7, TRUE, 1);
 
 -- debt_payments
 INSERT INTO debt_payments (amount, debt_goal_id, user_id) VALUES (500, 1, 1);

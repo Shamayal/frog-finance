@@ -35,6 +35,10 @@
   background-repeat: no-repeat;
 }
 
+.no-saving-goals-yet {
+  margin-top: 500px;
+}
+
 .create-savings-container form input {
   margin-bottom: 10px;
   padding: 5px 10px;
@@ -47,12 +51,20 @@
   background-size: cover;
   background-position: left;
   background-repeat: no-repeat;
+  padding: 10px 50px;
+}
+
+.current-savings-container .savings-text-bg {
+  background-color: rgba(246, 242, 242, 0.7);
+  padding: 20px 25px;
+  width: 75%;
+  margin-top: 40px;
 }
 
 /* Styling for: Completed Savings Goal page */
 
 .saving-achievements-pg h1 {
-margin-top: -27px;
+  margin-top: -27px;
 }
 
 .no-completed-savings-container {
@@ -67,16 +79,13 @@ margin-top: -27px;
   background-image: url('https://images.unsplash.com/photo-1569705460033-cfaa4bf9f822?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80');
   background-size: cover;
   background-repeat: no-repeat;
-  margin-top: 6px;
+  width: 100%;
 }
 
-.completed-savings-container h4 {
-  color: white;
-}
 
 .completed-savings-container .savings-text-bg {
-  padding: 20px 30px;
   margin-top: 15px;
+  width: 85%;
 }
 
 .congrats-container {

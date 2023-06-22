@@ -36,11 +36,10 @@ export const useSavingsHook = () => {
       });
   }
 
-  const createSavingsGoal = (savingName, goalAmount, currentAmount) => {
+  const createSavingsGoal = (savingName, goalAmount) => {
     const data = {
       savings_name: savingName,
-      goal_amount: goalAmount,
-      current_amount: currentAmount
+      goal_amount: goalAmount
     }
 
 

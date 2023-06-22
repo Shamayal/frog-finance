@@ -8,7 +8,7 @@ const MakeDebtPayment = (props) => {
   const [debtPaymentAmount, setDebtPaymentAmount] = useState('');
   const [debtGoalId, setDebtGoalId] = useState('');
 
-  const handleClick = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault()
     addDebtPayment(debtPaymentAmount, debtGoalId)
     props.setOpenModal(false)
@@ -22,7 +22,7 @@ const MakeDebtPayment = (props) => {
 
   return (
     <div>
-      <form action="" className='font-quicksand'>
+      <form action="" className='font-quicksand'  onSubmit={handleSubmit}>
 
         <label htmlFor="debt_payment_amount">
           Amount paid:
@@ -36,7 +36,8 @@ const MakeDebtPayment = (props) => {
             name="debt_payment_amount"
             id="debt_payment_amount"
             placeholder='0'
-            onChange={(event) => setDebtPaymentAmount(event.target.value)} />
+            onChange={(event) => setDebtPaymentAmount(event.target.value)}
+            required />
           <span class="input-group-text">.00</span>
         </div>
 
@@ -53,12 +54,13 @@ const MakeDebtPayment = (props) => {
           name="debt_goal_id"
           id="debt_goal_id"
           onChange={(event) => setDebtGoalId(event.target.value)}
+          required
           />
         </div>
 
         <div className='modal-footer'>
           <button className='btn btn-danger' onClick={() => props.setOpenModal(false)}>cancel</button>
-          <button type="submit" className='btn btn-primary' onClick={handleClick}>
+          <button type="submit" className='btn btn-primary'>
             add payment
           </button>
         </div>

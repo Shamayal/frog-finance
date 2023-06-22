@@ -44,13 +44,14 @@ const ViewPastSavingsGoals = () => {
         {pastSavingsGoal.length > 0 && (
           pastSavingsGoal.map((pastSaving) => (
             <section className='col completed-savings-container bg-lightgray rounded-md' key={pastSaving.savings_id}>
-              <h4 className='font-poppins'>You finished saving for your {pastSaving.saving_name}!</h4>
+
               <div className='savings-text-bg rounded-md'>
+                <h4 className='font-poppins'>You finished saving for your {pastSaving.saving_name}!</h4>
                 <p><span className='font-poppins'>Goal Name: </span> {pastSaving.saving_name}</p>
-                <p><span className='font-poppins'>Goal Amount: </span> ${pastSaving.goal_amount}.00</p>
-                <p><span className='font-poppins'>Total Saved: </span> ${pastSaving.current_amount}.00</p>
-                <p><span className='font-poppins'>Date Created: </span> {pastSaving.date_created}</p>
-                <p><span className='font-poppins'>Date Completed: </span> {pastSaving.date_finished}</p>
+                <p><span className='font-poppins'>Goal Amount: </span> ${parseFloat(pastSaving.goal_amount).toLocaleString()}.00</p>
+                <p><span className='font-poppins'>Total Saved: </span> ${parseFloat(pastSaving.current_amount).toLocaleString()}.00</p>
+                <p><span className='font-poppins'>Date Created: </span> {new Date(pastSaving.date_created).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
+                <p><span className='font-poppins'>Date Finished: </span> {new Date(pastSaving.date_finished).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
                 <p>Progress:</p>
                 <div className="progress w-50" role="progressbar" aria-label="Success example" aria-valuenow={100} aria-valuemin={0} aria-valuemax={100}>
                   <div className="progress-bar bg-success" style={{ width: '100%' }}>100%</div>
@@ -71,3 +72,4 @@ const ViewPastSavingsGoals = () => {
 };
 
 export default ViewPastSavingsGoals;
+
