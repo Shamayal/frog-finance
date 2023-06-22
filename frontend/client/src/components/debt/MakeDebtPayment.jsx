@@ -8,7 +8,7 @@ const MakeDebtPayment = (props) => {
   const [debtPaymentAmount, setDebtPaymentAmount] = useState('');
   const [debtGoalId, setDebtGoalId] = useState('');
 
-  const handleClick = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault()
     addDebtPayment(debtPaymentAmount, debtGoalId)
     props.setOpenModal(false)
@@ -22,7 +22,7 @@ const MakeDebtPayment = (props) => {
 
   return (
     <div>
-      <form action="" className='font-quicksand'  onSubmit={handleClick}>
+      <form action="" className='font-quicksand'  onSubmit={handleSubmit}>
 
         <label htmlFor="debt_payment_amount">
           Amount paid:
