@@ -44,6 +44,10 @@
   border-radius: 10px;
 }
 
+.create-debt-container form label {
+  font-weight: bold;
+}
+
 .create-debt-container button {
   margin-top: 10px;
 }
