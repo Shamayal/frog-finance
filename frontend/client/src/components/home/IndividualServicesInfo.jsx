@@ -36,7 +36,7 @@ const IndividualServicesInfo = () => {
       </div>
       <div className='row'>
         <div className='col bg-lightblue rounded-md'>
-          <h2 className="fontweight-700 font-poppins">Set Savings Goals</h2>
+          <h2 className="fontweight-700 font-poppins">Set Saving Goals</h2>
           <p>Create a savings goal whenever you have a goal in mind</p>
           <p>Sit back and watch as your savings automatically update according to your income and expenses</p>
           <p>View all your past savings goals to keep track of your accomplishments</p>
