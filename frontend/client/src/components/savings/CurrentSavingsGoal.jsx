@@ -78,9 +78,9 @@ const ViewSavingsGoals = () => {
 
           {currentSavingsGoal && (
             <>
-              <button className='btn btn-dark'>Add income</button>
-              <button className='btn btn-dark mx-2.5 my-2'>Add expense</button>
-              <button className='btn btn-dark'>Add debt payment</button>
+              <button className='btn btn-dark'  onClick={() => navigate("/money/income/add")}>Add income</button>
+              <button className='btn btn-dark mx-2.5 my-2'  onClick={() => navigate("/money/expenses/add")}>Add expense</button>
+              <button className='btn btn-dark'  onClick={() => navigate("/debt/progress")}>Add debt payment</button>
             </>
           )}
 
