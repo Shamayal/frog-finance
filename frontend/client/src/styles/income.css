@@ -33,10 +33,13 @@
 
 /* Styling for: Add Income page */
 .add-income-container {
-  background-image: url('https://images.pexels.com/photos/7735792/pexels-photo-7735792.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+  background-image: url('https://images.pexels.com/photos/1181611/pexels-photo-1181611.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
 }
 
-/* Vuew income page */
+/* View income page */
 .view-income-container {
   background-image: url('https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
   background-size: cover;
@@ -48,6 +51,10 @@
   margin-bottom: 10px;
   padding: 5px 10px;
   border-radius: 10px;
+}
+
+.add-income-container form label {
+  font-weight: bold;
 }
 
 /* View income page */
@@ -62,6 +69,10 @@
   margin-bottom: 10px;
   padding: 5px 10px;
   border-radius: 10px;
+}
+
+.view-income-container form label {
+  font-weight: bold;
 }
 
 .net-income-container {
