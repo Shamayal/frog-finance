@@ -12,7 +12,7 @@ const CreateSavingsGoal = () => {
   const [goalAmount, setGoalAmount] = useState("")
   // const [currentAmount, setCurrentAmount] = useState("")
 
-  const handleClick = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault()
     createSavingsGoal(savingName, goalAmount).then(() => {
       navigate("/savings/progress")
@@ -42,7 +42,7 @@ const CreateSavingsGoal = () => {
           }
 
           {!currentSavingsGoal &&
-            <form className='savings-text-bg rounded-md'>
+            <form className='savings-text-bg rounded-md' onSubmit={handleSubmit}>
 
               <label htmlFor="saving_name">
                 What are you saving for?
@@ -69,22 +69,10 @@ const CreateSavingsGoal = () => {
                 onChange={(event) => setGoalAmount(event.target.value)}
                 required
               />
-{/*
-              <label htmlFor="current_amount">
-                How much have you already saved?
-              </label>
-              <input
-                type="number"
-                value={currentAmount}
-                name="current_amount"
-                id="current_amount"
-                placeholder='$0'
-                onChange={(event) => setCurrentAmount(event.target.value)}
-              /> */}
               <br />
               <br />
 
-              <button className='btn btn-dark' type="submit" onClick={handleClick}>Create Goal</button>
+              <button className='btn btn-dark' type="submit">Create Goal</button>
             </form>
           }
         </section>

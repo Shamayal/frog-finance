@@ -13,7 +13,7 @@ const CreateDebtGoal = () => {
 
   const { createDebtGoal } = useDebtHook();
 
-  const handleClick = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault()
     createDebtGoal(debtName, debtAmount, interestRate).then(() => navigate("/debt/progress"))
     toast.success('Successfully create a debt goal!');
@@ -26,7 +26,7 @@ const CreateDebtGoal = () => {
       <main className='row justify-content-between'>
         <section className='col create-debt-container bg-lightgray rounded-md'>
           <h4 className='font-poppins'>Create a debt goal</h4>
-          <form className='debt-text-bg rounded-md'>
+          <form className='debt-text-bg rounded-md' onSubmit={handleSubmit}>
 
             <label htmlFor="debt_name">
               Debt you would like to pay off:
@@ -73,7 +73,7 @@ const CreateDebtGoal = () => {
             />
             <br />
 
-            <button className='btn btn-dark' type="submit" onClick={handleClick}>Create Goal</button>
+            <button className='btn btn-dark' type="submit">Create Goal</button>
           </form>
 
         </section>
