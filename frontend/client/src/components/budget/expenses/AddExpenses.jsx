@@ -3,6 +3,7 @@ import { useExpensesHook } from '../../../hooks/expenses';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Toaster, toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import "../../../styles/expenses.css"
 
 
@@ -11,6 +12,8 @@ const ViewAddExpenses = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [category, setCategory ] = useState("")
   const [subCategory, setSubCategory ] = useState("")
+  const navigate = useNavigate();
+
 
   const { viewAddExpenses } = useExpensesHook();
 
@@ -40,7 +43,7 @@ const ViewAddExpenses = () => {
     setSubCategory(event.target.value);
   };
 
-  const handleClick = (event) => {
+  const handleClick = async (event) => {
     event.preventDefault();
 
     if (parseFloat(amount) <= 0 || isNaN(parseFloat(amount))) {
@@ -60,7 +63,8 @@ const ViewAddExpenses = () => {
     
 
     if (parseFloat(amount) > 0 && category && subCategory) {
-      viewAddExpenses(amount, startDate, category, subCategory)
+      await viewAddExpenses(amount, startDate, category, subCategory);
+      navigate('/money/expenses/view');
       setAmount("");
       setStartDate(new Date());
       setCategory("");
