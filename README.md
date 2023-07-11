@@ -107,4 +107,14 @@ Users can improve their financial literacy by learning about different topics on
 
 ## Dependencies
 
-- Node 10.x or above
+- Node 16.20.0
+- React
+- PSQL
+- Bootstrap
+- Tailwind
+- Express
+- React-Calendar
+- React-Hot-Toast
+- React-Router-Dom
+- React-Dom
+- Auth0
