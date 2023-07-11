@@ -53,7 +53,7 @@ Users can create an expense category with a limit of how much they want to spend
 
 Users can create and save for one goal at a time. Users can view their savings goal progress which is updates the progress bar every time they add income, make an expense, or make a debt payment across multiple months until the savings goal is reached.
 
-Here, the user wants to save up $14,000 for school tuition. They add an income of $2,000 and an expense of $1,500 for rend and can see the progress bar is updated.
+Here, the user wants to save up $14,000 for school tuition. They add an income of $2,000 and an expense of $1,500 for rent and can see the progress bar is updated.
 
 !["Users can create a saving goal."](https://github.com/Shamayal/frog-finance/blob/main/frontend/client/src/media/README%20gifs/create-saving.gif)
 
