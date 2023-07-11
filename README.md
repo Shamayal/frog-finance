@@ -21,6 +21,9 @@ Frog Finance is a full stack, multi-page web application that allows users to ma
 
 ## Final Product
 
+insert homepage gif
+!["Navigating the homepage."]()
+
 ### Add your Income
 
 Users can track the amount of money they are earning by adding income when they receive a payslip. Users are then navigated to the view income page where they can see the total income for the month along with all of the payments they received.
