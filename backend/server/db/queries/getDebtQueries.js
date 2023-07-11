@@ -1,10 +1,12 @@
 const db = require('../connection.js');
 
+// amount left = initial amount * interest rate - debt.payments
+
 // check multiple users
 const getCurrentDebtGoals = (user_id) => {
   return db.query(`
   SELECT users.id AS user_id, debt_goals.id AS debt_id, debt_goals.name, debt_goals.initial_amount, debt_goals.interest_rate,
-    ROUND(((debt_goals.amount_left * debt_goals.interest_rate / 100) + debt_goals.amount_left), 2) -
+    ROUND((debt_goals.initial_amount * debt_goals.interest_rate / 100) + debt_goals.initial_amount, 2) -
     (SELECT coalesce((SELECT SUM(debt_payments.amount)
     FROM debt_payments
     JOIN users ON users.id = debt_payments.user_id
@@ -35,7 +37,7 @@ const getCurrentDebtGoals = (user_id) => {
 
 const getPaidOffDebts = (user_id) => {
   return db.query(`
-  SELECT users.id AS user_id, debt_goals.id AS debt_id, name, initial_amount, amount_left, interest_rate, paid_off
+  SELECT users.id AS user_id, debt_goals.id AS debt_id, name, initial_amount, interest_rate, paid_off
   FROM debt_goals
   JOIN users ON users.id = debt_goals.user_id
   WHERE paid_off = TRUE
@@ -49,12 +51,12 @@ const getPaidOffDebts = (user_id) => {
     });
 }
 
-const createNewDebtGoal = (name, initial_amount, amount_left, interest_rate, user_id) => {
+const createNewDebtGoal = (name, initial_amount, interest_rate, user_id) => {
   return db.query(`
-  INSERT INTO debt_goals (name, initial_amount, amount_left, interest_rate, paid_off, user_id)
-  VALUES ($1, $2, $3, $4, FALSE, $5);
+  INSERT INTO debt_goals (name, initial_amount, interest_rate, paid_off, user_id)
+  VALUES ($1, $2, $3, FALSE, $4)
   RETURNING *;
-  `, [name, initial_amount, amount_left, interest_rate, user_id])
+  `, [name, initial_amount, interest_rate, user_id])
 }
 
 const createDebtPayment = (amount, debt_goal_id, user_id) => {
@@ -73,3 +75,17 @@ module.exports = {
   createNewDebtGoal,
   createDebtPayment
 };
+
+
+/*
+SELECT *, ... AS amount_left,  payment_totals.total AS amount_paid, amount_left <= 0 AS paid_off,
+FROM debts
+LEFT JOIN (
+  SELECT SUM(debt_payments_amount) AS total, debt_id
+  FROM debt_payments
+  GROUP BY debt_id
+) AS payment_totals
+ON debt_id = debts.id
+
+take out interest rates
+*/

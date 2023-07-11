@@ -1,0 +1,94 @@
+/* Styling for: ALL income pages */
+.income-add-section {
+  padding: 30px 0;
+}
+
+.income-add-section .row {
+  margin-top: 30px;
+}
+
+.income-add-section .col {
+  padding: 40px 50px;
+  max-width: 47%;
+}
+
+.income-page-how-it-works {
+  height: 500px;
+}
+
+.income-page-how-it-works h4 {
+  padding-bottom: 25px;
+}
+
+.income-net-total {
+  height: 570px;
+}
+
+.income-text-bg {
+  background-color: rgba(246, 242, 242, 0.7);
+  padding: 40px 25px;
+  width: 75%;
+  margin-top: 40px;
+}
+
+/* Styling for: Add Income page */
+.add-income-container {
+  background-image: url('https://images.pexels.com/photos/1181611/pexels-photo-1181611.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
+}
+
+/* View income page */
+.view-income-container {
+  background-image: url('https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
+}
+
+.add-income-container form input {
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.add-income-container form label {
+  font-weight: bold;
+}
+
+/* View income page */
+.view-income-container {
+  background-image: url('https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
+}
+
+.view-income-container form input {
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.view-income-container form label {
+  font-weight: bold;
+}
+
+.net-income-container {
+  background-image: url('https://images.pexels.com/photos/6927335/pexels-photo-6927335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
+}
+
+.net-income-container form input {
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.calculation {
+  color: #526E11;
+  font-family: 'poppins';
+}

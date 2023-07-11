@@ -1,0 +1,111 @@
+/* Styling for: ALL income pages */
+.learn-section {
+  padding: 30px 0;
+}
+
+.learn-section .row {
+  margin-top: 30px;
+}
+
+.learn-section .col {
+  padding: 40px 50px;
+  max-width: 47%;
+}
+
+.tip-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.tip-picture {
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
+  padding: 20px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  width: 35%;
+  box-shadow: 0 7px 7px rgba(0, 0, 0, 0.3);
+}
+
+.tip-box {
+  background-color: rgba(246, 242, 242, 0.7);
+  padding: 20px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 7px 7px rgba(0, 0, 0, 0.3);
+  width: 60%;
+}
+
+.tip-box h5 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.tip-box p {
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+
+.money-pic1 {
+  background-image: url('https://images.unsplash.com/photo-1556911073-a517e752729c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
+}
+
+.money-pic2 {
+  background-image: url('https://images.pexels.com/photos/6994870/pexels-photo-6994870.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+}
+
+.money-pic3 {
+  background-image: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
+}
+
+.money-pic4 {
+  background-image: url('https://images.pexels.com/photos/4792522/pexels-photo-4792522.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+}
+
+.money-pic5 {
+  background-image: url('https://www.liveabout.com/thmb/f9Q-OVTJMk0Fd1CYnUcXm4QJLJQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-871154121-5a40ab7c845b3400372f8646.jpg');
+}
+
+.finance-pic1 {
+  background-image: url('https://usalg.org/wp-content/uploads/2021/01/Budgeting-1.jpg');
+}
+
+.finance-pic2 {
+  background-image: url('https://images.pexels.com/photos/6964107/pexels-photo-6964107.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+}
+
+.finance-pic3 {
+  background-image: url('https://images.pexels.com/photos/164501/pexels-photo-164501.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+}
+
+.finance-pic4 {
+  background-image: url('https://images.pexels.com/photos/9821387/pexels-photo-9821387.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+}
+
+.finance-pic5 {
+  background-image: url('https://images.unsplash.com/photo-1642621668575-93550304b614?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2062&q=80');
+}
+
+.finance-pic6 {
+  background-image: url('https://westernfinancialgroup.ca/get/files/image/galleries/Insurance-rider.jpg');
+}
+
+.finance-pic7 {
+  background-image: url('https://images.pexels.com/photos/9532317/pexels-photo-9532317.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+}
+
+.finance-pic8 {
+  background-image: url('https://images.pexels.com/photos/6958537/pexels-photo-6958537.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+}
+
+.finance-pic9 {
+  background-image: url('https://cdn.britannica.com/86/236186-159-A65A6493/Consultant-financial-advisor-specialist-dealing-with-mature-couple-clients.jpg');
+}
+
+.finance-pic10 {
+  background-image: url('https://images.pexels.com/photos/45863/frog-butterfly-pond-mirroring-45863.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+}

@@ -1,0 +1,85 @@
+
+.col {
+  padding: 20px;
+  margin: 20px;
+}
+
+.col1 {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 20px 20px;
+  border-radius: 10px;
+  background-image: url('https://github.com/Shamayal/frog-finance/blob/styles/home/frontend/client/src/media/homepage-expenses.png?raw=true');
+}
+
+.col2 {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 20px 20px;
+  border-radius: 10px;
+  width: 100px;;
+  background-image: url('https://github.com/Shamayal/frog-finance/blob/styles/home/frontend/client/src/media/homepage-budget.png?raw=true');
+}
+
+.col3 {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 20px 20px;
+  border-radius: 10px;
+  background-image: url('https://github.com/Shamayal/frog-finance/blob/styles/home/frontend/client/src/media/homepage-savings.png?raw=true');
+}
+
+.col4 {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 20px 20px;
+  border-radius: 10px;
+  background-image: url('https://github.com/Shamayal/frog-finance/blob/styles/home/frontend/client/src/media/homepage-debt.png?raw=true');
+}
+
+.col5 {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 20px 20px;
+  border-radius: 10px;
+  background-image: url('https://github.com/Shamayal/frog-finance/blob/styles/home/frontend/client/src/media/homepage-stock.png?raw=true');
+}
+
+.col6 {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 20px 20px;
+  border-radius: 10px;
+  background-image: url('https://github.com/Shamayal/frog-finance/blob/styles/home/frontend/client/src/media/homepage-finance.png?raw=true');
+}
+
+.services-container {
+  padding-top: 60px;
+}
+
+.services {
+  padding-bottom: 70px;
+  border-bottom: 3px solid black;
+}
+
+.individual-services-container {
+  width: 90%;
+  padding: 40px 0;
+}
+
+.individual-services-container .row {
+  min-height: 200px;
+  max-height: 400px;
+
+  padding-bottom: 50px;
+}
+
+.individual-services-container .col {
+  padding: 100px 40px;
+}

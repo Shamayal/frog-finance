@@ -1,0 +1,97 @@
+/* Styling for: ALL savings pages */
+.savings-goal-section {
+  padding: 30px 0;
+}
+
+.savings-goal-section .row {
+  margin-top: 30px;
+}
+
+.savings-goal-section .col {
+  padding: 40px 50px;
+  max-width: 47%;
+}
+
+.savings-page-how-it-works {
+  height: 500px;
+}
+
+.savings-page-how-it-works h4 {
+  padding-bottom: 25px;
+}
+
+.savings-text-bg {
+  background-color: rgba(246, 242, 242, 0.7);
+  padding: 40px 25px;
+  width: 75%;
+  margin-top: 40px;
+}
+
+/* Styling for: Create Savings Goal page */
+.create-savings-container {
+  background-image: url('https://www.centralbank.net/uploadedfiles/images/articles/lc-tips-how-to-save-more.jpg?v=1D79E7ED35EEB00');
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
+}
+
+.no-saving-goals-yet {
+  margin-top: 500px;
+}
+
+.create-savings-container form input {
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.create-savings-container form label {
+  font-weight: bold;
+}
+
+/* Styling for: Current Savings Goal page */
+.current-savings-container {
+  background-image: url('https://images.unsplash.com/photo-1633158829875-e5316a358c6f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
+  padding: 10px 50px;
+}
+
+.current-savings-container .savings-text-bg {
+  background-color: rgba(246, 242, 242, 0.7);
+  padding: 20px 25px;
+  width: 75%;
+  margin-top: 40px;
+}
+
+/* Styling for: Completed Savings Goal page */
+
+.saving-achievements-pg h1 {
+  margin-top: -27px;
+}
+
+.no-completed-savings-container {
+  background-image: url('https://images.unsplash.com/photo-1600636214973-8ccfde1f6a67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: 10px;
+}
+
+.completed-savings-container {
+  background-image: url('https://images.unsplash.com/photo-1569705460033-cfaa4bf9f822?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+
+.completed-savings-container .savings-text-bg {
+  margin-top: 15px;
+  width: 85%;
+}
+
+.congrats-container {
+  padding-top: 20px;
+}

@@ -1,0 +1,55 @@
+.homepage {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.homepage-content {
+  z-index: 1;
+  padding: 55px 70px;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  height: 450px;
+}
+
+.homepage-title {
+  font-size: 120px;
+}
+
+.slogan {
+  margin-top: -20px;
+}
+
+.homepage-get-started-btn {
+  width: 220px;
+  height: 65px;
+  margin-top: 100px;
+}
+
+
+.back-video {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+@media (min-aspect-ratio: 16/9) {
+  .back-video {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .back-video {
+    width: auto;
+    height: 100%;
+  }
+}

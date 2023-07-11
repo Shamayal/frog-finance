@@ -1,0 +1,92 @@
+/* Styling for: ALL expenses pages */
+.expenses-add-section {
+  padding: 30px 0;
+}
+
+.expenses-add-section .row {
+  margin-top: 30px;
+}
+
+.expenses-add-section .col {
+  padding: 40px 50px;
+  max-width: 47%;
+}
+
+.expenses-page-how-it-works {
+  height: 520px;
+}
+
+.expenses-page-how-it-works h4 {
+  padding-bottom: 25px;
+}
+
+.expenses-category-chart {
+  height: 500px
+}
+
+.expenses-text-bg {
+  background-color: rgba(246, 242, 242, 0.7);
+  padding: 40px 25px;
+  width: 75%;
+  margin-top: 40px;
+}
+
+/* Styling for: Add Expense page */
+.add-expenses-container {
+  background-image: url('https://images.pexels.com/photos/9016555/pexels-photo-9016555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
+}
+
+.add-expenses-container form input {
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.add-expenses-container form label {
+  font-weight: bold;
+}
+
+/* Styling for: View Expense page */
+.view-expenses-container {
+  background-image: url('https://images.pexels.com/photos/4482896/pexels-photo-4482896.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
+}
+
+.view-expenses-container form input {
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.view-expenses-container form label {
+  font-weight: bold;
+}
+
+/* .categories {
+  display: flex;
+  flex-direction: row;
+} */
+
+.transactions-expenses-container {
+  background-image: url('https://images.pexels.com/photos/9218638/pexels-photo-9218638.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
+}
+
+.transactions-expenses-text-bg {
+  background-color: rgba(246, 242, 242, 0.7);
+  padding: 40px 25px;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.pieContainer {
+  width: 550px;
+  height: 550px;
+}

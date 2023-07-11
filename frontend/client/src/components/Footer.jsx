@@ -1,0 +1,46 @@
+import "../styles/Footer.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useNavigate } from 'react-router-dom';
+
+const Footer = () => {
+  const navigate = useNavigate();
+
+  const handleHomeClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+    navigate("/", { replace: true });
+  };
+
+  return (
+    <footer>
+      <div className="footer-container">
+        <div className="footer-links">
+          <ul className="links font-quicksand">
+            <li>
+              <button className="home-link" onClick={handleHomeClick}>
+                Home
+              </button>
+            </li>
+            <li>About Us</li>
+            <li>FAQ</li>
+            <li>Contact Us</li>
+          </ul>
+        </div>
+        <div className="social-icons">
+          <FontAwesomeIcon icon="frog" />
+        </div>
+        <div className="footer-title fontweight-700 font-poppins">
+          <h2>Frog Finance</h2>
+        </div>
+        <div className="footer-copyright font-quicksand">
+          <h6>© 2023: Frog Finance, Inc. All rights reserved.</h6>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
