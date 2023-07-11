@@ -22,7 +22,7 @@ Frog Finance is a full stack, multi-page web application that allows users to ma
 ## Final Product
 
 insert homepage gif
-!["Navigating the homepage."]()
+!["Navigating the homepage."](https://github.com/Shamayal/frog-finance/blob/main/frontend/client/src/media/README%20gifs/homepage.gif)
 
 ### Add your Income
 
