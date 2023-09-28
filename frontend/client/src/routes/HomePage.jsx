@@ -3,15 +3,14 @@ import frogLeaf from "../media/frog_leaf.mp4"
 import Services from "../components/home/Services";
 import IndividualServicesInfo from "../components/home/IndividualServicesInfo";
 import { useAuth0 } from "@auth0/auth0-react";
+import Profile from "../components/authentication/Profile";
 
 const HomePage = () => {
   const { loginWithRedirect } = useAuth0();
 
-
   return (
-
     <>
-
+    <Profile />
       <div className="homepage font-poppins ">
 
         <video autoPlay loop muted playsInline className="back-video">
@@ -29,12 +28,8 @@ const HomePage = () => {
       </div>
       <Services />
       <IndividualServicesInfo />
-
-
     </>
-
   );
-
 };
 
 export default HomePage;

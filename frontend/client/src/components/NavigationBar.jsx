@@ -11,9 +11,10 @@ import { useNavigate } from 'react-router-dom';
 import { menuItems } from "../menuItems";
 import MenuItems from './MenuItems';
 
-const NavigationBar = () => {
-  const { isLoading, error } = useAuth0();
+const NavigationBar = (props) => {
+  const { isLoading, error, user, isAuthenticated } = useAuth0();
   const navigate = useNavigate();
+
 
 
   return (
@@ -33,12 +34,18 @@ const NavigationBar = () => {
         </div>
 
         <div className="menu-auth">
-          <li>
+        <li>
             {error && <p>Authentication Error</p>}
             {!error && isLoading && <p>Loading...</p>}
-            {!error && !isLoading && <></>}
-            <LoginButton />
-            <LogoutButton />
+            {!error && !isLoading && (
+              isAuthenticated ? (
+                <>
+                  <LogoutButton userName={user.nickname} />
+                </>
+              ) : (
+                <LoginButton />
+              )
+            )}
           </li>
         </div>
       </ul>

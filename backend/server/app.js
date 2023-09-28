@@ -14,6 +14,7 @@ var debtRouter = require('./routes/debt'); // route to debt.js
 var incomeRouter = require('./routes/income'); // route to income.js
 var expensesRouter = require('./routes/expenses'); // route to expenses.js
 
+
 var app = express();
 
 app.use(cors());    //to avoid cors issue (as per Vasiley)

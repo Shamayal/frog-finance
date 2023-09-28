@@ -1,5 +1,5 @@
 -- users
-INSERT INTO users (nickname, email) VALUES ('user', 'test@email.com');
+INSERT INTO users (nickname, email, auth_id) VALUES ('user', 'test@email.com', 'cvgbh7687b');
 
 -- categories
 INSERT INTO categories (category) VALUES ('Housing'); -- 1
