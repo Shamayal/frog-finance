@@ -3,7 +3,7 @@ const db = require('../connection.js');
 const addUser = (nickname, email, auth_id) => {
   return db.query(
     `
-    INSERT INTO users (nickname, email, auth_id)
+    INSERT INTO users (nickname, email, authID)
     VALUES ($1, $2, $3)
     RETURNING *;
     `, [nickname, email, auth_id])

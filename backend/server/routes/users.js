@@ -15,42 +15,26 @@ router.get('/', function (req, res, next) {
 // else
 // add auth_id to db
 // res.send
-router.post('/logincheck', function (req, res) {
-  console.log("check incoming user req", req.body)
+router.post('/logincheck', async (req, res) => {
+  try {
+    const authID = req.body.authID;
+    const email = req.body.email;
+    const nickname = req.body.nickname;
 
-  const authID = req.body.id;
-  const email = req.body.email;
-  const nickname = req.body.nickname;
-  // if result.rows.length > 0 then user is verified if not the user is not found
+    // Check if the user with the provided Auth0 id exists
+    const userExists = await verifyUser(authID);
 
-  // Ask alvin: how to verify with this function
-
-  // If true, return all user info
-  verifyUser(authID)
-    .then((result) => {
-      if (result.rows.length > 0) {
-        return res.send({ message: 'User exists in database:', users: result.rows })
-      } else {
-        addUser(nickname, email, authID)
-        .then((result) => {
-          return res.send({ message: 'A new user was added:', user: result.rows })
-        })
-        .catch((err) => {
-          console.log(err.message);
-        });
-      }
-  })
-
-
-  // if false, add user .. and return the id? or just add user?
-  // addUser(nickname, email, authID)
-  //   .then((result) => {
-  //     res.send({ message: 'A new user was added:', user: result.rows })
-  //   })
-  //   .catch((err) => {
-  //     console.log(err.message);
-  //   });
-
+    if (userExists) {
+      res.send({ message: 'User exists in database', userID: authID });
+    } else {
+      // If the user doesn't exist, add them to the database
+      const newUser = await addUser(nickname, email, authID);
+      res.send({ message: 'A new user was added', user: newUser });
+    }
+  } catch (error) {
+    console.error('Error while checking login:', error);
+    res.status(500).send({ message: 'Internal server error' });
+  }
 });
 
 module.exports = router;
