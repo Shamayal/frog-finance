@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDebtHook } from '../../hooks/debt';
-import { Toaster, toast } from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 
 const MakeDebtPayment = (props) => {
   const { addDebtPayment, viewDebtGoals } = useDebtHook();
@@ -17,6 +17,7 @@ const MakeDebtPayment = (props) => {
 
   useEffect(() => {
     viewDebtGoals();
+    // eslint-disable-next-line
   }, []);
 
 
@@ -27,10 +28,10 @@ const MakeDebtPayment = (props) => {
         <label htmlFor="debt_payment_amount">
           Amount paid:
         </label>
-        <div class="input-group mb-3">
-          <span class="input-group-text">$</span>
+        <div className="input-group mb-3">
+          <span className="input-group-text">$</span>
           <input
-            type="number" class="form-control"
+            type="number" className="form-control"
             aria-label="Amount (to the nearest dollar)"
             value={debtPaymentAmount}
             name="debt_payment_amount"
@@ -38,17 +39,17 @@ const MakeDebtPayment = (props) => {
             placeholder='0'
             onChange={(event) => setDebtPaymentAmount(event.target.value)}
             required />
-          <span class="input-group-text">.00</span>
+          <span className="input-group-text">.00</span>
         </div>
 
         <label htmlFor="debt_goal_id">
           Debt goal id:
         </label>
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1">#</span>
+        <div className="input-group mb-3">
+          <span className="input-group-text" id="basic-addon1">#</span>
           <input
           type="number"
-          class="form-control"
+          className="form-control"
           placeholder="id"
           value={debtGoalId}
           name="debt_goal_id"
