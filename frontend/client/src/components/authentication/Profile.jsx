@@ -7,11 +7,8 @@ const Profile = () => {
 
     useEffect(() => {
         if (isAuthenticated) {
-            // Get user information from Auth0
             const { sub, email, nickname } = user;
-            console.log("check this user out", user)
 
-            // Send user information to your server for login check
             axios
                 .post("http://localhost:3030/users/logincheck", {
                     authID: sub,
@@ -19,16 +16,15 @@ const Profile = () => {
                     nickname: nickname,
                 })
                 .then(({ data }) => {
-                    // Store the user ID in sessionStorage
-                    console.log("check data", data)
-                    window.sessionStorage.setItem('userID', data.users[0].auth_id);
-                    console.log("check userID", data.users[0].auth_id)
+                    const userId = data.auth_id;
+                    window.sessionStorage.setItem('userID', userId);
                 })
                 .catch((error) => {
                     console.error("Error while checking login:", error);
                 });
         }
     }, [user, isAuthenticated]);
+
 };
 
 export default Profile;

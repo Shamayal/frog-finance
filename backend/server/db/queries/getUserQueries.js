@@ -4,11 +4,15 @@ const addUser = (nickname, email, auth_id) => {
   return db.query(
     `
     INSERT INTO users (nickname, email, auth_id)
-    VALUES ($1, $2, $3);
+    VALUES ($1, $2, $3)
+    RETURNING *;
     `, [nickname, email, auth_id])
     .then((result) => {
       return result;
     })
+    .catch((err) => {
+      console.error("Error adding user:", err.message);
+    });
 }
 
 const verifyUser = (auth_id) => {
@@ -21,8 +25,8 @@ const verifyUser = (auth_id) => {
     return result;
   })
   .catch((err) => {
-    console.log(err.message);
-  })
+    console.error("Error verifying user:", err.message);
+  });
 }
 
 module.exports = {
